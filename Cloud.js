@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
     );
 
 
-    return Context;
+    return Cloud;
 };
 
 

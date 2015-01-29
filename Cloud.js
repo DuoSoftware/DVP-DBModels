@@ -4,19 +4,19 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Cloud = sequelize.define('CSDB_Cluster', {
-            Name: Sequelize.STRING,
-            //ID: Sequelize.INTEGER,
-            Activate: Sequelize.BOOLEAN,
-            ID: Sequelize.INTEGER,
-            Code: Sequelize.INTEGER,
-            CompanyId: Sequelize.INTEGER,
-            TenantId: Sequelize.INTEGER,
-            CloudModel: Sequelize.INTEGER,
-            Class: Sequelize.STRING,
-            Type: Sequelize.STRING,
-            Category: Sequelize.STRING,
-            IsLoadBalanced: Sequelize.BOOLEAN,
-            LoadBalancerID: Sequelize.INTEGER
+            Name: DataTypes.STRING,
+            //ID: DataTypes.INTEGER,
+            Activate: DataTypes.BOOLEAN,
+            ID: DataTypes.INTEGER,
+            Code: DataTypes.INTEGER,
+            CompanyId: DataTypes.INTEGER,
+            TenantId: DataTypes.INTEGER,
+            CloudModel: DataTypes.INTEGER,
+            Class: DataTypes.STRING,
+            Type: DataTypes.STRING,
+            Category: DataTypes.STRING,
+            IsLoadBalanced: DataTypes.BOOLEAN,
+            LoadBalancerID: DataTypes.INTEGER
         },{
             tableName: 'CSDB_Cluster', // this will define the table's name
             timestamps: false           // this will deactivate the timestamp columns

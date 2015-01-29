@@ -15,7 +15,8 @@ var sequelize = new Sequelize(database, dbuser, dbpassword, {
 });
 
 var models = [
-    'Context'
+    'Context',
+    'Cloud'
 ];
 
 models.forEach(function(model) {

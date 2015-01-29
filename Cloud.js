@@ -17,9 +17,6 @@ module.exports = function(sequelize, DataTypes) {
             Category: DataTypes.STRING,
             IsLoadBalanced: DataTypes.BOOLEAN,
             LoadBalancerID: DataTypes.INTEGER
-        },{
-            tableName: 'CSDB_Clusters', // this will define the table's name
-            timestamps: false           // this will deactivate the timestamp columns
         }
     );
 

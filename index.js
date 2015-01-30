@@ -19,10 +19,25 @@ var models = [
     'Cloud',
     'CloudEndUser',
     'LoadBalancer',
-    'Network'
+    'Network',
+    'CallServer'
 ];
 
 models.forEach(function(model) {
     module.exports[model] = sequelize.import(__dirname +'\\'+ model);
 });
+
+
+(function(m) {
+    m.LoadBalancer.belongsTo(m.Cloud);
+    m.CallServer.belongsTo(m.Cloud);
+    m.Network.belongsTo(m.Cloud);
+    m.CloudEndUser.belongsTo(m.Cloud);
+    m.Network.belongsTo(m.CloudEndUser);
+    m.Cloud.hasOne(m.LoadBalancer);
+    m.Cloud.hasMany(m.CallServer);
+    m.Cloud.hasMany(m.Network);
+})(module.exports);
+
+
 module.exports.SequelizeConn = sequelize;

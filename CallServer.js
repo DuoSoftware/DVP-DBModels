@@ -3,7 +3,7 @@
  */
 
 module.exports = function(sequelize, DataTypes) {
-    var Cloud = sequelize.define('CSDB_Cluster', {
+    var callserver = sequelize.define('CSDB_CallServer', {
             Name: DataTypes.STRING,
             //ID: DataTypes.INTEGER,
             Activate: DataTypes.BOOLEAN,
@@ -19,7 +19,5 @@ module.exports = function(sequelize, DataTypes) {
     );
 
 
-    return Cloud;
+    return callserver;
 };
-
-

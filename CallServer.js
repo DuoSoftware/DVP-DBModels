@@ -10,7 +10,6 @@ module.exports = function(sequelize, DataTypes) {
             Code: DataTypes.INTEGER,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
-            CloudModel: DataTypes.INTEGER,
             Class: DataTypes.STRING,
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,

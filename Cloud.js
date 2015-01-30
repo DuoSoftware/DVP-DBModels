@@ -7,7 +7,6 @@ module.exports = function(sequelize, DataTypes) {
             Name: DataTypes.STRING,
             //ID: DataTypes.INTEGER,
             Activate: DataTypes.BOOLEAN,
-            ID: DataTypes.INTEGER,
             Code: DataTypes.INTEGER,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,

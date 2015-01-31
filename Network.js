@@ -12,9 +12,7 @@ module.exports = function(sequelize, DataTypes) {
             Type: DataTypes.STRING,
             Owner: DataTypes.INTEGER,
             Network: DataTypes.STRING,
-            Mask: DataTypes.INTEGER,
-            CloudID: DataTypes.INTEGER,
-            NetWorkID: DataTypes.INTEGER
+            Mask: DataTypes.INTEGER
         }
     );
 

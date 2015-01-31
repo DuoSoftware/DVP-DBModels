@@ -3,22 +3,20 @@
  */
 
 module.exports = function(sequelize, DataTypes) {
-    var Cloud = sequelize.define('CSDB_Cluster', {
+    var callserver = sequelize.define('CSDB_CallServer', {
             Name: DataTypes.STRING,
             //ID: DataTypes.INTEGER,
             Activate: DataTypes.BOOLEAN,
             Code: DataTypes.INTEGER,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
-            CloudModel: DataTypes.INTEGER,
             Class: DataTypes.STRING,
             Type: DataTypes.STRING,
-            Category: DataTypes.STRING
+            Category: DataTypes.STRING,
+            InternalMainIP: DataTypes.STRING
         }
     );
 
 
-    return Cloud;
+    return callserver;
 };
-
-

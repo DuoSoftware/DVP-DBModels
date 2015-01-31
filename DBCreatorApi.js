@@ -1,4 +1,4 @@
-var sequelize = require('./index.js').SequelizeConn;
+var sequelize = require('index.js').SequelizeConn;
 
 var createDB = function(forcefully, callback){
     sequelize

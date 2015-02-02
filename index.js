@@ -20,7 +20,8 @@ var models = [
     'CloudEndUser',
     'LoadBalancer',
     'Network',
-    'CallServer'
+    'CallServer',
+    'Extension'
 ];
 
 models.forEach(function(model) {

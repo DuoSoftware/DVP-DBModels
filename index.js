@@ -38,6 +38,7 @@ models.forEach(function(model) {
     m.Cloud.hasMany(m.CallServer, {as: "CallServers"});
     m.Cloud.hasMany(m.Network, {as: "Networks"});
     m.Cloud.hasMany(m.CloudEndUser, {as: "CloudEndUser"});
+    m.Cloud.belongsTo(m.Cloud, {as: "ParentCloud"});
     m.CloudEndUser.belongsTo(m.Network, {as: "Networks"});
 })(module.exports);
 

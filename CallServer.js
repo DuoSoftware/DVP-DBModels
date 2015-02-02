@@ -16,7 +16,5 @@ module.exports = function(sequelize, DataTypes) {
             InternalMainIP: DataTypes.STRING
         }
     );
-
-
     return callserver;
 };

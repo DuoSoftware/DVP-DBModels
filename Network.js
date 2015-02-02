@@ -9,10 +9,11 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Network = sequelize.define('CSDB_Network', {
-            Type: DataTypes.STRING,
+            Type: DataTypes.STRING, //NAT, FLAT
             Owner: DataTypes.INTEGER,
             Network: DataTypes.STRING,
-            Mask: DataTypes.INTEGER
+            Mask: DataTypes.INTEGER,
+            NATIP: DataTypes.STRING
         }
     );
 

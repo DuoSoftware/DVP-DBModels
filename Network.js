@@ -13,7 +13,9 @@ module.exports = function(sequelize, DataTypes) {
             Owner: DataTypes.INTEGER,
             Network: DataTypes.STRING,
             Mask: DataTypes.INTEGER,
-            NATIP: DataTypes.STRING
+            NATIP: DataTypes.STRING,
+            CompanyId: DataTypes.INTEGER,
+            TenantId: DataTypes.INTEGER
         }
     );
 

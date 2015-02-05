@@ -36,7 +36,7 @@ models.forEach(function(model) {
     //m.Network.belongsTo(m.Cloud);
     //m.CloudEndUser.belongsTo(m.Cloud);
     //m.Network.belongsTo(m.CloudEndUser);
-    m.LoadBalancer.hasMany(m.GatewayCode, {as: "Gateway"});
+    m.LoadBalancer.hasMany(m.Gateway, {as: "Gateway"});
     m.Cloud.belongsTo(m.LoadBalancer,{as: "LoadBalancer"});
     m.CloudEndUser.hasMany(m.Extension, {as: "Extension"});
     m.Cloud.hasMany(m.CallServer, {as: "CallServers"});

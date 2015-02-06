@@ -9,12 +9,7 @@ module.exports = function(sequelize, DataTypes) {
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
             AddUser: DataTypes.STRING,
-            UpdateUser: DataTypes.STRING,
-            AddTime: DataTypes.DATE,
-            UpdateTime: DataTypes.DATE
-        },{
-            tableName: 'CSDB_Context', // this will define the table's name
-            timestamps: false           // this will deactivate the timestamp columns
+            UpdateUser: DataTypes.STRING
         }
     );
 

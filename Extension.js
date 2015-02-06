@@ -5,7 +5,6 @@ module.exports = function(sequelize, DataTypes) {
             Password: DataTypes.STRING,
             Domain: DataTypes.STRING,
             Enabled: DataTypes.BOOLEAN,
-            Context: DataTypes.STRING,
             ExtraData: DataTypes.STRING,
             EmailAddress: DataTypes.STRING,
             ExtRefId: DataTypes.STRING,
@@ -15,12 +14,7 @@ module.exports = function(sequelize, DataTypes) {
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
             AddUser: DataTypes.STRING,
-            UpdateUser: DataTypes.STRING,
-            AddTime: DataTypes.DATE,
-            UpdateTime: DataTypes.DATE
-        },{
-            tableName: 'CSDB_Extension', // this will define the table's name
-            timestamps: false           // this will deactivate the timestamp columns
+            UpdateUser: DataTypes.STRING
         }
     );
 

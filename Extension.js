@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
             Context: DataTypes.STRING,
             ExtraData: DataTypes.STRING,
             EmailAddress: DataTypes.STRING,
+            ExtRefId: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
             ObjClass: DataTypes.STRING,

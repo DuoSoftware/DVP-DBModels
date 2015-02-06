@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Context = sequelize.define('CSDB_Context', {
-            Context: DataTypes.STRING,
+            Context: {type:DataTypes.STRING, primaryKey:true},
             Description: DataTypes.STRING,
             ContextCat: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,

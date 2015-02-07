@@ -10,8 +10,6 @@ module.exports = function(sequelize, DataTypes) {
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
             Operator: DataTypes.STRING
-        },{
-            timestamps: false           // this will deactivate the timestamp columns
         }
     );
 

@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
-    var Gateway = sequelize.define('CSDB_Gateway', {
-            GatewayCode: DataTypes.STRING,
-            GatewayName: DataTypes.STRING,
+    var Trunk = sequelize.define('CSDB_Trunk', {
+            TrunkCode: DataTypes.STRING,
+            TrunkName: DataTypes.STRING,
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
@@ -14,5 +14,5 @@ module.exports = function(sequelize, DataTypes) {
     );
 
 
-    return Gateway;
+    return Trunk;
 };

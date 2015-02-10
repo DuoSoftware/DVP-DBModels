@@ -1,8 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
-    var Context = sequelize.define('CSDB_Context', {
-            Context: {type:DataTypes.STRING, primaryKey:true},
-            Description: DataTypes.STRING,
-            ContextCat: DataTypes.STRING,
+    var SipUACEndpoint = sequelize.define('CSDB_SipUACEndpoint', {
+            SipUsername: DataTypes.STRING,
+            Password: DataTypes.STRING,
+            Enabled: DataTypes.BOOLEAN,
+            ExtraData: DataTypes.STRING,
+            EmailAddress: DataTypes.STRING,
+            GuRefId: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
             ObjClass: DataTypes.STRING,
@@ -14,5 +17,5 @@ module.exports = function(sequelize, DataTypes) {
     );
 
 
-    return Context;
+    return SipUACEndpoint;
 };

@@ -2,11 +2,8 @@ module.exports = function(sequelize, DataTypes) {
     var Extension = sequelize.define('CSDB_Extension', {
             Extension: DataTypes.STRING,
             ExtensionName: DataTypes.STRING,
-            Password: DataTypes.STRING,
-            Domain: DataTypes.STRING,
             Enabled: DataTypes.BOOLEAN,
             ExtraData: DataTypes.STRING,
-            EmailAddress: DataTypes.STRING,
             ExtRefId: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,

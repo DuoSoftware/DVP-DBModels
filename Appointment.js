@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Schedule = sequelize.define('CSDB_Appointment', {
+    var Appointment = sequelize.define('CSDB_Appointment', {
             AppointmentName: DataTypes.STRING,
             Action: DataTypes.STRING,
             ExtraData: DataTypes.STRING,
@@ -17,5 +17,5 @@ module.exports = function(sequelize, DataTypes) {
     );
 
 
-    return Schedule;
+    return Appointment;
 };

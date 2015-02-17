@@ -23,7 +23,8 @@ var models = [
     'CallServer',
     'Extension',
     'Trunk',
-    'SipUACEndpoint'
+    'SipUACEndpoint',
+    'SipNetworkProfile'
 ];
 
 models.forEach(function(model) {
@@ -37,7 +38,9 @@ models.forEach(function(model) {
     //m.Network.belongsTo(m.Cloud);
     //m.CloudEndUser.belongsTo(m.Cloud);
     //m.Network.belongsTo(m.CloudEndUser);
-    m.SipUACEndpoint.belongsTo(m.Extension, {as:"Extension"});
+
+    m.CallServer.hasMany(m.SipNetworkProfile, {as:"SipNetworkProfiles"});
+    m.SipUACEndpoint.belongsTo(m.Extension, {as:"Extensions"});
     m.Context.hasMany(m.SipUACEndpoint, {as:"SipUACEndpoints"});
     m.Cloud.hasMany(m.Trunk, {as: "Trunks"});
     m.Cloud.belongsTo(m.LoadBalancer,{as: "LoadBalancer"});

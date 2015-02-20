@@ -26,7 +26,8 @@ var models = [
     'SipUACEndpoint',
     'SipNetworkProfile',
     'Schedule',
-    'Appointment'
+    'Appointment',
+    'UserGroup'
 ];
 
 models.forEach(function(model) {
@@ -40,9 +41,12 @@ models.forEach(function(model) {
     //m.Network.belongsTo(m.Cloud);
     //m.CloudEndUser.belongsTo(m.Cloud);
     //m.Network.belongsTo(m.CloudEndUser);
+    m.UserGroup.belongsTo(m.Extension, {as:"Extension"});
+    m.UserGroup.hasMany(m.SipUACEndpoint, {through: 'CSDB_UsrGrp'});
+    m.SipUACEndpoint.hasMany(m.UserGroup, {through: 'CSDB_UsrGrp'});
     m.Schedule.hasMany(m.Appointment, {as:"Appointments"});
     m.CallServer.hasMany(m.SipNetworkProfile, {as:"SipNetworkProfiles"});
-    m.SipUACEndpoint.belongsTo(m.Extension, {as:"Extensions"});
+    m.SipUACEndpoint.belongsTo(m.Extension, {as:"Extension"});
     m.Context.hasMany(m.SipUACEndpoint, {as:"SipUACEndpoints"});
     m.Cloud.hasMany(m.Trunk, {as: "Trunks"});
     m.Cloud.belongsTo(m.LoadBalancer,{as: "LoadBalancer"});

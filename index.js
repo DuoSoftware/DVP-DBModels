@@ -42,8 +42,8 @@ models.forEach(function(model) {
     //m.CloudEndUser.belongsTo(m.Cloud);
     //m.Network.belongsTo(m.CloudEndUser);
     m.UserGroup.belongsTo(m.Extension, {as:"Extension"});
-    m.UserGroup.hasMany(m.SipUACEndpoint, {through: 'CSDB_UsrGrp'});
-    m.SipUACEndpoint.hasMany(m.UserGroup, {through: 'CSDB_UsrGrp'});
+    m.UserGroup.belongsToMany(m.SipUACEndpoint, {through: 'CSDB_UsrGrp'});
+    m.SipUACEndpoint.belongsToMany(m.UserGroup, {through: 'CSDB_UsrGrp'});
     m.Schedule.hasMany(m.Appointment, {as:"Appointments"});
     m.CallServer.hasMany(m.SipNetworkProfile, {as:"SipNetworkProfiles"});
     m.SipUACEndpoint.belongsTo(m.Extension, {as:"Extension"});

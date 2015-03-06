@@ -27,7 +27,8 @@ var models = [
     'SipNetworkProfile',
     'Schedule',
     'Appointment',
-    'UserGroup'
+    'UserGroup',
+    'TrunkPhoneNumbers'
 ];
 
 models.forEach(function(model) {
@@ -41,6 +42,8 @@ models.forEach(function(model) {
     //m.Network.belongsTo(m.Cloud);
     //m.CloudEndUser.belongsTo(m.Cloud);
     //m.Network.belongsTo(m.CloudEndUser);
+    m.TrunkPhoneNumbers.belongsTo(m.Schedule, {as:"Schedule"});
+    m.TrunkPhoneNumbers.belongsTo(m.Trunk, {as:"Trunk"});
     m.UserGroup.belongsTo(m.Extension, {as:"Extension"});
     m.UserGroup.belongsToMany(m.SipUACEndpoint, {through: 'CSDB_UsrGrpJunction'});
     m.SipUACEndpoint.belongsToMany(m.UserGroup, {through: 'CSDB_UsrGrpJunction'});

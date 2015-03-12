@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var TrunkPhoneNumbers = sequelize.define('CSDB_PhoneNumbers', {
+    var TrunkPhoneNumber = sequelize.define('CSDB_PhoneNumbers', {
             PhoneNumber: DataTypes.STRING,
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
@@ -11,5 +11,5 @@ module.exports = function(sequelize, DataTypes) {
     );
 
 
-    return TrunkPhoneNumbers;
+    return TrunkPhoneNumber;
 };

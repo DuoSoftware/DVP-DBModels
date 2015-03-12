@@ -28,7 +28,8 @@ var models = [
     'Schedule',
     'Appointment',
     'UserGroup',
-    'TrunkPhoneNumbers'
+    'TrunkPhoneNumbers',
+    'LimitInfo'
 ];
 
 models.forEach(function(model) {
@@ -44,6 +45,7 @@ models.forEach(function(model) {
     //m.Network.belongsTo(m.CloudEndUser);
     m.TrunkPhoneNumbers.belongsTo(m.Schedule, {as:"Schedule"});
     m.TrunkPhoneNumbers.belongsTo(m.Trunk, {as:"Trunk"});
+    m.TrunkPhoneNumbers.belongsTo(m.LimitInfo, {as:"LimitInfo"});
     m.UserGroup.belongsTo(m.Extension, {as:"Extension"});
     m.UserGroup.belongsToMany(m.SipUACEndpoint, {through: 'CSDB_UsrGrpJunction'});
     m.SipUACEndpoint.belongsToMany(m.UserGroup, {through: 'CSDB_UsrGrpJunction'});

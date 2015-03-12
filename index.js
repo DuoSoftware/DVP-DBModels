@@ -44,7 +44,7 @@ models.forEach(function(model) {
     //m.CloudEndUser.belongsTo(m.Cloud);
     //m.Network.belongsTo(m.CloudEndUser);
     m.TrunkPhoneNumber.belongsTo(m.Schedule, {as:"Schedule"});
-    m.TrunkPhoneNumber.belongsTo(m.Trunk, {as:"Trunk"});
+    m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumbers"});
     m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfo"});
     m.UserGroup.belongsTo(m.Extension, {as:"Extension"});
     m.UserGroup.belongsToMany(m.SipUACEndpoint, {through: 'CSDB_UsrGrpJunction'});

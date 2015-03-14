@@ -23,7 +23,13 @@ var models = [
     'CallServer',
     'Extension',
     'Trunk',
-    'SipUACEndpoint'
+    'SipUACEndpoint',
+    'SipNetworkProfile',
+    'Schedule',
+    'Appointment',
+    'UserGroup',
+    'TrunkPhoneNumber',
+    'LimitInfo'
 ];
 
 models.forEach(function(model) {
@@ -37,6 +43,15 @@ models.forEach(function(model) {
     //m.Network.belongsTo(m.Cloud);
     //m.CloudEndUser.belongsTo(m.Cloud);
     //m.Network.belongsTo(m.CloudEndUser);
+    m.TrunkPhoneNumber.belongsTo(m.Schedule, {as:"Schedule"});
+    m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumbers"});
+    m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfo"});
+    m.UserGroup.belongsTo(m.Extension, {as:"Extension"});
+    m.UserGroup.belongsToMany(m.SipUACEndpoint, {through: 'CSDB_UsrGrpJunction'});
+    m.SipUACEndpoint.belongsToMany(m.UserGroup, {through: 'CSDB_UsrGrpJunction'});
+    m.Schedule.hasMany(m.Appointment, {as:"Appointments"});
+    m.CallServer.hasMany(m.SipNetworkProfile, {as:"SipNetworkProfiles"});
+    m.SipUACEndpoint.belongsTo(m.Extension, {as:"Extension"});
     m.Context.hasMany(m.SipUACEndpoint, {as:"SipUACEndpoints"});
     m.Cloud.hasMany(m.Trunk, {as: "Trunks"});
     m.Cloud.belongsTo(m.LoadBalancer,{as: "LoadBalancer"});

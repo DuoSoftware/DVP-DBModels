@@ -29,7 +29,9 @@ var models = [
     'Appointment',
     'UserGroup',
     'TrunkPhoneNumber',
-    'LimitInfo'
+    'LimitInfo',
+    'FileUpload',
+    'FileDownload'
 ];
 
 models.forEach(function(model) {

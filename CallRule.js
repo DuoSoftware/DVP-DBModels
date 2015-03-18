@@ -7,9 +7,11 @@ module.exports = function(sequelize, DataTypes) {
             Enable: DataTypes.BOOLEAN,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
+            DNIS: DataTypes.STRING,
+            ANI: DataTypes.STRING,
             DNISRegEx: DataTypes.STRING,
             ANIRegEx: DataTypes.STRING,
-            RegExPattern: DataTypes.STRING,
+            RegExPattern: DataTypes.STRING, //StartWith, ExactMatch, Custom
             TrunkId: DataTypes.INTEGER,
             TrunkNumber: DataTypes.STRING,
             TargetScript: DataTypes.STRING,

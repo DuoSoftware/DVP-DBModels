@@ -15,7 +15,8 @@ module.exports = function(sequelize, DataTypes) {
             TrunkId: DataTypes.INTEGER,
             TrunkNumber: DataTypes.STRING,
             TargetScript: DataTypes.STRING,
-            ExtraData: DataTypes.STRING
+            ExtraData: DataTypes.STRING,
+            Priority: DataTypes.INTEGER
         }
     );
 

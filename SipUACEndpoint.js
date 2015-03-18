@@ -11,6 +11,7 @@ module.exports = function(sequelize, DataTypes) {
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
+            Extension: DataTypes.STRING,
             AddUser: DataTypes.STRING,
             UpdateUser: DataTypes.STRING
         }

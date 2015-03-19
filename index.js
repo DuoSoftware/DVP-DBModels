@@ -63,6 +63,7 @@ models.forEach(function(model) {
     m.Cloud.hasMany(m.CloudEndUser, {as: "CloudEndUser"});
     m.Cloud.belongsTo(m.Cloud, {as: "ParentCloud"});
     m.CloudEndUser.belongsTo(m.Network, {as: "Networks"});
+    m.CloudEndUser.belongsToMany(m.SipNetworkProfile, {as:"SipNetworkProfiles"});
 })(module.exports);
 
 

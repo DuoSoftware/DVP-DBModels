@@ -31,7 +31,8 @@ var models = [
     'TrunkPhoneNumber',
     'LimitInfo',
     'FileUpload',
-    'FileDownload'
+    'FileDownload',
+    'Translation'
 ];
 
 models.forEach(function(model) {

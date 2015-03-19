@@ -32,7 +32,8 @@ var models = [
     'LimitInfo',
     'FileUpload',
     'FileDownload',
-    'Translation'
+    'Translation',
+    'CallRule'
 ];
 
 models.forEach(function(model) {

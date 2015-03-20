@@ -33,7 +33,8 @@ var models = [
     'FileUpload',
     'FileDownload',
     'Translation',
-    'CallRule'
+    'CallRule',
+    'IPAddress'
 ];
 
 models.forEach(function(model) {
@@ -66,6 +67,8 @@ models.forEach(function(model) {
     m.Cloud.belongsTo(m.Cloud, {as: "ParentCloud"});
     m.CloudEndUser.belongsTo(m.Network, {as: "Networks"});
     m.CloudEndUser.belongsTo(m.SipNetworkProfile, {as:"SipNetworkProfiles"});
+    m.IPAddress.belongsTo(m.CallServer, {as: "CallServer"});
+
 })(module.exports);
 
 

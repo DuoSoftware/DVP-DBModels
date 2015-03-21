@@ -69,6 +69,7 @@ models.forEach(function(model) {
     m.CloudEndUser.belongsToMany(m.SipNetworkProfile, {as:"SipNetworkProfiles"});
     m.CloudEndUser.belongsTo(m.SipNetworkProfile, {as:"SipNetworkProfiles"});
     m.IPAddress.belongsTo(m.CallServer, {as: "CallServer"});
+    m.CallServer.hasMany(m.IPAddress,{as: "IPAddress"})
 
 })(module.exports);
 

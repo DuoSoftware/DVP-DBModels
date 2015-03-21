@@ -71,6 +71,8 @@ models.forEach(function(model) {
     m.IPAddress.belongsTo(m.CallServer, {as: "CallServer"});
     m.CallServer.hasMany(m.IPAddress,{as: "IPAddress"})
 
+
+
 })(module.exports);
 
 

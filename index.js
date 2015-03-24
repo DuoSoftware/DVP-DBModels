@@ -68,7 +68,9 @@ models.forEach(function(model) {
     m.CloudEndUser.belongsTo(m.Network, {as: "Networks"});
     //m.CloudEndUser.belongsToMany(m.SipNetworkProfile, {as:"SipNetworkProfiles"});
     m.CloudEndUser.belongsTo(m.SipNetworkProfile, {as:"SipNetworkProfiles"});
-    m.IPAddress.belongsTo(m.CallServer, {as: "CallServer"})
+    m.IPAddress.belongsTo(m.CallServer, {as: "CallServer"});
+    m.Schedule.hasMany(m.CallRule, {foreignKey: "ScheduleId"});
+    m.Translation.hasMany(m.CallRule, {foreignKey: "TranslationId"});
 
 
 

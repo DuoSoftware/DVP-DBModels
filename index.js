@@ -61,7 +61,7 @@ models.forEach(function(model) {
     m.Cloud.hasMany(m.Trunk, {as: "Trunks"});
     m.Cloud.belongsTo(m.LoadBalancer,{as: "LoadBalancer"});
     m.CloudEndUser.hasMany(m.SipUACEndpoint, {foreignKey: "CloudEndUserId"});
-    m.Cloud.hasMany(m.CallServer, {as: "CallServers"});
+    m.Cloud.hasMany(m.CallServer, {foreignKey: "ClusterId"});
     m.Cloud.hasMany(m.Network, {as: "Networks"});
     m.Cloud.hasMany(m.CloudEndUser, {as: "CloudEndUser"});
     m.Cloud.belongsTo(m.Cloud, {as: "ParentCloud"});

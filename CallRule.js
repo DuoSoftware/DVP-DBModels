@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
             TargetScript: DataTypes.STRING,
             ExtraData: DataTypes.STRING,
             Priority: DataTypes.INTEGER
+            //ScheduleId
         }
     );
 

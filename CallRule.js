@@ -12,11 +12,13 @@ module.exports = function(sequelize, DataTypes) {
             DNISRegEx: DataTypes.STRING,
             ANIRegEx: DataTypes.STRING,
             RegExPattern: DataTypes.STRING, //StartWith, ExactMatch, Custom
+            ANIRegExPattern: DataTypes.STRING,
             TrunkId: DataTypes.INTEGER,
             TrunkNumber: DataTypes.STRING,
             TargetScript: DataTypes.STRING,
             ExtraData: DataTypes.STRING,
             Priority: DataTypes.INTEGER
+            //ScheduleId
         }
     );
 

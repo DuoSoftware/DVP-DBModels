@@ -38,7 +38,7 @@ var models = [
 ];
 
 models.forEach(function(model) {
-    module.exports[model] = sequelize.import(__dirname +'\\'+ model);
+    module.exports[model] = sequelize.import(__dirname +'/'+ model);
 });
 
 
@@ -55,20 +55,22 @@ models.forEach(function(model) {
     m.UserGroup.belongsToMany(m.SipUACEndpoint, {through: 'CSDB_UsrGrpJunction'});
     m.SipUACEndpoint.belongsToMany(m.UserGroup, {through: 'CSDB_UsrGrpJunction'});
     m.Schedule.hasMany(m.Appointment, {as:"Appointments"});
-    m.CallServer.hasMany(m.SipNetworkProfile,  {foreignKey: 'SipNetworkProfileID'});
+    m.CallServer.hasMany(m.SipNetworkProfile, {foreignKey: "CallServerId"});
     m.SipUACEndpoint.belongsTo(m.Extension, {as:"Extension"});
     m.Context.hasMany(m.SipUACEndpoint, {as:"SipUACEndpoints"});
-    m.Cloud.hasMany(m.Trunk, {as: "Trunks"});
+    m.Cloud.hasMany(m.Trunk, {foreignKey: "ClusterId"});
     m.Cloud.belongsTo(m.LoadBalancer,{as: "LoadBalancer"});
-    m.CloudEndUser.hasMany(m.SipUACEndpoint, {as: "SipUACEndpoints"});
-    m.Cloud.hasMany(m.CallServer, {as: "CallServers"});
+    m.CloudEndUser.hasMany(m.SipUACEndpoint, {foreignKey: "CloudEndUserId"});
+    m.Cloud.hasMany(m.CallServer, {foreignKey: "ClusterId"});
     m.Cloud.hasMany(m.Network, {as: "Networks"});
     m.Cloud.hasMany(m.CloudEndUser, {as: "CloudEndUser"});
     m.Cloud.belongsTo(m.Cloud, {as: "ParentCloud"});
     m.CloudEndUser.belongsTo(m.Network, {as: "Networks"});
     //m.CloudEndUser.belongsToMany(m.SipNetworkProfile, {as:"SipNetworkProfiles"});
     m.CloudEndUser.belongsTo(m.SipNetworkProfile, {as:"SipNetworkProfiles"});
-    m.IPAddress.belongsTo(m.CallServer, {as: "CallServer"})
+    m.IPAddress.belongsTo(m.CallServer, {as: "CallServer"});
+    m.Schedule.hasMany(m.CallRule, {foreignKey: "ScheduleId"});
+    m.Translation.hasMany(m.CallRule, {foreignKey: "TranslationId"});
 
 
 

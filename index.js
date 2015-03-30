@@ -65,12 +65,15 @@ models.forEach(function(model) {
     m.Cloud.belongsTo(m.LoadBalancer,{as: "LoadBalancer", foreignKey: "LoadBalancerId"});
     m.CloudEndUser.hasMany(m.SipUACEndpoint, {as: "SipUACEndpoint", foreignKey: "CloudEndUserId"});
     m.Cloud.hasMany(m.CallServer, {as: "CallServer", foreignKey: "ClusterId"});
+    m.CallServer.belongsTo(m.Cloud, {as: "Cloud", foreignKey: "ClusterId"});
     m.Cloud.hasMany(m.Network, {as: "Network", foreignKey: "ClusterId"});
     m.Cloud.hasMany(m.CloudEndUser, {as: "CloudEndUser", foreignKey: "ClusterId"});
+    m.CloudEndUser.belongsTo(m.Cloud, {as: "Cloud", foreignKey: "ClusterId"});
     m.Cloud.belongsTo(m.Cloud, {as: "ParentCloud"});
     m.CloudEndUser.belongsTo(m.Network, {as: "Network", foreignKey: "NetworkId"});
     //m.CloudEndUser.belongsToMany(m.SipNetworkProfile, {as:"SipNetworkProfiles"});
     m.CloudEndUser.belongsTo(m.SipNetworkProfile, {as:"SipNetworkProfile", foreignKey:"SipNetworkProfileId"});
+    m.SipNetworkProfile.hasOne(m.CloudEndUser, {as:"CloudEndUser", foreignKey:"SipNetworkProfileId"});
     m.IPAddress.belongsTo(m.CallServer, {as: "CallServer", foreignKey: "CallServerId"});
     m.Schedule.hasMany(m.CallRule, {as: "CallRule", foreignKey: "ScheduleId"});
     m.Translation.hasMany(m.CallRule, {as: "CallRule", foreignKey: "TranslationId"});

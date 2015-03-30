@@ -56,6 +56,7 @@ models.forEach(function(model) {
     m.SipUACEndpoint.belongsToMany(m.UserGroup, {through: 'CSDB_UsrGrpJunction'});
     m.Schedule.hasMany(m.Appointment, {as:"Appointment", foreignKey: "ScheduleId"});
     m.CallServer.hasMany(m.SipNetworkProfile, {as: "SipNetworkProfile", foreignKey: "CallServerId"});
+    m.SipNetworkProfile.belongsTo(m.CallServer, {as: "CallServer", foreignKey: "CallServerId"});
     m.SipUACEndpoint.belongsTo(m.Extension, {as:"Extension", foreignKey: "ExtensionId"});
     m.SipNetworkProfile.hasMany(m.Trunk, {as:"Trunk", foreignKey:"TrunkId"});
     m.Context.hasMany(m.SipUACEndpoint, {as:"SipUACEndpoint", foreignKey:"Context"});

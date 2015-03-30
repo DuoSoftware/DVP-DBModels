@@ -1,9 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
     var FileDownload = sequelize.define('CSDB_FileDownload', {
-            UniqueId: {
-                type: DataTypes.STRING,
-                primaryKey: true
-            },
             DownloadId: DataTypes.STRING,
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,

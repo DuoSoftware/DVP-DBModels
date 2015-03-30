@@ -59,6 +59,7 @@ models.forEach(function(model) {
     m.SipNetworkProfile.belongsTo(m.CallServer, {as: "CallServer", foreignKey: "CallServerId"});
     m.SipUACEndpoint.belongsTo(m.Extension, {as:"Extension", foreignKey: "ExtensionId"});
     m.Trunk.belongsTo(m.SipNetworkProfile, {as:"SipNetworkProfile", foreignKey:"ProfileId"});
+    m.SipNetworkProfile.hasMany(m.Trunk, {as:"Trunk", foreignKey:"ProfileId"});
     m.Context.hasMany(m.SipUACEndpoint, {as:"SipUACEndpoint", foreignKey:"Context"});
     m.Trunk.belongsTo(m.LoadBalancer, {as: "LoadBalancer", foreignKey: "LoadBalancerId"});
     m.Cloud.belongsTo(m.LoadBalancer,{as: "LoadBalancer", foreignKey: "LoadBalancerId"});

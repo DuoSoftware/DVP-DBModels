@@ -34,7 +34,8 @@ var models = [
     'FileDownload',
     'Translation',
     'CallRule',
-    'IPAddress'
+    'IPAddress',
+    'Application'
 ];
 
 models.forEach(function(model) {
@@ -112,6 +113,9 @@ models.forEach(function(model) {
 
     m.Translation.hasMany(m.CallRule, {as: "CallRule", foreignKey: "TranslationId"});
     m.CallRule.belongsTo(m.Translation, {as: "Translation", foreignKey: "TranslationId"});
+
+    m.CallRule.belongsTo(m.Application, {as: "Application", foreignKey: "AppId"});
+    m.Application.hasMany(m.CallRule, {as:"CallRule", foreignKey: "AppId"});
 
 
 })(module.exports);

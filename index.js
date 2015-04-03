@@ -117,6 +117,9 @@ models.forEach(function(model) {
     m.CallRule.belongsTo(m.Application, {as: "Application", foreignKey: "AppId"});
     m.Application.hasMany(m.CallRule, {as:"CallRule", foreignKey: "AppId"});
 
+    m.CallRule.belongsTo(m.TrunkPhoneNumber, {as: "TrunkPhoneNumber", foreignKey: "PhoneNumId"});
+    m.TrunkPhoneNumber.hasMany(m.CallRule, {as:"CallRule", foreignKey: "PhoneNumId"});
+
 
 })(module.exports);
 

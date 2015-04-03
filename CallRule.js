@@ -15,9 +15,9 @@ module.exports = function(sequelize, DataTypes) {
             ANIRegExPattern: DataTypes.STRING,
             TrunkId: DataTypes.INTEGER,
             TrunkNumber: DataTypes.STRING,
-            TargetScript: DataTypes.STRING,
             ExtraData: DataTypes.STRING,
             Priority: DataTypes.INTEGER
+            //ScheduleId
         }
     );
 

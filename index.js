@@ -120,8 +120,8 @@ models.forEach(function(model) {
     m.CallRule.belongsTo(m.TrunkPhoneNumber, {as: "TrunkPhoneNumber", foreignKey: "PhoneNumId"});
     m.TrunkPhoneNumber.hasMany(m.CallRule, {as:"CallRule", foreignKey: "PhoneNumId"});
 
-    m.Trunk.belongsTo(m.Traslation, {as: "Traslation", foreignKey: "TranslationId"});
-    m.Traslation.hasMany(m.Trunk, {as: "Trunk", foreignKey: "TranslationId"});
+    m.Trunk.belongsTo(m.Translation, {as: "Translation", foreignKey: "TranslationId"});
+    m.Translation.hasMany(m.Trunk, {as: "Trunk", foreignKey: "TranslationId"});
 
 
 })(module.exports);

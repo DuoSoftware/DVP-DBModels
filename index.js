@@ -35,7 +35,8 @@ var models = [
     'Translation',
     'CallRule',
     'IPAddress',
-    'Application'
+    'Application',
+    'TrunkOperator'
 ];
 
 models.forEach(function(model) {
@@ -122,6 +123,9 @@ models.forEach(function(model) {
 
     m.Trunk.belongsTo(m.Translation, {as: "Translation", foreignKey: "TranslationId"});
     m.Translation.hasMany(m.Trunk, {as: "Trunk", foreignKey: "TranslationId"});
+
+    m.Trunk.belongsTo(m.TrunkOperator, {as: "TrunkOperator", foreignKey: "TrunkOperatorId"});
+    m.TrunkOperator.hasMany(m.Trunk, {as: "Trunk", foreignKey: "TrunkOperatorId"});
 
 
 })(module.exports);

@@ -7,7 +7,8 @@ module.exports = function(sequelize, DataTypes) {
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            TenantId: DataTypes.INTEGER,
+            Availability:DataTypes.BOOLEAN
         }
     );
 

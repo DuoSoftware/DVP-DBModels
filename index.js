@@ -129,7 +129,7 @@ models.forEach(function(model) {
     m.TrunkOperator.hasMany(m.Trunk, {as: "Trunk", foreignKey: "TrunkOperatorId"});
 
     m.Application.belongsTo(m.AppDeveloper, {as: "AppDeveloper", foreignKey: "AppDeveloperId"});
-    m.AppDeveloper.hasMany(m.Application, {as: "Application", foreignKey: "ApplicationId"});
+    m.AppDeveloper.hasMany(m.Application, {as: "Application", foreignKey: "AppDeveloperId"});
 
 
 })(module.exports);

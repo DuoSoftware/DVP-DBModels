@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
             URL: DataTypes.STRING,
             UploadTimestamp: DataTypes.STRING,
             Filename: {type:DataTypes.STRING,unique: "compositeIndex"},
-            Version:{type:DataTypes.STRING,unique: "compositeIndex"},
+            Version:{type:DataTypes.INTEGER,unique: "compositeIndex"},
             DisplayName: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER

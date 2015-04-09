@@ -131,6 +131,9 @@ models.forEach(function(model) {
     m.Application.belongsTo(m.AppDeveloper, {as: "AppDeveloper", foreignKey: "AppDeveloperId"});
     m.AppDeveloper.hasMany(m.Application, {as: "Application", foreignKey: "AppDeveloperId"});
 
+    m.Application.belongsToMany(m.FileUpload, {as: "FileUpload", through: 'CSDB_AppVoiceUploadJunction'});
+    m.FileUpload.belongsToMany(m.Application, {as: "Application", through: 'CSDB_AppVoiceUploadJunction'});
+
 
 })(module.exports);
 

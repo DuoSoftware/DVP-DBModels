@@ -14,7 +14,8 @@ module.exports = function(sequelize, DataTypes) {
             Version:{type:DataTypes.INTEGER,unique: "compositeIndex"},
             DisplayName: DataTypes.STRING,
             CompanyId: {type:DataTypes.INTEGER,unique: "compositeIndex"},
-            TenantId: {type:DataTypes.INTEGER,unique: "compositeIndex"}
+            TenantId: {type:DataTypes.INTEGER,unique: "compositeIndex"},
+            RefId:DataTypes.STRING
         }
     );
 

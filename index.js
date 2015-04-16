@@ -37,7 +37,8 @@ var models = [
     'IPAddress',
     'Application',
     'TrunkOperator',
-    'AppDeveloper'
+    'AppDeveloper',
+    'Conference'
 ];
 
 models.forEach(function(model) {

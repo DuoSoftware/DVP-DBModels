@@ -38,7 +38,8 @@ var models = [
     'Application',
     'TrunkOperator',
     'AppDeveloper',
-    'Conference'
+    'Conference',
+    'CallCDR'
 ];
 
 models.forEach(function(model) {

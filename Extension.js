@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
             TenantId: DataTypes.INTEGER,
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
-            ObjCategory: DataTypes.STRING,
+            ObjCategory: DataTypes.STRING, //USER, GROUP
             AddUser: DataTypes.STRING,
             UpdateUser: DataTypes.STRING
         }

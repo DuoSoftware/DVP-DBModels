@@ -10,10 +10,13 @@ module.exports = function(sequelize, DataTypes) {
             ObjCategory: DataTypes.STRING,
             URL: DataTypes.STRING,
             UploadTimestamp: DataTypes.STRING,
-            Filename: DataTypes.STRING,
+            Filename: {type:DataTypes.STRING,unique: "compositeIndex"},
+            Version:{type:DataTypes.INTEGER,unique: "compositeIndex"},
             DisplayName: DataTypes.STRING,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            CompanyId: {type:DataTypes.INTEGER,unique: "compositeIndex"},
+            TenantId: {type:DataTypes.INTEGER,unique: "compositeIndex"},
+            RefId:DataTypes.STRING,
+            Status:DataTypes.STRING
         }
     );
 

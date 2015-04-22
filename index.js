@@ -35,7 +35,11 @@ var models = [
     'Translation',
     'CallRule',
     'IPAddress',
-    'Application'
+    'Application',
+    'TrunkOperator',
+    'AppDeveloper',
+    'Conference',
+    'CallCDR'
 ];
 
 models.forEach(function(model) {
@@ -52,7 +56,7 @@ models.forEach(function(model) {
     m.TrunkPhoneNumber.belongsTo(m.Schedule, {as:"Schedule", foreignKey:"ScheduleId"});
     m.Schedule.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey:"ScheduleId"});
 
-    m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumbers", foreignKey: "TrunkId"});
+    m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "TrunkId"});
     m.TrunkPhoneNumber.belongsTo(m.Trunk, {as:"Trunk", foreignKey: "TrunkId"});
 
     m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfo", foreignKey: "LimitId"});
@@ -61,8 +65,8 @@ models.forEach(function(model) {
     m.UserGroup.belongsTo(m.Extension, {as:"Extension", foreignKey: "ExtensionId"});
     m.Extension.hasOne(m.UserGroup, {as:"UserGroup", foreignKey: "ExtensionId"});
 
-    m.UserGroup.belongsToMany(m.SipUACEndpoint, {through: 'CSDB_UsrGrpJunction'});
-    m.SipUACEndpoint.belongsToMany(m.UserGroup, {through: 'CSDB_UsrGrpJunction'});
+    m.UserGroup.belongsToMany(m.SipUACEndpoint, {as: "SipUACEndpoint", through: 'CSDB_UsrGrpJunction'});
+    m.SipUACEndpoint.belongsToMany(m.UserGroup, {as: "UserGroup", through: 'CSDB_UsrGrpJunction'});
 
     m.Schedule.hasMany(m.Appointment, {as:"Appointment", foreignKey: "ScheduleId"});
     m.Appointment.belongsTo(m.Schedule, {as:"Schedule", foreignKey: "ScheduleId"});
@@ -116,6 +120,22 @@ models.forEach(function(model) {
 
     m.CallRule.belongsTo(m.Application, {as: "Application", foreignKey: "AppId"});
     m.Application.hasMany(m.CallRule, {as:"CallRule", foreignKey: "AppId"});
+
+    m.CallRule.belongsTo(m.TrunkPhoneNumber, {as: "TrunkPhoneNumber", foreignKey: "PhoneNumId"});
+    m.TrunkPhoneNumber.hasMany(m.CallRule, {as:"CallRule", foreignKey: "PhoneNumId"});
+
+    m.Trunk.belongsTo(m.Translation, {as: "Translation", foreignKey: "TranslationId"});
+    m.Translation.hasMany(m.Trunk, {as: "Trunk", foreignKey: "TranslationId"});
+
+    m.Trunk.belongsTo(m.TrunkOperator, {as: "TrunkOperator", foreignKey: "TrunkOperatorId"});
+    m.TrunkOperator.hasMany(m.Trunk, {as: "Trunk", foreignKey: "TrunkOperatorId"});
+
+    m.Application.belongsTo(m.AppDeveloper, {as: "AppDeveloper", foreignKey: "AppDeveloperId"});
+    m.AppDeveloper.hasMany(m.Application, {as: "Application", foreignKey: "AppDeveloperId"});
+
+
+    m.FileUpload.belongsTo(m.Application, {as: "Application", foreignKey: 'ApplicationId'});
+    m.Application.hasMany(m.FileUpload, {as: "FileUpload", foreignKey: "ApplicationId"});
 
 
 })(module.exports);

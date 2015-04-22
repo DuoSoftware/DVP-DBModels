@@ -36,7 +36,10 @@ var models = [
     'CallRule',
     'IPAddress',
     'Application',
-    'TrunkOperator'
+    'TrunkOperator',
+    'AppDeveloper',
+    'Conference',
+    'CallCDR'
 ];
 
 models.forEach(function(model) {
@@ -53,7 +56,7 @@ models.forEach(function(model) {
     m.TrunkPhoneNumber.belongsTo(m.Schedule, {as:"Schedule", foreignKey:"ScheduleId"});
     m.Schedule.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey:"ScheduleId"});
 
-    m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumbers", foreignKey: "TrunkId"});
+    m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "TrunkId"});
     m.TrunkPhoneNumber.belongsTo(m.Trunk, {as:"Trunk", foreignKey: "TrunkId"});
 
     m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfo", foreignKey: "LimitId"});
@@ -126,6 +129,13 @@ models.forEach(function(model) {
 
     m.Trunk.belongsTo(m.TrunkOperator, {as: "TrunkOperator", foreignKey: "TrunkOperatorId"});
     m.TrunkOperator.hasMany(m.Trunk, {as: "Trunk", foreignKey: "TrunkOperatorId"});
+
+    m.Application.belongsTo(m.AppDeveloper, {as: "AppDeveloper", foreignKey: "AppDeveloperId"});
+    m.AppDeveloper.hasMany(m.Application, {as: "Application", foreignKey: "AppDeveloperId"});
+
+
+    m.FileUpload.belongsTo(m.Application, {as: "Application", foreignKey: 'ApplicationId'});
+    m.Application.hasMany(m.FileUpload, {as: "FileUpload", foreignKey: "ApplicationId"});
 
 
 })(module.exports);

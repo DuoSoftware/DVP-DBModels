@@ -5,7 +5,7 @@
 
 module.exports = function(sequelize, DataTypes) {
     var ApplicationErrors = sequelize.define('CSDB_ApplicationErrors', {
-            VoiceAppID: DataTypes.STRING,
+            VoiceAppID: DataTypes.INTEGER,
             Code: DataTypes.STRING,
             Message:DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,

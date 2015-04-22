@@ -37,7 +37,9 @@ var models = [
     'IPAddress',
     'Application',
     'TrunkOperator',
-    'AppDeveloper'
+    'AppDeveloper',
+    'Conference',
+    'CallCDR'
 ];
 
 models.forEach(function(model) {
@@ -54,7 +56,7 @@ models.forEach(function(model) {
     m.TrunkPhoneNumber.belongsTo(m.Schedule, {as:"Schedule", foreignKey:"ScheduleId"});
     m.Schedule.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey:"ScheduleId"});
 
-    m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumbers", foreignKey: "TrunkId"});
+    m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "TrunkId"});
     m.TrunkPhoneNumber.belongsTo(m.Trunk, {as:"Trunk", foreignKey: "TrunkId"});
 
     m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfo", foreignKey: "LimitId"});

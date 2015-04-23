@@ -39,7 +39,8 @@ var models = [
     'TrunkOperator',
     'AppDeveloper',
     'Conference',
-    'CallCDR'
+    'CallCDR',
+    'DVPEvent'
 ];
 
 models.forEach(function(model) {

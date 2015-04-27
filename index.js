@@ -40,7 +40,9 @@ var models = [
     'AppDeveloper',
     'Conference',
     'CallCDR',
-    'DVPEvent'
+    'DVPEvent',
+    'AttachedService',
+    'SystemService'
 ];
 
 models.forEach(function(model) {
@@ -104,6 +106,12 @@ models.forEach(function(model) {
 
     m.Cloud.belongsTo(m.Cloud, {as: "ParentCloud"});
 
+    m.SystemService.hasMany(m.SystemService, {as: "BaseService"});
+    //m.SystemService.belongsToMany(m.SystemService, {as: "ExtendedService"});
+
+    m.SystemService.belongsToMany(m.AttachedService, {as: "AttachedService", through: 'CSDB_AttachBaseJunction'});
+    m.AttachedService.belongsToMany(m.SystemService, {as: "SystemService", through: 'CSDB_AttachBaseJunction'});
+
     m.CloudEndUser.belongsTo(m.Network, {as: "Network", foreignKey: "NetworkId"});
     m.Network.hasOne(m.CloudEndUser, {as: "CloudEndUser", foreignKey: "NetworkId"});
 
@@ -133,7 +141,6 @@ models.forEach(function(model) {
 
     m.Application.belongsTo(m.AppDeveloper, {as: "AppDeveloper", foreignKey: "AppDeveloperId"});
     m.AppDeveloper.hasMany(m.Application, {as: "Application", foreignKey: "AppDeveloperId"});
-
 
     m.FileUpload.belongsTo(m.Application, {as: "Application", foreignKey: 'ApplicationId'});
     m.Application.hasMany(m.FileUpload, {as: "FileUpload", foreignKey: "ApplicationId"});

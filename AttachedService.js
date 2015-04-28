@@ -4,8 +4,7 @@ module.exports = function(sequelize, DataTypes) {
             Description: DataTypes.STRING,
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
-            ObjCategory: DataTypes.STRING,
-
+            ObjCategory: DataTypes.STRING
         }
     );
 

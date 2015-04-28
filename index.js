@@ -42,7 +42,8 @@ var models = [
     'CallCDR',
     'DVPEvent',
     'AttachedService',
-    'SystemService'
+    'BaseService',
+    'ExtendedService'
 ];
 
 models.forEach(function(model) {
@@ -106,20 +107,14 @@ models.forEach(function(model) {
 
     m.Cloud.belongsTo(m.Cloud, {as: "ParentCloud"});
 
-    m.SystemService.belongsToMany(m.SystemService, {
-        as: 'ExtService',
-        foreignKey: 'BaseServiceId',
-        useJunctionTable: true,
-        foreignKeyConstraint: true
-    });
+    m.BaseService.belongsToMany(m.ExtendedService, {as: "ExtendedService", through: 'CSDB_BaseExtendedJunction'});
+    m.ExtendedService.belongsToMany(m.BaseService, {as: "BaseService", through: 'CSDB_BaseExtendedJunction'});
 
+    m.ExtendedService.belongsToMany(m.AttachedService, {as: "AttachedService", through: 'CSDB_ExtendedAttachJunction'});
+    m.AttachedService.belongsToMany(m.ExtendedService, {as: "ExtendedService", through: 'CSDB_ExtendedAttachJunction'});
 
-
-    //m.SystemService.hasMany(m.SystemService, {as: "BaseService"});
-    //m.SystemService.belongsToMany(m.SystemService, {as: "ExtendedService"});
-
-    m.SystemService.belongsToMany(m.AttachedService, {as: "AttachedService", through: 'CSDB_AttachBaseJunction'});
-    m.AttachedService.belongsToMany(m.SystemService, {as: "SystemService", through: 'CSDB_AttachBaseJunction'});
+    m.BaseService.belongsToMany(m.AttachedService, {as: "AttachedService", through: 'CSDB_BaseAttachJunction'});
+    m.AttachedService.belongsToMany(m.BaseService, {as: "BaseService", through: 'CSDB_BaseAttachJunction'});
 
     m.CloudEndUser.belongsTo(m.Network, {as: "Network", foreignKey: "NetworkId"});
     m.Network.hasOne(m.CloudEndUser, {as: "CloudEndUser", foreignKey: "NetworkId"});

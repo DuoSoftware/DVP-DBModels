@@ -8,8 +8,8 @@ module.exports = function(sequelize, DataTypes) {
             VoiceAppID: DataTypes.INTEGER,
             Code: DataTypes.STRING,
             Message:DataTypes.STRING,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            URL: DataTypes.STRING,
+            SessionID:DataTypes.STRING
 
         }
     );

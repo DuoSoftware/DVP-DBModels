@@ -106,7 +106,7 @@ models.forEach(function(model) {
 
     m.Cloud.belongsTo(m.Cloud, {as: "ParentCloud"});
 
-    m.SystemService.hasMany(m.SystemService, {
+    m.SystemService.belongsToMany(m.SystemService, {
         as: 'ExtService',
         foreignKey: 'BaseServiceId',
         joinTableName: 'CSDB_ExtBaseJunction',
@@ -114,13 +114,7 @@ models.forEach(function(model) {
         foreignKeyConstraint: true
     });
 
-    m.SystemService.belongsTo(m.SystemService, {
-        as: 'BaseService',
-        foreignKey: 'ExtServiceId',
-        joinTableName: 'CSDB_ExtBaseJunction',
-        useJunctionTable: true,
-        foreignKeyConstraint: true
-    });
+
 
     //m.SystemService.hasMany(m.SystemService, {as: "BaseService"});
     //m.SystemService.belongsToMany(m.SystemService, {as: "ExtendedService"});

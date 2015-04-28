@@ -15,3 +15,28 @@ module.exports = function(sequelize, DataTypes) {
 
     return DVPEvent;
 };
+
+/*
+
+EVENT CLASS
+-----------
+
+ CALL
+ APP
+ RULE
+
+EVENT TYPES
+-------------
+
+CALL -> CHANNEL
+APP -> ARDS, HTTAPI_API, DEV_API
+RULE -> CALL_RULE
+
+EVENT CATEGORIES
+-----------------
+
+DEV_API -> PLAY, GET_DIGITS,
+CALL_RULE -> INBOUND, OUTBOUND
+
+
+ */

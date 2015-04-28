@@ -109,7 +109,6 @@ models.forEach(function(model) {
     m.SystemService.belongsToMany(m.SystemService, {
         as: 'ExtService',
         foreignKey: 'BaseServiceId',
-        joinTableName: 'CSDB_ExtBaseJunction',
         useJunctionTable: true,
         foreignKeyConstraint: true
     });

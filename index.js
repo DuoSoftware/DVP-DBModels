@@ -43,7 +43,8 @@ var models = [
     'DVPEvent',
     'AttachedService',
     'BaseService',
-    'ExtendedService'
+    'ExtendedService',
+    'ServiceDeploymentDistribution'
 ];
 
 models.forEach(function(model) {

@@ -1,6 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var ServiceDeploymentDistribution = sequelize.define('CSDB_ServiceDeploymentDistribution', {
             ServiceName: DataTypes.STRING,
+            ServiceInstanceName: DataTypes.STRING,
             ServiceVersion: DataTypes.STRING,
             HostEnvironment: DataTypes.STRING, //DOCKER, REMOTE
             HostIp: DataTypes.STRING,

@@ -1,5 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var DVPEvent = sequelize.define('CSDB_DVPEvent', {
+            SessionId: DataTypes.STRING,
             EventName: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,

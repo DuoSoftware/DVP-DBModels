@@ -1,4 +1,4 @@
-{
+module.exports = {
  "DB": {
     "Type":"DB_TYPE",
     "User":"DB_USER",
@@ -8,4 +8,4 @@
     "Database":"DB_BASE"
   }
 
-}
+};

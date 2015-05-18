@@ -16,7 +16,8 @@ module.exports = function(sequelize, DataTypes) {
             TrunkId: DataTypes.INTEGER,
             TrunkNumber: DataTypes.STRING,
             ExtraData: DataTypes.STRING,
-            Priority: DataTypes.INTEGER
+            Priority: DataTypes.INTEGER,
+            ContextRegEx: DataTypes.STRING
             //ScheduleId
         }
     );

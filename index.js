@@ -44,7 +44,10 @@ var models = [
     'AttachedService',
     'BaseService',
     'ExtendedService',
-    'ServiceDeploymentDistribution'
+    'ServiceDeploymentDistribution',
+    'Image',
+    'Template',
+    'Service'
 ];
 
 models.forEach(function(model) {
@@ -151,6 +154,7 @@ models.forEach(function(model) {
 
     m.FileUpload.belongsTo(m.Application, {as: "Application", foreignKey: 'ApplicationId'});
     m.Application.hasMany(m.FileUpload, {as: "FileUpload", foreignKey: "ApplicationId"});
+
 
 
 })(module.exports);

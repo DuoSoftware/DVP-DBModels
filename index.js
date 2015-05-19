@@ -44,7 +44,8 @@ var models = [
     'AttachedService',
     'BaseService',
     'ExtendedService',
-    'ServiceDeploymentDistribution'
+    'ServiceDeploymentDistribution',
+    'PBXMasterData'
 ];
 
 models.forEach(function(model) {

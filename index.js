@@ -47,7 +47,9 @@ var models = [
     'ServiceDeploymentDistribution',
     'Image',
     'Template',
-    'Service'
+    'Service',
+    "Variable",
+    "Resource"
 ];
 
 models.forEach(function(model) {
@@ -154,6 +156,26 @@ models.forEach(function(model) {
 
     m.FileUpload.belongsTo(m.Application, {as: "Application", foreignKey: 'ApplicationId'});
     m.Application.hasMany(m.FileUpload, {as: "FileUpload", foreignKey: "ApplicationId"});
+
+
+    m.Service.belongsTo(m.Image, {as: "Services" });
+    m.Image.hasMany(m.Service, {as: "Services"});
+
+    m.Image.hasMany(m.Variable, {as: "SystemVariables"});
+    m.Variable.belongsTo(m.Image, {as: "SystemVariables"});
+    m.Image.hasMany(m.Image, {as: "Dependants"});
+    m.Image.hasMany(m.Image, {as: "OperationalDependants"});
+    m.Image.hasMany(m.Service, {as: "AttachedResources"});
+
+    m.Resource.hasMany(m.Variable, {as: "SystemVariables"});
+    m.Variable.belongsTo(m.Resource, {as: "SystemVariables"});
+
+    m.Template.hasMany(m.Image, {as: "MandatoryImages"});
+    m.Image.belongsToMany(m.Template, {as: "MandatoryImages"});
+    m.Template.hasMany(m.Image, {as: "OptionalImages"});
+    m.Image.belongsToMany(m.Template, {as: "OptionalImages"});
+    m.Template.hasMany(m.Resource, {as: "RequiredResources"});
+    m.Resource.belongsToMany(m.Template, {as: "RequiredResources"});
 
 
 

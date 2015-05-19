@@ -45,6 +45,7 @@ var models = [
     'BaseService',
     'ExtendedService',
     'ServiceDeploymentDistribution',
+    'PBXMasterData',
     'Image',
     'Template',
     'Service',

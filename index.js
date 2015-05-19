@@ -165,8 +165,6 @@ models.forEach(function(model) {
     m.Image.hasMany(m.Service, {as: "Services"});
 
 
-
-
     m.Image.hasMany(m.Variable, {as: "SystemVariables"});
     m.Variable.belongsTo(m.Image, {as: "SystemVariables"});
 

@@ -50,7 +50,8 @@ var models = [
     'Service',
     "Variable",
     "Resource",
-    "TemplateImage"
+    "TemplateImage",
+    "Volume"
 ];
 
 models.forEach(function(model) {
@@ -162,8 +163,16 @@ models.forEach(function(model) {
     m.Service.belongsTo(m.Image, {as: "Services" });
     m.Image.hasMany(m.Service, {as: "Services"});
 
+
+
+
     m.Image.hasMany(m.Variable, {as: "SystemVariables"});
     m.Variable.belongsTo(m.Image, {as: "SystemVariables"});
+
+
+    m.Image.hasMany(m.Volume, {as: "SystemVolumes"});
+    m.Volume.belongsTo(m.Image, {as: "SystemVolumes"});
+
     m.Image.hasMany(m.Image, {as: "Dependants"});
     m.Image.hasMany(m.Image, {as: "OperationalDependants"});
 

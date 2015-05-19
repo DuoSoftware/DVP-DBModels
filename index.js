@@ -45,7 +45,13 @@ var models = [
     'BaseService',
     'ExtendedService',
     'ServiceDeploymentDistribution',
-    'PBXMasterData'
+    'PBXMasterData',
+    'Image',
+    'Template',
+    'Service',
+    "Variable",
+    "Resource",
+    "TemplateImage"
 ];
 
 models.forEach(function(model) {
@@ -152,6 +158,18 @@ models.forEach(function(model) {
 
     m.FileUpload.belongsTo(m.Application, {as: "Application", foreignKey: 'ApplicationId'});
     m.Application.hasMany(m.FileUpload, {as: "FileUpload", foreignKey: "ApplicationId"});
+
+
+    m.Service.belongsTo(m.Image, {as: "Services" });
+    m.Image.hasMany(m.Service, {as: "Services"});
+
+    m.Image.hasMany(m.Variable, {as: "SystemVariables"});
+    m.Variable.belongsTo(m.Image, {as: "SystemVariables"});
+    m.Image.hasMany(m.Image, {as: "Dependants"});
+    m.Image.hasMany(m.Image, {as: "OperationalDependants"});
+
+    m.Template.belongsToMany(m.Image, {as: "TemplateImage", through: "CSDB_TemplateImage"});
+
 
 
 })(module.exports);

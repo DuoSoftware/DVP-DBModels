@@ -3,7 +3,7 @@
  */
 module.exports = function(sequelize, DataTypes) {
     var Template = sequelize.define('CSDB_Template', {
-            Name: DataTypes.STRING,
+            Name: {type : DataTypes.STRING, unique: true},
             Description: DataTypes.STRING,
             Class: DataTypes.STRING,
             Type: DataTypes.STRING,

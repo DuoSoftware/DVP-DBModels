@@ -4,7 +4,7 @@
  */
 module.exports = function(sequelize, DataTypes) {
     var Image = sequelize.define('CSDB_Image', {
-            Name: DataTypes.STRING,
+            Name: {type : DataTypes.STRING, unique: true},
             Description: DataTypes.STRING,
             Version: DataTypes.STRING,
             VersionStatus: DataTypes.STRING,

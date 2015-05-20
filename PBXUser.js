@@ -2,12 +2,11 @@ module.exports = function(sequelize, DataTypes)
 {
     var PBXUser = sequelize.define('CSDB_PBXUser',
         {
-            UserStatus: DataTypes.STRING, //DND, CALL_DIVERT, AVAILABLE
-            CallDivertNumber: DataTypes.STRING,
-            AdvancedRouteMethod: DataTypes.STRING, //FORWARD, FOLLOW_ME
+            UserUuid: DataTypes.STRING,
             BypassMedia: DataTypes.BOOLEAN,
             IgnoreEarlyMedia: DataTypes.BOOLEAN,
             VoicemailEnabled: DataTypes.BOOLEAN,
+            ScheduleId: DataTypes.INTEGER,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
             ObjClass: DataTypes.STRING,

@@ -46,6 +46,8 @@ var models = [
     'ExtendedService',
     'ServiceDeploymentDistribution',
     'PBXMasterData',
+    'PBXUser',
+    'PBXUserTemplate',
     'Image',
     'Template',
     'Service',
@@ -137,6 +139,9 @@ models.forEach(function(model) {
     m.Schedule.hasMany(m.CallRule, {as: "CallRule", foreignKey: "ScheduleId"});
     m.CallRule.belongsTo(m.Schedule, {as: "Schedule", foreignKey: "ScheduleId"});
 
+    m.PBXUser.hasMany(m.PBXUserTemplate, {as: "PBXUserTemplate", foreignKey: "PBXUserTemplateId"});
+    m.PBXUserTemplate.belongsTo(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserTemplateId"});
+
     m.Translation.hasMany(m.CallRule, {as: "CallRule", foreignKey: "TranslationId"});
     m.CallRule.belongsTo(m.Translation, {as: "Translation", foreignKey: "TranslationId"});
 
@@ -160,14 +165,11 @@ models.forEach(function(model) {
     m.FileUpload.belongsTo(m.Application, {as: "Application", foreignKey: 'ApplicationId'});
     m.Application.hasMany(m.FileUpload, {as: "FileUpload", foreignKey: "ApplicationId"});
 
-
     m.Service.belongsTo(m.Image, {as: "Services" });
     m.Image.hasMany(m.Service, {as: "Services"});
 
-
     m.Image.hasMany(m.Variable, {as: "SystemVariables"});
     m.Variable.belongsTo(m.Image, {as: "SystemVariables"});
-
 
     m.Image.hasMany(m.Volume, {as: "SystemVolumes"});
     m.Volume.belongsTo(m.Image, {as: "SystemVolumes"});

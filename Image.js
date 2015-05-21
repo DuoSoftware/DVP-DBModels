@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
             Class: DataTypes.STRING,
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
+            Cmd: DataTypes.STRING,
             Importance: DataTypes.STRING //LB, FAIL_OVER, NONE*/
 
         }

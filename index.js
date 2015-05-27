@@ -182,7 +182,7 @@ models.forEach(function(model) {
     //Person.belongsToMany(Person, { as: 'Children', through: 'PersonChildren' })
 
 
-    m.Image.hasMany(m.Image, {as: "Dependants", through: "CSDB_ImageDependance", foreignKey: "DependentID"});
+    //m.Image.hasMany(m.Image, {as: "Dependants", through: "CSDB_ImageDependance", foreignKey: "DependentID"});
     m.Image.belongsToMany(m.Image, {as: "Dependants", through: "CSDB_ImageDependance",foreignKey: "DependentID"});
     //m.Image.hasMany(m.Image, {as: "OperationalDependants"});
 

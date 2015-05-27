@@ -178,8 +178,12 @@ models.forEach(function(model) {
     m.Image.hasMany(m.Volume, {as: "SystemVolumes"});
     m.Volume.belongsTo(m.Image, {as: "SystemVolumes"});
 
-    m.Image.belongsToMany(m.Image, {as: "Dependants",through: "CSDB_Dependants"});
-    m.Image.belongsToMany(m.Image, {as: "OperationalDependants"});
+
+    //Person.belongsToMany(Person, { as: 'Children', through: 'PersonChildren' })
+
+
+    m.Image.hasMany(m.Image, {as: "Dependants", through: "CSDB_ImageDependance"});
+    //m.Image.hasMany(m.Image, {as: "OperationalDependants"});
 
     m.Template.belongsToMany(m.Image, {as: "TemplateImage", through: "CSDB_TemplateImage"});
 

@@ -1,13 +1,10 @@
 module.exports = function(sequelize, DataTypes)
 {
-    var PBXUser = sequelize.define('CSDB_PBXUser',
+    var FollowMe = sequelize.define('CSDB_FollowMe',
         {
-            UserUuid: {type:DataTypes.STRING, primaryKey:true},
-            BypassMedia: DataTypes.BOOLEAN,
-            IgnoreEarlyMedia: DataTypes.BOOLEAN,
-            VoicemailEnabled: DataTypes.BOOLEAN,
+            DestinationNumber: DataTypes.STRING,
             RingTimeout: DataTypes.INTEGER,
-            ScheduleId: DataTypes.INTEGER,
+            Priority: DataTypes.INTEGER,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
             ObjClass: DataTypes.STRING,
@@ -16,5 +13,5 @@ module.exports = function(sequelize, DataTypes)
         }
     );
 
-    return PBXUser;
+    return FollowMe;
 };

@@ -149,6 +149,9 @@ models.forEach(function(model) {
     m.Translation.hasMany(m.CallRule, {as: "CallRule", foreignKey: "TranslationId"});
     m.CallRule.belongsTo(m.Translation, {as: "Translation", foreignKey: "TranslationId"});
 
+    m.Translation.hasMany(m.CallRule, {as: "CallRule", foreignKey: "ANITranslationId"});
+    m.CallRule.belongsTo(m.Translation, {as: "ANITranslation", foreignKey: "ANITranslationId"});
+
     m.CallRule.belongsTo(m.Application, {as: "Application", foreignKey: "AppId"});
     m.Application.hasMany(m.CallRule, {as:"CallRule", foreignKey: "AppId"});
 

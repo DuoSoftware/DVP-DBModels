@@ -57,7 +57,8 @@ var models = [
     "Volume",
     "FollowMe",
     "Forwarding",
-    "DidNumber"
+    "DidNumber",
+    "Campaign"
 ];
 
 models.forEach(function(model) {

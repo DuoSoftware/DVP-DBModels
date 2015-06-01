@@ -56,7 +56,8 @@ var models = [
     "TemplateImage",
     "Volume",
     "FollowMe",
-    "Forwarding"
+    "Forwarding",
+    "DidNumber"
 ];
 
 models.forEach(function(model) {
@@ -149,6 +150,9 @@ models.forEach(function(model) {
 
     m.PBXUser.hasMany(m.Forwarding, {as: "Forwarding", foreignKey: "PBXUserUuid"});
     m.Forwarding.belongsTo(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserUuid"});
+
+    m.DidNumber.hasMany(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserUuid"});
+    m.PBXUser.belongsTo(m.DidNumber, {as: "DidNumber", foreignKey: "PBXUserUuid"});
 
     m.Translation.hasMany(m.CallRule, {as: "CallRule", foreignKey: "TranslationId"});
     m.CallRule.belongsTo(m.Translation, {as: "Translation", foreignKey: "TranslationId"});

@@ -154,8 +154,8 @@ models.forEach(function(model) {
     m.PBXUser.hasMany(m.Forwarding, {as: "Forwarding", foreignKey: "PBXUserUuid"});
     m.Forwarding.belongsTo(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserUuid"});
 
-    m.DidNumber.hasMany(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserUuid"});
-    m.PBXUser.belongsTo(m.DidNumber, {as: "DidNumber", foreignKey: "PBXUserUuid"});
+    m.DidNumber.belongsTo(m.Extension, {as: "Extension", foreignKey: "ExtensionId"});
+    m.Extension.hasMany(m.DidNumber, {as: "DidNumber", foreignKey: "ExtensionId"});
 
     m.Translation.hasMany(m.CallRule, {as: "CallRule", foreignKey: "TranslationId"});
     m.CallRule.belongsTo(m.Translation, {as: "Translation", foreignKey: "TranslationId"});

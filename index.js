@@ -58,7 +58,9 @@ var models = [
     "FollowMe",
     "Forwarding",
     "DidNumber",
-    "Campaign"
+    "Campaign",
+    "CampaignPhones",
+    "DialedCampaignPhones"
 ];
 
 models.forEach(function(model) {

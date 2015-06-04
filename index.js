@@ -60,7 +60,8 @@ var models = [
     "DidNumber",
     "Campaign",
     "CampaignPhones",
-    "DialedCampaignPhones"
+    "DialedCampaignPhones",
+    "EmergencyNumber"
 ];
 
 models.forEach(function(model) {

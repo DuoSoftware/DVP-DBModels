@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes)
             BypassMedia: DataTypes.BOOLEAN,
             IgnoreEarlyMedia: DataTypes.BOOLEAN,
             VoicemailEnabled: DataTypes.BOOLEAN,
+            AllowOutbound: DataTypes.BOOLEAN,
             RingTimeout: DataTypes.INTEGER,
             ScheduleId: DataTypes.INTEGER,
             CompanyId: DataTypes.INTEGER,

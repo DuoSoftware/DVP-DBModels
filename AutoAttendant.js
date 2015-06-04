@@ -7,6 +7,7 @@ module.exports = function(sequelize, DataTypes) {
     var AutoAttendant = sequelize.define('CSDB_AutoAttendant', {
             Name: {type : DataTypes.STRING, unique: true},
             Code: DataTypes.STRING,
+            Extention: DataTypes.STRING,
             DayGreeting: DataTypes.STRING,
             NightGreeting: DataTypes.STRING,
             Menu: DataTypes.STRING,

@@ -61,7 +61,9 @@ var models = [
     "Campaign",
     "CampaignPhones",
     "DialedCampaignPhones",
-    "EmergencyNumber"
+    "EmergencyNumber",
+    "AutoAttendant",
+    "Action"
 ];
 
 models.forEach(function(model) {
@@ -202,6 +204,11 @@ models.forEach(function(model) {
     //m.Image.hasMany(m.Image, {as: "OperationalDependants"});
 
     m.Template.belongsToMany(m.Image, {as: "TemplateImage", through: "CSDB_TemplateImage"});
+
+
+    m.AutoAttendant.hasMany(m.Action,{as: "Actions"});
+    m.Action.belongsTo( m.AutoAttendant,{as: "Actions"} );
+
 
 
 

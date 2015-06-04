@@ -16,7 +16,9 @@ module.exports = function(sequelize, DataTypes) {
             EndTime:DataTypes.INTEGER,
             Enable:DataTypes.BOOLEAN,
             ScheduleId: DataTypes.STRING,
-            Limit:DataTypes.INTEGER
+            Limit:DataTypes.INTEGER,
+            LastUpdate:DataTypes.STRING,
+            CSID:DataTypes.STRING
 
 
         }

@@ -5,17 +5,17 @@
 
 module.exports = function(sequelize, DataTypes) {
     var AutoAttendant = sequelize.define('CSDB_AutoAttendant', {
-            Name: {type : DataTypes.STRING, unique: true},
+            Name: {type: DataTypes.STRING,unique: true},
             Code: DataTypes.STRING,
-            Extention: DataTypes.STRING,
+            Extention: {type: DataTypes.STRING,unique: "compositeIndex"},
             DayGreeting: DataTypes.STRING,
             NightGreeting: DataTypes.STRING,
             Menu: DataTypes.STRING,
             LoopCount: DataTypes.INTEGER,
             TimeOut: DataTypes.INTEGER,
             EnableExtention: DataTypes.BOOLEAN,
-            Company: DataTypes.INTEGER,
-            Tenant: DataTypes.INTEGER
+            Company: {type: DataTypes.INTEGER,unique: "compositeIndex"},
+            Tenant: {type: DataTypes.INTEGER,unique: "compositeIndex"}
         }
     );
 

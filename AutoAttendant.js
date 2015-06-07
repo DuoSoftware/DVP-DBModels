@@ -10,10 +10,15 @@ module.exports = function(sequelize, DataTypes) {
             Extention: {type: DataTypes.STRING,unique: "compositeIndex"},
             DayGreeting: DataTypes.STRING,
             NightGreeting: DataTypes.STRING,
+            RetryGreeting: DataTypes.STRING,
+            InvalidDigitSound: DataTypes.STRING,
+            ExitSound: DataTypes.STRING,
             Menu: DataTypes.STRING,
-            LoopCount: DataTypes.INTEGER,
+            LoopCountOnFailure: DataTypes.INTEGER,
+            LoopCountOnTimeout: DataTypes.INTEGER,
             TimeOut: DataTypes.INTEGER,
             EnableExtention: DataTypes.BOOLEAN,
+            ExtentionLength: DataTypes.INTEGER,
             Company: {type: DataTypes.INTEGER,unique: "compositeIndex"},
             Tenant: {type: DataTypes.INTEGER,unique: "compositeIndex"}
         }

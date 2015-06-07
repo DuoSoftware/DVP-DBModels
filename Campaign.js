@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
             StartTime: DataTypes.STRING,
-            EndTime:DataTypes.INTEGER,
+            EndTime:DataTypes.STRING,
             Enable:DataTypes.BOOLEAN,
             ScheduleId: DataTypes.STRING,
             Limit:DataTypes.INTEGER,

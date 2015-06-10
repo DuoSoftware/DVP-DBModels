@@ -64,7 +64,8 @@ var models = [
     "EmergencyNumber",
     "AutoAttendant",
     "Action",
-    "FeatureCode"
+    "FeatureCode",
+    "ConferenceUser"
 ];
 
 models.forEach(function(model) {
@@ -210,6 +211,19 @@ models.forEach(function(model) {
     m.AutoAttendant.hasMany(m.Action,{as: "Actions"});
     m.Action.belongsTo( m.AutoAttendant,{as: "Actions"} );
 
+    m.Application.belongsTo(m.AppDeveloper, {as: "AppDeveloper", foreignKey: "AppDeveloperId"});
+    m.AppDeveloper.hasMany(m.Application, {as: "Application", foreignKey: "AppDeveloperId"});
+
+
+
+    m.Conference.hasMany(m.ConferenceUser,{as: "ConferenceUser",foreignKey: "ConferenceUserId"});
+    m.ConferenceUser.belongsTo(m.Conference,{as: "Conference",foreignKey: "ConferenceUserId"});
+
+    m.ConferenceUser.belongsTo(m.SipUACEndpoint, {as: "SipUACEndpoint", foreignKey: "SipUACEndpointId"});
+    m.SipUACEndpoint.hasOne(m.ConferenceUser,{as: "ConferenceUser",foreignKey: "SipUACEndpointId"});
+
+    m.Conference.belongsTo(m.Extension,{as: "Extension",foreignKey: "ExtensionId"});
+    m.Extension.hasOne(m.Conference,{as: "Conference",foreignKey: "ExtensionId"});
 
 
 

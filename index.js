@@ -216,8 +216,8 @@ models.forEach(function(model) {
 
 
 
-    m.Conference.hasMany(m.ConferenceUser,{as: "ConferenceUser",foreignKey: "ConferenceUserId"});
-    m.ConferenceUser.belongsTo(m.Conference,{as: "Conference",foreignKey: "ConferenceUserId"});
+    m.Conference.hasMany(m.ConferenceUser,{as: "ConferenceUser",foreignKey: "ConferenceId"});
+    m.ConferenceUser.belongsTo(m.Conference,{as: "Conference",foreignKey: "ConferenceId"});
 
     m.ConferenceUser.belongsTo(m.SipUACEndpoint, {as: "SipUACEndpoint", foreignKey: "SipUACEndpointId"});
     m.SipUACEndpoint.hasOne(m.ConferenceUser,{as: "ConferenceUser",foreignKey: "SipUACEndpointId"});

@@ -14,7 +14,10 @@ module.exports = function(sequelize, DataTypes)
             TenantId: DataTypes.INTEGER,
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
-            ObjCategory: DataTypes.STRING            
+            ObjCategory: DataTypes.STRING,
+            PersonalGreetingEnabled: DataTypes.BOOLEAN,
+            DayGreetingFile: DataTypes.STRING,
+            NightGreetingFile: DataTypes.STRING
         }
     );
 

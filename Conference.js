@@ -13,7 +13,8 @@ module.exports = function(sequelize, DataTypes) {
             EndTime:DataTypes.STRING,//2015-06-10 03:30
             Domain:DataTypes.STRING,
             IsLocked:DataTypes.BOOLEAN,
-            MaxUser:DataTypes.INTEGER
+            MaxUser:DataTypes.INTEGER,
+            CurrentUsers: DataTypes.INTEGER
 
         }
     );

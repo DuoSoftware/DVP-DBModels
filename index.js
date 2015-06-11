@@ -118,6 +118,9 @@ models.forEach(function(model) {
     m.CloudEndUser.hasMany(m.SipUACEndpoint, {as: "SipUACEndpoint", foreignKey: "CloudEndUserId"});
     m.SipUACEndpoint.belongsTo(m.CloudEndUser, {as: "CloudEndUser", foreignKey: "CloudEndUserId"});
 
+    m.CloudEndUser.hasMany(m.Conference, {as: "Conference", foreignKey: "CloudEndUserId"});
+    m.Conference.belongsTo(m.CloudEndUser, {as: "CloudEndUser", foreignKey: "CloudEndUserId"});
+
     m.Cloud.hasMany(m.CallServer, {as: "CallServer", foreignKey: "ClusterId"});
     m.CallServer.belongsTo(m.Cloud, {as: "Cloud", foreignKey: "ClusterId"});
 

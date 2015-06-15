@@ -9,8 +9,8 @@ module.exports = function(sequelize, DataTypes) {
             ObjCategory: DataTypes.STRING,
             Pin:DataTypes.STRING,
             AllowAnonymousUser:DataTypes.BOOLEAN,
-            StartTime:DataTypes.DATE,//2015-06-10 02:30
-            EndTime:DataTypes.DATE,//2015-06-10 03:30
+            StartTime:DataTypes.DATE,
+            EndTime:DataTypes.DATE,
             Domain:DataTypes.STRING,
             IsLocked:DataTypes.BOOLEAN,
             MaxUser:DataTypes.INTEGER,

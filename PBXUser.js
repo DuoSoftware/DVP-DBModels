@@ -7,6 +7,9 @@ module.exports = function(sequelize, DataTypes)
             IgnoreEarlyMedia: DataTypes.BOOLEAN,
             VoicemailEnabled: DataTypes.BOOLEAN,
             Pin: DataTypes.STRING,
+            UserStatus: DataTypes.STRING, //DND, CALL_DIVERT, AVAILABLE
+            AdvancedRouteMethod: DataTypes.STRING, //FORWARD, FOLLOW_ME
+            FollowMeMechanism: DataTypes.STRING, //SEQUENTIAL, PARALLEL
             AllowOutbound: DataTypes.BOOLEAN,
             AllowedNumbers: DataTypes.STRING,
             RingTimeout: DataTypes.INTEGER,

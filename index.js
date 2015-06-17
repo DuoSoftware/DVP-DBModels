@@ -85,8 +85,14 @@ models.forEach(function(model) {
     m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "TrunkId"});
     m.TrunkPhoneNumber.belongsTo(m.Trunk, {as:"Trunk", foreignKey: "TrunkId"});
 
-    m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfo", foreignKey: "LimitId"});
-    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "LimitId"});
+    m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfoInbound", foreignKey: "InboundLimitId"});
+    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "InboundLimitId"});
+
+    m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfoOutbound", foreignKey: "OutboundLimitId"});
+    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "OutboundLimitId"});
+
+    m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfoBoth", foreignKey: "BothLimitId"});
+    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "BothLimitId"});
 
     m.UserGroup.belongsTo(m.Extension, {as:"Extension", foreignKey: "ExtensionId"});
     m.Extension.hasOne(m.UserGroup, {as:"UserGroup", foreignKey: "ExtensionId"});

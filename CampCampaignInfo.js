@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
             Class: DataTypes.STRING,
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
-            CampaignId: DataTypes.INTEGER,
+            //CampaignId: DataTypes.INTEGER,
             Status:DataTypes.BOOLEAN
         }
     );

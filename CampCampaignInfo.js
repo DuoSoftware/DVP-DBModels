@@ -15,6 +15,9 @@ module.exports = function (sequelize, DataTypes) {
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
             Extensions: DataTypes.STRING,
+            Concurrent: DataTypes.STRING,
+            Caller: DataTypes.STRING,
+            OperationalStatus: DataTypes.STRING,
             //CampaignId: DataTypes.INTEGER,
             Status: DataTypes.BOOLEAN
         }

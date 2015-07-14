@@ -9,6 +9,8 @@ module.exports = function(sequelize, DataTypes) {
             //CamContactId:DataTypes.INTEGER,
             Status:DataTypes.BOOLEAN,
             TenantId:DataTypes.INTEGER,
+            StartDate:DataTypes.DATE,
+            EndDate:DataTypes.DATE,
             CompanyId:DataTypes.INTEGER
         }
     );

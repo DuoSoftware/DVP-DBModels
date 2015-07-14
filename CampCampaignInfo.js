@@ -18,7 +18,8 @@ module.exports = function (sequelize, DataTypes) {
             Concurrent: DataTypes.STRING,
             Caller: DataTypes.STRING,
             OperationalStatus: DataTypes.STRING,
-            //CampaignId: DataTypes.INTEGER,
+            StartDate:DataTypes.DATE,
+            EndDate:DataTypes.DATE,
             Status: DataTypes.BOOLEAN
         }
     );

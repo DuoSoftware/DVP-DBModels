@@ -9,7 +9,8 @@ module.exports = function(sequelize, DataTypes) {
             //CamContactId:DataTypes.INTEGER,
             Status:DataTypes.BOOLEAN,
             TenantId:DataTypes.INTEGER,
-            CompanyId:DataTypes.INTEGER
+            CompanyId:DataTypes.INTEGER,
+            CamContactId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
         }
     );
     return CampContactInfo;

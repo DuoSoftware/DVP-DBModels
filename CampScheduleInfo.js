@@ -11,8 +11,8 @@ module.exports = function (sequelize, DataTypes) {
             //CamScheduleId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
             CompanyId: DataTypes.INTEGER,
-            Status: DataTypes.BOOLEAN
-
+            Status: DataTypes.BOOLEAN,
+            CamScheduleId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
         }
     );
     return CampScheduleInfo;

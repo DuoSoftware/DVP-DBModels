@@ -15,12 +15,10 @@ module.exports = function (sequelize, DataTypes) {
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
             Extensions: DataTypes.STRING,
-            Concurrent: DataTypes.STRING,
-            Caller: DataTypes.STRING,
+            //Concurrent: DataTypes.STRING,
             OperationalStatus: DataTypes.STRING,
-            StartDate:DataTypes.DATE,
-            EndDate:DataTypes.DATE,
-            Status: DataTypes.BOOLEAN
+            Status: DataTypes.BOOLEAN,
+            CampaignId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
         }
     );
 

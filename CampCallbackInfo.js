@@ -11,7 +11,8 @@ module.exports = function(sequelize, DataTypes) {
             ContactId: DataTypes.STRING,
             CamScheduleId:DataTypes.INTEGER,
             //CallBackId:DataTypes.INTEGER,
-            Status:DataTypes.BOOLEAN
+            Status:DataTypes.BOOLEAN,
+            CallBackId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
 
         }
     );

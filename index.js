@@ -42,7 +42,6 @@ var models = [
     'CallCDR',
     'DVPEvent',
     'AttachedService',
-<<<<<<< HEAD
     'BaseService',
     'ExtendedService',
     'ServiceDeploymentDistribution',
@@ -67,22 +66,17 @@ var models = [
     "Action",
     "FeatureCode",
     "ConferenceUser",
-=======
     'SystemService',
->>>>>>> 1a3f0fd2e03012fc947fcc52bd6962245927e56e
     "CampScheduleInfo",
     "CampCallbackInfo",
     "CampConfigurations",
     "CampCampaignInfo",
     "CampContactInfo",
     "CampOngoingCampaign",
-<<<<<<< HEAD
     "CampContactSchedule",
     "CampContactCategory",
-    "CampDialoutInfo"
-=======
+    "CampDialoutInfo",
     "CampContactSchedule"
->>>>>>> 1a3f0fd2e03012fc947fcc52bd6962245927e56e
 ];
 
 models.forEach(function(model) {

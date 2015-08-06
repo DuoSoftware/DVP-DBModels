@@ -43,8 +43,11 @@ var models = [
     'DVPEvent',
     'AttachedService',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'SystemService',
 =======
+=======
+>>>>>>> f22701c3c07b971a81951fd6e7efebd46bd4b7f0
     'BaseService',
     'ExtendedService',
     'ServiceDeploymentDistribution',
@@ -69,14 +72,26 @@ var models = [
     "Action",
     "FeatureCode",
     "ConferenceUser",
+<<<<<<< HEAD
 >>>>>>> master
+=======
+=======
+    'SystemService',
+>>>>>>> 1a3f0fd2e03012fc947fcc52bd6962245927e56e
+>>>>>>> f22701c3c07b971a81951fd6e7efebd46bd4b7f0
     "CampScheduleInfo",
     "CampCallbackInfo",
     "CampConfigurations",
     "CampCampaignInfo",
     "CampContactInfo",
     "CampOngoingCampaign",
+<<<<<<< HEAD
+    "CampContactSchedule",
+    "CampContactCategory",
+    "CampDialoutInfo"
+=======
     "CampContactSchedule"
+>>>>>>> 1a3f0fd2e03012fc947fcc52bd6962245927e56e
 ];
 
 models.forEach(function(model) {
@@ -183,6 +198,7 @@ models.forEach(function(model) {
 
     m.PBXUser.hasMany(m.Forwarding, {as: "Forwarding", foreignKey: "PBXUserUuid"});
     m.Forwarding.belongsTo(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserUuid"});
+    m.Forwarding.belongsTo(m.PBXUser, {as: "DestinationUser", foreignKey: "DestinationUserUuid"});
 
     m.DidNumber.belongsTo(m.Extension, {as: "Extension", foreignKey: "ExtensionId"});
     m.Extension.hasMany(m.DidNumber, {as: "DidNumber", foreignKey: "ExtensionId"});
@@ -256,7 +272,7 @@ models.forEach(function(model) {
         m.CampCampaignInfo.hasMany(m.CampOngoingCampaign, {as:"CampOngoingCampaign", foreignKey:"CampaignId"});
 
         m.CampConfigurations.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
-        m.CampCampaignInfo.hasMany(m.CampConfigurations, {as:"CampConfigurations", foreignKey:"CampaignId"});
+        m.CampCampaignInfo.hasOne(m.CampConfigurations, {as:"CampConfigurations", foreignKey:"CampaignId"});
 
             //------------------CampContactSchedule
             m.CampContactSchedule.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
@@ -281,6 +297,10 @@ models.forEach(function(model) {
             m.CampScheduleInfo.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
             m.CampCampaignInfo.hasMany(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CampaignId"});
             //------------------CampScheduleInfo
+    //------------------CampContactCategory
+    m.CampContactInfo.belongsTo(m.CampContactCategory, {as:"CampContactCategory", foreignKey:"CategoryID"});
+    m.CampContactCategory.hasMany(m.CampContactInfo, {as:"CampContactInfo", foreignKey:"CategoryID"});
+    //------------------CampContactCategory
 
     // ----------------------- [CampaignManager] ----------------------- //
 

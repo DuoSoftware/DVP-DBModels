@@ -42,6 +42,15 @@ var models = [
     'CallCDR',
     'DVPEvent',
     'AttachedService',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    'SystemService',
+=======
+=======
+>>>>>>> f22701c3c07b971a81951fd6e7efebd46bd4b7f0
+>>>>>>> f6ac0e80f88d01a834024d326c444b5ad76cf2c2
     'BaseService',
     'ExtendedService',
     'ServiceDeploymentDistribution',
@@ -66,7 +75,17 @@ var models = [
     "Action",
     "FeatureCode",
     "ConferenceUser",
+<<<<<<< HEAD
     'SystemService',
+=======
+<<<<<<< HEAD
+>>>>>>> master
+=======
+=======
+    'SystemService',
+>>>>>>> 1a3f0fd2e03012fc947fcc52bd6962245927e56e
+>>>>>>> f22701c3c07b971a81951fd6e7efebd46bd4b7f0
+>>>>>>> f6ac0e80f88d01a834024d326c444b5ad76cf2c2
     "CampScheduleInfo",
     "CampCallbackInfo",
     "CampConfigurations",

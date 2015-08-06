@@ -10,7 +10,13 @@ module.exports = function(sequelize, DataTypes) {
             AllowCallBack:DataTypes.BOOLEAN,
             MaxCallBackCount:DataTypes.INTEGER,
             ConfigureId:DataTypes.BOOLEAN,
+<<<<<<< HEAD
             Status:DataTypes.BOOLEAN
+=======
+            Status:DataTypes.BOOLEAN,
+            TenantId:DataTypes.INTEGER,
+            CompanyId:DataTypes.INTEGER
+>>>>>>> master
         }
     );
     return CampConfigurations;

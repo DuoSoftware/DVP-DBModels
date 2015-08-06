@@ -6,7 +6,11 @@
 module.exports = function(sequelize, DataTypes) {
     var CampCampaignInfo = sequelize.define('DB_CAMP_CampaignInfo', {
             CampaignName: DataTypes.STRING,
+<<<<<<< HEAD
             CampaignnMode: DataTypes.STRING,
+=======
+            CampaignMode: DataTypes.STRING,
+>>>>>>> master
             CampaignChannel:DataTypes.STRING,
             DialoutMechanism:DataTypes.STRING,
             TenantId:DataTypes.INTEGER,

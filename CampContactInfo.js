@@ -5,8 +5,11 @@
 
 module.exports = function(sequelize, DataTypes) {
     var CampContactInfo = sequelize.define('DB_CAMP_ContactInfo', {
+<<<<<<< HEAD
             CampaignId: DataTypes.INTEGER,
             CamScheduleId: DataTypes.INTEGER,
+=======
+>>>>>>> master
             ContactId:DataTypes.STRING,
             CamContactId:DataTypes.STRING,
             Status:DataTypes.BOOLEAN,

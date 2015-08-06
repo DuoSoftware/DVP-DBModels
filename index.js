@@ -42,7 +42,34 @@ var models = [
     'CallCDR',
     'DVPEvent',
     'AttachedService',
+<<<<<<< HEAD
     'SystemService',
+=======
+    'BaseService',
+    'ExtendedService',
+    'ServiceDeploymentDistribution',
+    'PBXMasterData',
+    'PBXUser',
+    'PBXUserTemplate',
+    'Image',
+    'Template',
+    'Service',
+    "Variable",
+    "Resource",
+    "TemplateImage",
+    "Volume",
+    "FollowMe",
+    "Forwarding",
+    "DidNumber",
+    "Campaign",
+    "CampaignPhones",
+    "DialedCampaignPhones",
+    "EmergencyNumber",
+    "AutoAttendant",
+    "Action",
+    "FeatureCode",
+    "ConferenceUser",
+>>>>>>> master
     "CampScheduleInfo",
     "CampCallbackInfo",
     "CampConfigurations",
@@ -63,14 +90,24 @@ models.forEach(function(model) {
     //m.Network.belongsTo(m.Cloud);
     //m.CloudEndUser.belongsTo(m.Cloud);
     //m.Network.belongsTo(m.CloudEndUser);
+
+
+
+
     m.TrunkPhoneNumber.belongsTo(m.Schedule, {as:"Schedule", foreignKey:"ScheduleId"});
     m.Schedule.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey:"ScheduleId"});
 
     m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "TrunkId"});
     m.TrunkPhoneNumber.belongsTo(m.Trunk, {as:"Trunk", foreignKey: "TrunkId"});
 
-    m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfo", foreignKey: "LimitId"});
-    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "LimitId"});
+    m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfoInbound", foreignKey: "InboundLimitId"});
+    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "InboundLimitId"});
+
+    m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfoOutbound", foreignKey: "OutboundLimitId"});
+    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "OutboundLimitId"});
+
+    m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfoBoth", foreignKey: "BothLimitId"});
+    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "BothLimitId"});
 
     m.UserGroup.belongsTo(m.Extension, {as:"Extension", foreignKey: "ExtensionId"});
     m.Extension.hasOne(m.UserGroup, {as:"UserGroup", foreignKey: "ExtensionId"});
@@ -102,6 +139,9 @@ models.forEach(function(model) {
     m.CloudEndUser.hasMany(m.SipUACEndpoint, {as: "SipUACEndpoint", foreignKey: "CloudEndUserId"});
     m.SipUACEndpoint.belongsTo(m.CloudEndUser, {as: "CloudEndUser", foreignKey: "CloudEndUserId"});
 
+    m.CloudEndUser.hasMany(m.Conference, {as: "Conference", foreignKey: "CloudEndUserId"});
+    m.Conference.belongsTo(m.CloudEndUser, {as: "CloudEndUser", foreignKey: "CloudEndUserId"});
+
     m.Cloud.hasMany(m.CallServer, {as: "CallServer", foreignKey: "ClusterId"});
     m.CallServer.belongsTo(m.Cloud, {as: "Cloud", foreignKey: "ClusterId"});
 
@@ -113,27 +153,14 @@ models.forEach(function(model) {
 
     m.Cloud.belongsTo(m.Cloud, {as: "ParentCloud"});
 
-    m.SystemService.hasMany(m.SystemService, {
-        as: 'ExtService',
-        foreignKey: 'BaseServiceId',
-        joinTableName: 'CSDB_ExtBaseJunction',
-        useJunctionTable: true,
-        foreignKeyConstraint: true
-    });
+    m.BaseService.belongsToMany(m.ExtendedService, {as: "ExtendedService", through: 'CSDB_BaseExtendedJunction'});
+    m.ExtendedService.belongsToMany(m.BaseService, {as: "BaseService", through: 'CSDB_BaseExtendedJunction'});
 
-    m.SystemService.belongsTo(m.SystemService, {
-        as: 'BaseService',
-        foreignKey: 'ExtServiceId',
-        joinTableName: 'CSDB_ExtBaseJunction',
-        useJunctionTable: true,
-        foreignKeyConstraint: true
-    });
+    m.ExtendedService.belongsToMany(m.AttachedService, {as: "AttachedService", through: 'CSDB_ExtendedAttachJunction'});
+    m.AttachedService.belongsToMany(m.ExtendedService, {as: "ExtendedService", through: 'CSDB_ExtendedAttachJunction'});
 
-    //m.SystemService.hasMany(m.SystemService, {as: "BaseService"});
-    //m.SystemService.belongsToMany(m.SystemService, {as: "ExtendedService"});
-
-    m.SystemService.belongsToMany(m.AttachedService, {as: "AttachedService", through: 'CSDB_AttachBaseJunction'});
-    m.AttachedService.belongsToMany(m.SystemService, {as: "SystemService", through: 'CSDB_AttachBaseJunction'});
+    m.BaseService.belongsToMany(m.AttachedService, {as: "AttachedService", through: 'CSDB_BaseAttachJunction'});
+    m.AttachedService.belongsToMany(m.BaseService, {as: "BaseService", through: 'CSDB_BaseAttachJunction'});
 
     m.CloudEndUser.belongsTo(m.Network, {as: "Network", foreignKey: "NetworkId"});
     m.Network.hasOne(m.CloudEndUser, {as: "CloudEndUser", foreignKey: "NetworkId"});
@@ -147,8 +174,24 @@ models.forEach(function(model) {
     m.Schedule.hasMany(m.CallRule, {as: "CallRule", foreignKey: "ScheduleId"});
     m.CallRule.belongsTo(m.Schedule, {as: "Schedule", foreignKey: "ScheduleId"});
 
+    m.PBXUser.belongsTo(m.PBXUserTemplate, {as: "PBXUserTemplate", foreignKey: "PBXUserTemplateId"});
+    m.PBXUserTemplate.hasMany(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserTemplateId"});
+
+    m.PBXUser.hasMany(m.FollowMe, {as: "FollowMe", foreignKey: "PBXUserUuid"});
+    m.FollowMe.belongsTo(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserUuid"});
+    m.FollowMe.belongsTo(m.PBXUser, {as: "DestinationUser", foreignKey: "DestinationUserUuid"});
+
+    m.PBXUser.hasMany(m.Forwarding, {as: "Forwarding", foreignKey: "PBXUserUuid"});
+    m.Forwarding.belongsTo(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserUuid"});
+
+    m.DidNumber.belongsTo(m.Extension, {as: "Extension", foreignKey: "ExtensionId"});
+    m.Extension.hasMany(m.DidNumber, {as: "DidNumber", foreignKey: "ExtensionId"});
+
     m.Translation.hasMany(m.CallRule, {as: "CallRule", foreignKey: "TranslationId"});
     m.CallRule.belongsTo(m.Translation, {as: "Translation", foreignKey: "TranslationId"});
+
+    m.Translation.hasMany(m.CallRule, {as: "CallRule", foreignKey: "ANITranslationId"});
+    m.CallRule.belongsTo(m.Translation, {as: "ANITranslation", foreignKey: "ANITranslationId"});
 
     m.CallRule.belongsTo(m.Application, {as: "Application", foreignKey: "AppId"});
     m.Application.hasMany(m.CallRule, {as:"CallRule", foreignKey: "AppId"});
@@ -162,12 +205,84 @@ models.forEach(function(model) {
     m.Trunk.belongsTo(m.TrunkOperator, {as: "TrunkOperator", foreignKey: "TrunkOperatorId"});
     m.TrunkOperator.hasMany(m.Trunk, {as: "Trunk", foreignKey: "TrunkOperatorId"});
 
+    m.Application.belongsTo(m.Application, {as: "MasterApplication"});
+
     m.Application.belongsTo(m.AppDeveloper, {as: "AppDeveloper", foreignKey: "AppDeveloperId"});
     m.AppDeveloper.hasMany(m.Application, {as: "Application", foreignKey: "AppDeveloperId"});
 
     m.FileUpload.belongsTo(m.Application, {as: "Application", foreignKey: 'ApplicationId'});
     m.Application.hasMany(m.FileUpload, {as: "FileUpload", foreignKey: "ApplicationId"});
 
+    m.Service.belongsTo(m.Image, {as: "Services" });
+    m.Image.hasMany(m.Service, {as: "Services"});
+
+    m.Image.hasMany(m.Variable, {as: "SystemVariables"});
+    m.Variable.belongsTo(m.Image, {as: "SystemVariables"});
+
+    m.Image.hasMany(m.Volume, {as: "SystemVolumes"});
+    m.Volume.belongsTo(m.Image, {as: "SystemVolumes"});
+
+
+    //Person.belongsToMany(Person, { as: 'Children', through: 'PersonChildren' })
+
+
+    //m.Image.hasMany(m.Image, {as: "Dependants", through: "CSDB_ImageDependance", foreignKey: "DependentID"});
+    m.Image.belongsToMany(m.Image, {as: "Dependants", through: "CSDB_ImageDependance",foreignKey: "DependentID"});
+    //m.Image.hasMany(m.Image, {as: "OperationalDependants"});
+
+    m.Template.belongsToMany(m.Image, {as: "TemplateImage", through: "CSDB_TemplateImage"});
+
+
+    m.AutoAttendant.hasMany(m.Action,{as: "Actions"});
+    m.Action.belongsTo( m.AutoAttendant,{as: "Actions"} );
+
+    m.Application.belongsTo(m.AppDeveloper, {as: "AppDeveloper", foreignKey: "AppDeveloperId"});
+    m.AppDeveloper.hasMany(m.Application, {as: "Application", foreignKey: "AppDeveloperId"});
+
+
+
+    m.Conference.hasMany(m.ConferenceUser,{as: "ConferenceUser",foreignKey: "ConferenceId"});
+    m.ConferenceUser.belongsTo(m.Conference,{as: "Conference",foreignKey: "ConferenceId"});
+
+    m.ConferenceUser.belongsTo(m.SipUACEndpoint, {as: "SipUACEndpoint", foreignKey: "SipUACEndpointId"});
+    m.SipUACEndpoint.hasOne(m.ConferenceUser,{as: "ConferenceUser",foreignKey: "SipUACEndpointId"});
+
+    m.Conference.belongsTo(m.Extension,{as: "Extension",foreignKey: "ExtensionId"});
+    m.Extension.hasOne(m.Conference,{as: "Conference",foreignKey: "ExtensionId"});
+
+
+    // ----------------------- [CampaignManager] ----------------------- //
+        m.CampOngoingCampaign.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+        m.CampCampaignInfo.hasMany(m.CampOngoingCampaign, {as:"CampOngoingCampaign", foreignKey:"CampaignId"});
+
+        m.CampConfigurations.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+        m.CampCampaignInfo.hasMany(m.CampConfigurations, {as:"CampConfigurations", foreignKey:"CampaignId"});
+
+            //------------------CampContactSchedule
+            m.CampContactSchedule.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+            m.CampCampaignInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CampaignId"});
+
+            m.CampContactSchedule.belongsTo(m.CampContactInfo, {as:"CampContactInfo", foreignKey:"CamContactId"});
+            m.CampContactInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CamContactId"});
+
+            m.CampContactSchedule.belongsTo(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CamScheduleId"});
+            m.CampScheduleInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CamScheduleId"});
+            //------------------CampContactSchedule
+
+        //------------------CampCallbackInfo
+        m.CampCallbackInfo.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+        m.CampCampaignInfo.hasMany(m.CampCallbackInfo, {as:"CampCallbackInfo", foreignKey:"CampaignId"});
+
+        m.CampCallbackInfo.belongsTo(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CamScheduleId"});
+        m.CampScheduleInfo.hasMany(m.CampCallbackInfo, {as:"CampCallbackInfo", foreignKey:"CamScheduleId"});
+        //------------------CampCallbackInfo
+
+            //------------------CampScheduleInfo
+            m.CampScheduleInfo.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+            m.CampCampaignInfo.hasMany(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CampaignId"});
+            //------------------CampScheduleInfo
+
+    // ----------------------- [CampaignManager] ----------------------- //
 
     // ----------------------- [CampaignManager] ----------------------- //
         m.CampOngoingCampaign.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});

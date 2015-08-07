@@ -3,7 +3,7 @@
  */
 
 
-<<<<<<< HEAD
+z
 module.exports = function (sequelize, DataTypes) {
     var CampCampaignInfo = sequelize.define('DB_CAMP_CampaignInfo', {
             CampaignName: {type: DataTypes.STRING, allowNull: false, unique: true},

@@ -14,6 +14,10 @@ module.exports = function(sequelize, DataTypes) {
             ObjCategory: DataTypes.STRING,
             SipExtension: DataTypes.STRING,
             AddUser: DataTypes.STRING,
+            Pin:DataTypes.STRING,
+            Status:DataTypes.BOOLEAN,
+            PinGenTime:DataTypes.DATE,
+            TryCount:DataTypes.INTEGER,
             UpdateUser: DataTypes.STRING
         }
     );

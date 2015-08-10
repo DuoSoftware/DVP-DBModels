@@ -250,6 +250,10 @@ models.forEach(function(model) {
     m.Conference.belongsTo(m.Extension,{as: "Extension",foreignKey: "ExtensionId"});
     m.Extension.hasOne(m.Conference,{as: "Conference",foreignKey: "ExtensionId"});
 
+    m.SipUACEndpoint.hasMany(m.ConferenceUser,{as: "EndPoints",foreignKey: "SipUACEndpointId"});
+    m.EndPoints.belongsTo(m.Conference,{as: "SipUACEndpoint",foreignKey: "SipUACEndpointId"});
+
+
 
     // ----------------------- [CampaignManager] ----------------------- //
         m.CampOngoingCampaign.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});

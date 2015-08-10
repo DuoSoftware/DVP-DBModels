@@ -77,7 +77,10 @@ var models = [
     "CampContactCategory",
     "CampDialoutInfo",
     "CampContactSchedule",
-    "Endpoint"
+    "Endpoint",
+    "ArdsAttributeinfo",
+    "ArdsAttributeMetadata",
+    "ArdsRequestMetadata"
 ];
 
 models.forEach(function(model) {
@@ -326,6 +329,12 @@ models.forEach(function(model) {
     //------------------CampScheduleInfo
 
     // ----------------------- [CampaignManager] ----------------------- //
+//------------------------ [Ards] -------------------------------//
+    m.ArdsAttributeinfo.belongsToMany(m.ArdsAttributeMetadata, {as: "ArdsAttributeMetadata", through: 'ARDS_AttributeMetaJunction'});
+    m.ArdsAttributeMetadata.belongsToMany(m.ArdsAttributeinfo, {as: "ArdsAttributeinfo", through: 'ARDS_AttributeMetaJunction'});
+
+    m.ArdsAttributeMetadata.belongsTo(m.ArdsRequestMetadata, {as:"ArdsRequestMetadata", foreignKey:"RequestMetadataId"});
+    m.ArdsRequestMetadata.hasMany(m.ArdsAttributeMetadata, {as:"ArdsAttributeMetadata", foreignKey:"RequestMetadataId"});
 
 })(module.exports);
 

@@ -75,7 +75,9 @@ var models = [
     "CampContactSchedule",
     "CampContactCategory",
     "CampDialoutInfo",
-    "CampContactSchedule"
+    "CampCallbackInfo",
+    "CampCallbackConfigurations",
+    "CampCallBackReasons"
 ];
 
 models.forEach(function(model) {
@@ -318,6 +320,16 @@ models.forEach(function(model) {
             m.CampScheduleInfo.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
             m.CampCampaignInfo.hasMany(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CampaignId"});
             //------------------CampScheduleInfo
+
+        //------------------CampCallbackConfigurations
+        m.CampCallbackConfigurations.belongsTo(m.CampCallBackReasons, {as:"CampCallBackReasons", foreignKey:"ReasonId"});
+        m.CampCallBackReasons.hasMany(m.CampCallbackConfigurations, {as:"CampCallbackConfigurations", foreignKey:"ReasonId"});
+        //------------------CampCallbackConfigurations
+
+            //------------------CampConfigurations
+            m.CampConfigurations.belongsTo(m.CampCallBackReasons, {as:"CampCallbackConfigurations", foreignKey:"ConfigureId"});
+            m.CampCallbackConfigurations.hasMany(m.CampConfigurations, {as:"CampConfigurations", foreignKey:"ConfigureId"});
+            //------------------CampConfigurations
 
     // ----------------------- [CampaignManager] ----------------------- //
 

@@ -77,9 +77,7 @@ var models = [
     "CampContactCategory",
     "CampDialoutInfo",
     "CampContactSchedule",
-    "ArdsAttributeinfo",
-    "ArdsAttributeMetadata",
-    "ArdsRequestMetadata"
+    "Endpoint"
 ];
 
 models.forEach(function(model) {
@@ -254,41 +252,41 @@ models.forEach(function(model) {
     m.Conference.belongsTo(m.Extension,{as: "Extension",foreignKey: "ExtensionId"});
     m.Extension.hasOne(m.Conference,{as: "Conference",foreignKey: "ExtensionId"});
 
-    m.SipUACEndpoint.hasMany(m.ConferenceUser,{as: "EndPoints",foreignKey: "SipUACEndpointId"});
-    m.EndPoints.belongsTo(m.Conference,{as: "SipUACEndpoint",foreignKey: "SipUACEndpointId"});
+    m.Endpoint.belongsTo(m.SipUACEndpoint, {as: "SipUACEndpoint", foreignKey: "SipUACEndpointId"});
+    m.SipUACEndpoint.hasMany(m.Endpoint, {as: "Endpoint", foreignKey: "SipUACEndpointId"});
 
 
 
     // ----------------------- [CampaignManager] ----------------------- //
-        m.CampOngoingCampaign.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
-        m.CampCampaignInfo.hasMany(m.CampOngoingCampaign, {as:"CampOngoingCampaign", foreignKey:"CampaignId"});
+    m.CampOngoingCampaign.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+    m.CampCampaignInfo.hasMany(m.CampOngoingCampaign, {as:"CampOngoingCampaign", foreignKey:"CampaignId"});
 
-        m.CampConfigurations.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
-        m.CampCampaignInfo.hasOne(m.CampConfigurations, {as:"CampConfigurations", foreignKey:"CampaignId"});
+    m.CampConfigurations.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+    m.CampCampaignInfo.hasOne(m.CampConfigurations, {as:"CampConfigurations", foreignKey:"CampaignId"});
 
-            //------------------CampContactSchedule
-            m.CampContactSchedule.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
-            m.CampCampaignInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CampaignId"});
+    //------------------CampContactSchedule
+    m.CampContactSchedule.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+    m.CampCampaignInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CampaignId"});
 
-            m.CampContactSchedule.belongsTo(m.CampContactInfo, {as:"CampContactInfo", foreignKey:"CamContactId"});
-            m.CampContactInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CamContactId"});
+    m.CampContactSchedule.belongsTo(m.CampContactInfo, {as:"CampContactInfo", foreignKey:"CamContactId"});
+    m.CampContactInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CamContactId"});
 
-            m.CampContactSchedule.belongsTo(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CamScheduleId"});
-            m.CampScheduleInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CamScheduleId"});
-            //------------------CampContactSchedule
+    m.CampContactSchedule.belongsTo(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CamScheduleId"});
+    m.CampScheduleInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CamScheduleId"});
+    //------------------CampContactSchedule
 
-        //------------------CampCallbackInfo
-        m.CampCallbackInfo.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
-        m.CampCampaignInfo.hasMany(m.CampCallbackInfo, {as:"CampCallbackInfo", foreignKey:"CampaignId"});
+    //------------------CampCallbackInfo
+    m.CampCallbackInfo.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+    m.CampCampaignInfo.hasMany(m.CampCallbackInfo, {as:"CampCallbackInfo", foreignKey:"CampaignId"});
 
-        m.CampCallbackInfo.belongsTo(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CamScheduleId"});
-        m.CampScheduleInfo.hasMany(m.CampCallbackInfo, {as:"CampCallbackInfo", foreignKey:"CamScheduleId"});
-        //------------------CampCallbackInfo
+    m.CampCallbackInfo.belongsTo(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CamScheduleId"});
+    m.CampScheduleInfo.hasMany(m.CampCallbackInfo, {as:"CampCallbackInfo", foreignKey:"CamScheduleId"});
+    //------------------CampCallbackInfo
 
-            //------------------CampScheduleInfo
-            m.CampScheduleInfo.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
-            m.CampCampaignInfo.hasMany(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CampaignId"});
-            //------------------CampScheduleInfo
+    //------------------CampScheduleInfo
+    m.CampScheduleInfo.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+    m.CampCampaignInfo.hasMany(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CampaignId"});
+    //------------------CampScheduleInfo
     //------------------CampContactCategory
     m.CampContactInfo.belongsTo(m.CampContactCategory, {as:"CampContactCategory", foreignKey:"CategoryID"});
     m.CampContactCategory.hasMany(m.CampContactInfo, {as:"CampContactInfo", foreignKey:"CategoryID"});
@@ -297,45 +295,37 @@ models.forEach(function(model) {
     // ----------------------- [CampaignManager] ----------------------- //
 
     // ----------------------- [CampaignManager] ----------------------- //
-        m.CampOngoingCampaign.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
-        m.CampCampaignInfo.hasMany(m.CampOngoingCampaign, {as:"CampOngoingCampaign", foreignKey:"CampaignId"});
+    m.CampOngoingCampaign.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+    m.CampCampaignInfo.hasMany(m.CampOngoingCampaign, {as:"CampOngoingCampaign", foreignKey:"CampaignId"});
 
-        m.CampConfigurations.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
-        m.CampCampaignInfo.hasMany(m.CampConfigurations, {as:"CampConfigurations", foreignKey:"CampaignId"});
+    m.CampConfigurations.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+    m.CampCampaignInfo.hasMany(m.CampConfigurations, {as:"CampConfigurations", foreignKey:"CampaignId"});
 
-            //------------------CampContactSchedule
-            m.CampContactSchedule.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
-            m.CampCampaignInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CampaignId"});
+    //------------------CampContactSchedule
+    m.CampContactSchedule.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+    m.CampCampaignInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CampaignId"});
 
-            m.CampContactSchedule.belongsTo(m.CampContactInfo, {as:"CampContactInfo", foreignKey:"CamContactId"});
-            m.CampContactInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CamContactId"});
+    m.CampContactSchedule.belongsTo(m.CampContactInfo, {as:"CampContactInfo", foreignKey:"CamContactId"});
+    m.CampContactInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CamContactId"});
 
-            m.CampContactSchedule.belongsTo(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CamScheduleId"});
-            m.CampScheduleInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CamScheduleId"});
-            //------------------CampContactSchedule
+    m.CampContactSchedule.belongsTo(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CamScheduleId"});
+    m.CampScheduleInfo.hasMany(m.CampContactSchedule, {as:"CampContactSchedule", foreignKey:"CamScheduleId"});
+    //------------------CampContactSchedule
 
-        //------------------CampCallbackInfo
-        m.CampCallbackInfo.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
-        m.CampCampaignInfo.hasMany(m.CampCallbackInfo, {as:"CampCallbackInfo", foreignKey:"CampaignId"});
+    //------------------CampCallbackInfo
+    m.CampCallbackInfo.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+    m.CampCampaignInfo.hasMany(m.CampCallbackInfo, {as:"CampCallbackInfo", foreignKey:"CampaignId"});
 
-        m.CampCallbackInfo.belongsTo(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CamScheduleId"});
-        m.CampScheduleInfo.hasMany(m.CampCallbackInfo, {as:"CampCallbackInfo", foreignKey:"CamScheduleId"});
-        //------------------CampCallbackInfo
+    m.CampCallbackInfo.belongsTo(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CamScheduleId"});
+    m.CampScheduleInfo.hasMany(m.CampCallbackInfo, {as:"CampCallbackInfo", foreignKey:"CamScheduleId"});
+    //------------------CampCallbackInfo
 
-            //------------------CampScheduleInfo
-            m.CampScheduleInfo.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
-            m.CampCampaignInfo.hasMany(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CampaignId"});
-            //------------------CampScheduleInfo
+    //------------------CampScheduleInfo
+    m.CampScheduleInfo.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+    m.CampCampaignInfo.hasMany(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CampaignId"});
+    //------------------CampScheduleInfo
 
     // ----------------------- [CampaignManager] ----------------------- //
-
-    //------------------------ [Ards] -------------------------------//
-    m.ArdsAttributeinfo.belongsToMany(m.ArdsAttributeMetadata, {as: "ArdsAttributeMetadata", through: 'ARDS_AttributeMetaJunction'});
-    m.ArdsAttributeMetadata.belongsToMany(m.ArdsAttributeinfo, {as: "ArdsAttributeinfo", through: 'ARDS_AttributeMetaJunction'});
-
-    m.ArdsAttributeMetadata.belongsTo(m.ArdsRequestMetadata, {as:"ArdsRequestMetadata", foreignKey:"RequestMetadataId"});
-    m.ArdsRequestMetadata.hasMany(m.ArdsAttributeMetadata, {as:"ArdsAttributeMetadata", foreignKey:"RequestMetadataId"});
-
 
 })(module.exports);
 

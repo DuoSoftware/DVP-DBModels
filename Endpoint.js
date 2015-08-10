@@ -3,10 +3,9 @@
  */
 module.exports = function(sequelize, DataTypes)
 {
-    var Endpoints = sequelize.define('CSDB_Endpoints',
+    var Endpoint = sequelize.define('CSDB_Endpoint',
         {
             Phone:DataTypes.STRING,
-            Protocol: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
             ObjClass: DataTypes.STRING,
@@ -16,5 +15,5 @@ module.exports = function(sequelize, DataTypes)
         }
     );
 
-    return Endpoints;
+    return Endpoint;
 };

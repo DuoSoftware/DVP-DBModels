@@ -6,9 +6,9 @@
 
 module.exports = function (sequelize, DataTypes) {
     var CampContactCategory = sequelize.define('DB_CAMP_CampContactCategory', {
-            CategoryName: {type:DataTypes.STRING,unique: 'CampContactCategoryIndex'},
-            TenantId: {type:DataTypes.INTEGER,unique: 'CampContactCategoryIndex'},
-            CompanyId: {type:DataTypes.INTEGER,unique: 'CampContactCategoryIndex'},
+            CategoryName: DataTypes.STRING,
+            TenantId: DataTypes.INTEGER,
+            CompanyId: DataTypes.INTEGER,
             CategoryID: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
         }
     );

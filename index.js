@@ -58,6 +58,7 @@ var models = [
     "FollowMe",
     "Forwarding",
     "DidNumber",
+    "TransferCode",
     "Campaign",
     "CampaignPhones",
     "DialedCampaignPhones",

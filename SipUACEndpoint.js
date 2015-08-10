@@ -17,10 +17,10 @@ module.exports = function(sequelize, DataTypes) {
                 Pin: DataTypes.STRING,
                 PinGenTime: DataTypes.DATE,
                 TryCount: DataTypes.INTEGER,
-                TransInternalFC: DataTypes.INTEGER,
-                TransExternalFC: DataTypes.INTEGER,
-                TransConferenceFC: DataTypes.INTEGER,
-                TransGroupFC: DataTypes.INTEGER,
+                TransInternalEnable: DataTypes.BOOLEAN,
+                TransExternalEnable: DataTypes.BOOLEAN,
+                TransConferenceEnable: DataTypes.BOOLEAN,
+                TransGroupEnable: DataTypes.BOOLEAN,
                 UpdateUser: DataTypes.STRING
 
         }

@@ -5,8 +5,8 @@ module.exports = function(sequelize, DataTypes)
 {
     var Endpoint = sequelize.define('CSDB_Endpoint',
         {
-            Phone:DataTypes.STRING,
-            AreaCode:DataTypes.STRING,
+            Phone:{type:DataTypes.STRING,unique: 'EndPointIndex'},
+            AreaCode:{type:DataTypes.STRING,unique: 'EndPointIndex'},
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
             ObjClass: DataTypes.STRING,

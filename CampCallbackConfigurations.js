@@ -4,8 +4,8 @@
 
 
 module.exports = function(sequelize, DataTypes) {
-    var CampCallbackConfigurations = sequelize.define('DB_CampCallbackConfigurations', {
-            ConfigureId: {type:DataTypes.STRING,unique: 'CallBackConfigCompositeIndex'},
+    var CampCallbackConfigurations = sequelize.define('DB_CAMP_CallbackConfigurations', {
+            ConfigureId: {type:DataTypes.INTEGER,unique: 'CallBackConfigCompositeIndex'},
             MaxCallBackCount:{type:DataTypes.INTEGER,unique: 'CallBackConfigCompositeIndex'},
             ReasonId:{type:DataTypes.INTEGER,unique: 'CallBackConfigCompositeIndex'},
             CallBackConfId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}

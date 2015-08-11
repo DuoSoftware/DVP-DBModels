@@ -265,8 +265,10 @@ models.forEach(function(model) {
         m.CampOngoingCampaign.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
         m.CampCampaignInfo.hasMany(m.CampOngoingCampaign, {as:"CampOngoingCampaign", foreignKey:"CampaignId"});
 
-        m.CampConfigurations.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
-        m.CampCampaignInfo.hasOne(m.CampConfigurations, {as:"CampConfigurations", foreignKey:"CampaignId"});
+            //------------------CampConfigurations
+            m.CampConfigurations.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+            m.CampCampaignInfo.hasOne(m.CampConfigurations, {as:"CampConfigurations", foreignKey:"CampaignId"});
+            //------------------CampContactSchedule
 
             //------------------CampContactSchedule
             m.CampContactSchedule.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});

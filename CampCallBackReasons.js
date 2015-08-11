@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
             Reason: {type:DataTypes.STRING,unique: 'CallBackReasonsCompositeIndex'},
             TenantId:{type:DataTypes.INTEGER,unique: 'CallBackReasonsCompositeIndex'},
             CompanyId:{type:DataTypes.INTEGER,unique: 'CallBackReasonsCompositeIndex'},
+            Status:DataTypes.BOOLEAN,
             ReasonId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
         }
     );

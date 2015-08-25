@@ -82,7 +82,8 @@ var models = [
     "Endpoint",
     "ArdsAttributeinfo",
     "ArdsAttributeMetadata",
-    "ArdsRequestMetadata"
+    "ArdsRequestMetadata",
+    "QueueProfile"
 ];
 
 models.forEach(function(model) {

@@ -3,8 +3,8 @@
  */
 
 module.exports = function(sequelize, DataTypes) {
-    var QueueProfile = sequelize.define('CSDB_QueueProfile', {
-            Name: {type: DataTypes.STRING,unique: "compositeIndex"},
+    var QueueProfile = sequelize.define('CSDB_QueueMusic', {
+            Name: {type: DataTypes.STRING,unique: "compositeQueue"},
             Description: DataTypes.STRING,
             Class: DataTypes.STRING,
             MOH: DataTypes.STRING,
@@ -13,8 +13,8 @@ module.exports = function(sequelize, DataTypes) {
             AnnouncementTime: DataTypes.INTEGER,
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
-            CompanyId: {type: DataTypes.INTEGER,unique: "compositeIndex"},
-            TenantId: {type: DataTypes.INTEGER,unique: "compositeIndex"}
+            CompanyId: {type: DataTypes.INTEGER,unique: "compositeQueue"},
+            TenantId: {type: DataTypes.INTEGER,unique: "compositeQueue"}
 
         }
     );

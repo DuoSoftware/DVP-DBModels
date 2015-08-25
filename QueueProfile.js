@@ -4,7 +4,7 @@
 
 module.exports = function(sequelize, DataTypes) {
     var QueueProfile = sequelize.define('CSDB_QueueMusic', {
-            Name: {type: DataTypes.STRING,unique: "compositeQueue"},
+            Name: {type: DataTypes.STRING,unique: true},
             Description: DataTypes.STRING,
             Class: DataTypes.STRING,
             MOH: DataTypes.STRING,
@@ -13,11 +13,12 @@ module.exports = function(sequelize, DataTypes) {
             AnnouncementTime: DataTypes.INTEGER,
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
-            CompanyId: {type: DataTypes.INTEGER,unique: "compositeQueue"},
-            TenantId: {type: DataTypes.INTEGER,unique: "compositeQueue"}
+            CompanyId: DataTypes.INTEGER,
+            TenantId: DataTypes.INTEGER
 
         }
     );
 
     return QueueProfile;
 };
+

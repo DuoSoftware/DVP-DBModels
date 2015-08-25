@@ -1,9 +1,5 @@
-/**
- * Created by a on 8/25/2015.
- */
-
 module.exports = function(sequelize, DataTypes) {
-    var QueueProfile = sequelize.define('CSDB_QueueMusic', {
+    var QueueProfile = sequelize.define('CSDB_QueueProfile', {
             Name: {type: DataTypes.STRING,unique: true},
             Description: DataTypes.STRING,
             Class: DataTypes.STRING,

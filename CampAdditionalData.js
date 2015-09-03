@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
             Category:{type:DataTypes.STRING,unique: 'CampAdditionalDataCompositeIndex'},
             TenantId:{type:DataTypes.INTEGER,unique: 'CampAdditionalDataCompositeIndex'},
             CompanyId:{type:DataTypes.INTEGER,unique: 'CampAdditionalDataCompositeIndex'},
-            AdditionalData:{type:DataTypes.STRING,unique: 'CampAdditionalDataCompositeIndex'},
+            AdditionalData:{type:DataTypes.STRING},
             CampaignId:{type:DataTypes.INTEGER,unique: 'CampAdditionalDataCompositeIndex'},
             AdditionalDataId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
         }

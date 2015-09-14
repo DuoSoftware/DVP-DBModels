@@ -85,7 +85,10 @@ var models = [
     "ArdsAttributeMetadata",
     "ArdsRequestMetadata",
     "QueueProfile",
-    "SipPresence"
+    "SipPresence",
+    "SwarmCluster",
+    "SwarmNode",
+    "SwarmDockerInstance"
 ];
 
 models.forEach(function(model) {
@@ -235,6 +238,24 @@ models.forEach(function(model) {
     m.Image.belongsToMany(m.Image, {as: "Dependants", through: "CSDB_ImageDependance",foreignKey: "DependentID"});
 
     m.Template.belongsToMany(m.Image, {as: "TemplateImage", through: "CSDB_TemplateImage"});
+
+
+
+
+/*
+    "SwarmCluster",
+        "SwarmNode",
+        "SwarmDockerInstance"*/
+
+    m.SwarmCluster.hasMany(m.SwarmNode, {as: "SwarmNodes"});
+    m.SwarmNode.belongsTo(m.SwarmCluster, {as: "SwarmNodes"});
+
+    m.SwarmNode.hasMany(m.SwarmDockerInstance, {as: "SwarmDockerInstances"});
+    m.SwarmDockerInstance.belongsTo(m.SwarmNode, {as: "SwarmDockerInstances"});
+
+
+
+
 
 
     m.AutoAttendant.hasMany(m.Action,{as: "Actions"});

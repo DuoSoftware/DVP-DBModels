@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
             MainIP: DataTypes.STRING,
+            RemotePort: DataTypes.INTEGER,
             Domain: DataTypes.STRING,
             HostDomain: DataTypes.STRING
         }

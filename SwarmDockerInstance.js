@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     var SwarmDockerInstance = sequelize.define('CSDB_SwarmDockerInstance', {
             Name: DataTypes.STRING,
             ParentApp: DataTypes.STRING,
-            ID: {type: DataTypes.STRING, unique: true},
+            UUID: {type: DataTypes.STRING, unique: true},
             Code: DataTypes.INTEGER,
             Company: DataTypes.INTEGER,
             Tenant: DataTypes.INTEGER,

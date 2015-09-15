@@ -247,11 +247,11 @@ models.forEach(function(model) {
         "SwarmNode",
         "SwarmDockerInstance"*/
 
-    m.SwarmCluster.hasMany(m.SwarmNode, {as: "SwarmNode"});
-    m.SwarmNode.belongsTo(m.SwarmCluster, {as: "SwarmCluster"});
+    m.SwarmCluster.hasMany(m.SwarmNode, {as: "SwarmNode", foreignKey: "SwarmClusterId"});
+    m.SwarmNode.belongsTo(m.SwarmCluster, {as: "SwarmCluster", foreignKey: "SwarmClusterId"});
 
-    m.SwarmNode.hasMany(m.SwarmDockerInstance, {as: "SwarmDockerInstance"});
-    m.SwarmDockerInstance.belongsTo(m.SwarmNode, {as: "SwarmNode"});
+    m.SwarmNode.hasMany(m.SwarmDockerInstance, {as: "SwarmDockerInstance", foreignKey: "SwarmNodeId"});
+    m.SwarmDockerInstance.belongsTo(m.SwarmNode, {as: "SwarmNode", foreignKey: "SwarmNodeId"});
 
 
 

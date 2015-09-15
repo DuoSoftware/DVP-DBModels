@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
             UniqueId: {type:DataTypes.STRING, primaryKey:true},
             Name: DataTypes.STRING,
             Status: DataTypes.BOOLEAN,
-            Code: DataTypes.INTEGER,
+            Code: DataTypes.STRING,
             Company: DataTypes.INTEGER,
             Tenant: DataTypes.INTEGER,
             Class: DataTypes.STRING,

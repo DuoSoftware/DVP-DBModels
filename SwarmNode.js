@@ -1,6 +1,7 @@
 
 module.exports = function(sequelize, DataTypes) {
     var SwarmNode = sequelize.define('CSDB_SwarmNode', {
+            UniqueId: {type:DataTypes.STRING, primaryKey:true},
             Name: DataTypes.STRING,
             Status: DataTypes.BOOLEAN,
             Code: DataTypes.INTEGER,

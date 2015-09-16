@@ -11,7 +11,8 @@ module.exports = function(sequelize, DataTypes) {
             Class: DataTypes.STRING,
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
-            LBDomain: DataTypes.STRING
+            LBDomain: DataTypes.STRING,
+            LBIP: DataTypes.STRING
         }
     );
     return SwarmCluster;

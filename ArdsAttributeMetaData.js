@@ -2,7 +2,7 @@
  * Created by Heshan.i on 8/10/2015.
  */
 module.exports = function(sequelize, DataTypes) {
-    var ArdsAttributeMetadata = sequelize.define('ARDS_AttributeMetaData', {
+    var ArdsAttributeMetaData = sequelize.define('ARDS_AttributeMetaData', {
 
             Tenant: DataTypes.INTEGER,
             Company: DataTypes.INTEGER,
@@ -14,5 +14,5 @@ module.exports = function(sequelize, DataTypes) {
 
         }
     );
-    return ArdsAttributeMetadata;
+    return ArdsAttributeMetaData;
 };

@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     var SwarmCluster = sequelize.define('CSDB_SwarmCluster', {
             Name: DataTypes.STRING,
             Token: {type : DataTypes.STRING, unique: true},
-            Code: DataTypes.INTEGER,
+            Code: DataTypes.STRING,
             Company: DataTypes.INTEGER,
             Tenant: DataTypes.INTEGER,
             Class: DataTypes.STRING,

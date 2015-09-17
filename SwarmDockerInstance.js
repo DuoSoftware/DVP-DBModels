@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
             Name: DataTypes.STRING,
             ParentApp: DataTypes.STRING,
             UUID: {type: DataTypes.STRING, unique: true},
-            Code: DataTypes.INTEGER,
+            Code: DataTypes.STRING,
             Company: DataTypes.INTEGER,
             Tenant: DataTypes.INTEGER,
             Class: DataTypes.STRING,

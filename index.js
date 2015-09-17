@@ -81,7 +81,7 @@ var models = [
     "CampCallBackReasons",
     "CampAdditionalData",
     "Endpoint",
-    "ArdsAttributeinfo",
+    "ArdsAttributeInfo",
     "ArdsAttributeMetadata",
     "ArdsRequestMetadata",
     "QueueProfile",
@@ -335,8 +335,8 @@ models.forEach(function(model) {
 
 
 //------------------------ [Ards] -------------------------------//
-    m.ArdsAttributeinfo.belongsToMany(m.ArdsAttributeMetadata, {as: "ArdsAttributeMetadata", through: 'ARDS_AttributeMetaJunction'});
-    m.ArdsAttributeMetadata.belongsToMany(m.ArdsAttributeinfo, {as: "ArdsAttributeinfo", through: 'ARDS_AttributeMetaJunction'});
+    m.ArdsAttributeInfo.belongsToMany(m.ArdsAttributeMetadata, {as: "ArdsAttributeMetadata", through: 'ARDS_AttributeMetaJunction'});
+    m.ArdsAttributeMetadata.belongsToMany(m.ArdsAttributeInfo, {as: "ArdsAttributeInfo", through: 'ARDS_AttributeMetaJunction'});
 
     m.ArdsAttributeMetadata.belongsTo(m.ArdsRequestMetadata, {as:"ArdsRequestMetadata", foreignKey:"RequestMetadataId"});
     m.ArdsRequestMetadata.hasMany(m.ArdsAttributeMetadata, {as:"ArdsAttributeMetadata", foreignKey:"RequestMetadataId"});

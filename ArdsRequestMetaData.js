@@ -5,7 +5,7 @@
 
 
 module.exports = function(sequelize, DataTypes) {
-    var ArdsRequestMetadata = sequelize.define('ARDS_RequestMetadata', {
+    var ArdsRequestMetaData = sequelize.define('ARDS_RequestMetadata', {
 
             Tenant: {type:DataTypes.INTEGER,unique: 'RequestMetadataIndex'},
             Company: {type:DataTypes.INTEGER,unique: 'RequestMetadataIndex'},
@@ -23,5 +23,5 @@ module.exports = function(sequelize, DataTypes) {
 
         }
     );
-    return ArdsRequestMetadata;
+    return ArdsRequestMetaData;
 };

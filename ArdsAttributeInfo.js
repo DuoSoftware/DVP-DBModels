@@ -2,7 +2,7 @@
  * Created by Heshan.i on 8/10/2015.
  */
 module.exports = function(sequelize, DataTypes) {
-    var ArdsAttributeinfo = sequelize.define('ARDS_AttributeInfo', {
+    var ArdsAttributeInfo = sequelize.define('ARDS_AttributeInfo', {
 
             Tenant: {type:DataTypes.INTEGER,unique: 'AttributeInfoIndex'},
             Company: {type:DataTypes.INTEGER,unique: 'AttributeInfoIndex'},
@@ -14,5 +14,5 @@ module.exports = function(sequelize, DataTypes) {
 
         }
     );
-    return ArdsAttributeinfo;
+    return ArdsAttributeInfo;
 };

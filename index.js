@@ -254,7 +254,7 @@ models.forEach(function(model) {
     m.SwarmNode.hasMany(m.SwarmDockerInstance, {as: "SwarmDockerInstance", foreignKey: "SwarmNodeId"});
     m.SwarmDockerInstance.belongsTo(m.SwarmNode, {as: "SwarmNode", foreignKey: "SwarmNodeId"});
 
-    m.SwarmDockerInstance.hasMany(m.SwarmDockerEnvVariable, {as: "SwarmDockerEnvVariable", foreignKey: "SwarmInstanceId"});
+    m.SwarmDockerInstance.hasMany(m.SwarmDockerEnvVariable, {as: "Env", foreignKey: "SwarmInstanceId"});
     m.SwarmDockerEnvVariable.belongsTo(m.SwarmDockerInstance, {as: "SwarmDockerInstance", foreignKey: "SwarmInstanceId"});
 
 

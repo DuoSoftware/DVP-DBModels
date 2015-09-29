@@ -80,6 +80,11 @@ var models = [
     "CampCallbackConfigurations",
     "CampCallBackReasons",
     "CampAdditionalData",
+    "ResResource",
+    "ResTask",
+    "ResResourceTask",
+    "ResAttribute",
+    "ResResourceAttributeTask",
     "Endpoint",
     "ArdsAttributeInfo",
     "ArdsAttributeMetaData",
@@ -332,6 +337,27 @@ models.forEach(function(model) {
         //------------------CampCallbackConfigurations
 
     // ----------------------- [CampaignManager] ----------------------- //
+
+
+    // ----------------------- [Resource Service] ----------------------- //
+
+        //------------------ResResourceTask
+            m.ResResourceTask.belongsTo(m.ResTask, {as:"ResTask", foreignKey:"TaskId"});
+            m.ResTask.hasMany(m.ResResourceTask, {as:"ResResourceTask", foreignKey:"TaskId"});
+
+            m.ResResourceTask.belongsTo(m.ResResource, {as:"ResMetadata", foreignKey:"ResourceId"});
+            m.ResResource.hasMany(m.ResResourceTask, {as:"ResResourceTask", foreignKey:"ResourceId"});
+        //------------------ResResourceTask
+
+            //------------------ResResourceAttributeTask
+                m.ResResourceAttributeTask.belongsTo(m.ResAttribute, {as:"ResAttribute", foreignKey:"AttributeId"});
+                m.ResAttribute.hasMany(m.ResResourceAttributeTask, {as:"ResResourceAttributeTask", foreignKey:"AttributeId"});
+
+                m.ResResourceAttributeTask.belongsTo(m.ResResourceTask, {as:"ResResourceTask", foreignKey:"ResTaskId"});
+                m.ResResourceTask.hasMany(m.ResResourceAttributeTask, {as:"ResResourceAttributeTask", foreignKey:"ResTaskId"});
+            //------------------ResResourceAttributeTask
+
+    // ----------------------- [Resource Service] ----------------------- //
 
 
 //------------------------ [Ards] -------------------------------//

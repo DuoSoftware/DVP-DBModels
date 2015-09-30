@@ -85,6 +85,8 @@ var models = [
     "ResResourceTask",
     "ResAttribute",
     "ResResourceAttributeTask",
+    "ResGroups",
+    "ResAttributeGroups",
     "Endpoint",
     "ArdsAttributeInfo",
     "ArdsAttributeMetaData",
@@ -356,6 +358,14 @@ models.forEach(function(model) {
                 m.ResResourceAttributeTask.belongsTo(m.ResResourceTask, {as:"ResResourceTask", foreignKey:"ResTaskId"});
                 m.ResResourceTask.hasMany(m.ResResourceAttributeTask, {as:"ResResourceAttributeTask", foreignKey:"ResTaskId"});
             //------------------ResResourceAttributeTask
+
+        //------------------ResAttributeGroups
+            m.ResAttributeGroups.belongsTo(m.ResGroups, {as:"ResGroups", foreignKey:"GroupId"});
+            m.ResGroups.hasMany(m.ResAttributeGroups, {as:"ResAttributeGroups", foreignKey:"GroupId"});
+
+            m.ResAttributeGroups.belongsTo(m.ResAttribute, {as:"ResAttribute", foreignKey:"AttributeId"});
+            m.ResAttribute.hasMany(m.ResAttributeGroups, {as:"ResAttributeGroups", foreignKey:"AttributeId"});
+        //------------------ResAttributeGroups
 
     // ----------------------- [Resource Service] ----------------------- //
 

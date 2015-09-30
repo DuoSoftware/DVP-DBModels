@@ -80,6 +80,13 @@ var models = [
     "CampCallbackConfigurations",
     "CampCallBackReasons",
     "CampAdditionalData",
+    "ResResource",
+    "ResTask",
+    "ResResourceTask",
+    "ResAttribute",
+    "ResResourceAttributeTask",
+    "ResGroups",
+    "ResAttributeGroups",
     "Endpoint",
     "ArdsAttributeInfo",
     "ArdsAttributeMetaData",
@@ -88,7 +95,8 @@ var models = [
     "SipPresence",
     "SwarmCluster",
     "SwarmNode",
-    "SwarmDockerInstance"
+    "SwarmDockerInstance",
+    "SwarmDockerEnvVariable"
 ];
 
 models.forEach(function(model) {
@@ -235,7 +243,7 @@ models.forEach(function(model) {
     m.Image.hasMany(m.Volume, {as: "SystemVolumes"});
     m.Volume.belongsTo(m.Image, {as: "SystemVolumes"});
 
-    m.Image.belongsToMany(m.Image, {as: "Dependants", through: "CSDB_ImageDependance",foreignKey: "DependentID"});
+    m.Image.belongsToMany(m.Image, {as: "Dependants", through: "CSDB_ImageDependance",foreignKey: "DependantId"});
 
     m.Template.belongsToMany(m.Image, {as: "TemplateImage", through: "CSDB_TemplateImage"});
 
@@ -253,9 +261,8 @@ models.forEach(function(model) {
     m.SwarmNode.hasMany(m.SwarmDockerInstance, {as: "SwarmDockerInstance", foreignKey: "SwarmNodeId"});
     m.SwarmDockerInstance.belongsTo(m.SwarmNode, {as: "SwarmNode", foreignKey: "SwarmNodeId"});
 
-
-
-
+    m.SwarmDockerInstance.hasMany(m.SwarmDockerEnvVariable, {as: "Envs", foreignKey: "SwarmInstanceId", onDelete: 'cascade'});
+    m.SwarmDockerEnvVariable.belongsTo(m.SwarmDockerInstance, {as: "SwarmDockerInstance", foreignKey: "SwarmInstanceId"});
 
 
     m.AutoAttendant.hasMany(m.Action,{as: "Actions"});
@@ -332,6 +339,35 @@ models.forEach(function(model) {
         //------------------CampCallbackConfigurations
 
     // ----------------------- [CampaignManager] ----------------------- //
+
+
+    // ----------------------- [Resource Service] ----------------------- //
+
+        //------------------ResResourceTask
+            m.ResResourceTask.belongsTo(m.ResTask, {as:"ResTask", foreignKey:"TaskId"});
+            m.ResTask.hasMany(m.ResResourceTask, {as:"ResResourceTask", foreignKey:"TaskId"});
+
+            m.ResResourceTask.belongsTo(m.ResResource, {as:"ResMetadata", foreignKey:"ResourceId"});
+            m.ResResource.hasMany(m.ResResourceTask, {as:"ResResourceTask", foreignKey:"ResourceId"});
+        //------------------ResResourceTask
+
+            //------------------ResResourceAttributeTask
+                m.ResResourceAttributeTask.belongsTo(m.ResAttribute, {as:"ResAttribute", foreignKey:"AttributeId"});
+                m.ResAttribute.hasMany(m.ResResourceAttributeTask, {as:"ResResourceAttributeTask", foreignKey:"AttributeId"});
+
+                m.ResResourceAttributeTask.belongsTo(m.ResResourceTask, {as:"ResResourceTask", foreignKey:"ResTaskId"});
+                m.ResResourceTask.hasMany(m.ResResourceAttributeTask, {as:"ResResourceAttributeTask", foreignKey:"ResTaskId"});
+            //------------------ResResourceAttributeTask
+
+        //------------------ResAttributeGroups
+            m.ResAttributeGroups.belongsTo(m.ResGroups, {as:"ResGroups", foreignKey:"GroupId"});
+            m.ResGroups.hasMany(m.ResAttributeGroups, {as:"ResAttributeGroups", foreignKey:"GroupId"});
+
+            m.ResAttributeGroups.belongsTo(m.ResAttribute, {as:"ResAttribute", foreignKey:"AttributeId"});
+            m.ResAttribute.hasMany(m.ResAttributeGroups, {as:"ResAttributeGroups", foreignKey:"AttributeId"});
+        //------------------ResAttributeGroups
+
+    // ----------------------- [Resource Service] ----------------------- //
 
 
 //------------------------ [Ards] -------------------------------//

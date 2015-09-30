@@ -9,7 +9,11 @@ module.exports = function(sequelize, DataTypes) {
             Tenant: DataTypes.INTEGER,
             Class: DataTypes.STRING,
             Type: DataTypes.STRING,
-            Category: DataTypes.STRING
+            Category: DataTypes.STRING,
+            Status: DataTypes.STRING,
+            FrontEnd: DataTypes.STRING,
+            BackEnd: DataTypes.STRING,
+            DeploymentUUID: DataTypes.STRING
         }
     );
     return SwarmDockerInstance;

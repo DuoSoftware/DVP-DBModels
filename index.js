@@ -96,7 +96,8 @@ var models = [
     "SwarmCluster",
     "SwarmNode",
     "SwarmDockerInstance",
-    "SwarmDockerEnvVariable"
+    "SwarmDockerEnvVariable",
+    "DashboardMetaData"
 ];
 
 models.forEach(function(model) {

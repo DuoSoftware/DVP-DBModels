@@ -19,6 +19,7 @@ module.exports = function(sequelize, DataTypes) {
             ReqSelectionAlgo: DataTypes.STRING,
             MaxReservedTime: DataTypes.INTEGER,
             MaxRejectCount: DataTypes.INTEGER,
+            MaxAfterWorkTime: DataTypes.INTEGER,
             RequestMetadataId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
 
         }

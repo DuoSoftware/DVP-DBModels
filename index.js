@@ -244,8 +244,8 @@ models.forEach(function(model) {
     m.Image.hasMany(m.Volume, {as: "SystemVolumes"});
     m.Volume.belongsTo(m.Image, {as: "SystemVolumes"});
 
-    m.Image.belongsToMany(m.Image, {as: "Dependant", through: "CSDB_ImageDependance",foreignKey: "DependantId"});
-    m.Image.belongsToMany(m.Image, {as: "DepParent", through: "CSDB_ImageDependance",foreignKey: "ImageId"});
+    m.Image.belongsToMany(m.Image, {as: "Dependants", through: "CSDB_ImageDependance",foreignKey: "DependantId"});
+    m.Image.belongsToMany(m.Image, {as: "DepParents", through: "CSDB_ImageDependance",foreignKey: "ImageId"});
 
     m.Template.belongsToMany(m.Image, {as: "TemplateImage", through: "CSDB_TemplateImage"});
 

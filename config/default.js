@@ -5,6 +5,6 @@ module.exports = {
     "Password":"DuoS123",
     "Port":5432,
     "Host":"localhost",
-    "Database":"dvpdb"
+    "Database":"testee"
   }
 };

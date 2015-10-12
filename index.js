@@ -96,7 +96,8 @@ var models = [
     "SwarmCluster",
     "SwarmNode",
     "SwarmDockerInstance",
-    "SwarmDockerEnvVariable"
+    "SwarmDockerEnvVariable",
+    "DashboardMetaData"
 ];
 
 models.forEach(function(model) {
@@ -350,7 +351,7 @@ models.forEach(function(model) {
             m.ResResourceTask.belongsTo(m.ResTask, {as:"ResTask", foreignKey:"TaskId"});
             m.ResTask.hasMany(m.ResResourceTask, {as:"ResResourceTask", foreignKey:"TaskId"});
 
-            m.ResResourceTask.belongsTo(m.ResResource, {as:"ResMetadata", foreignKey:"ResourceId"});
+            m.ResResourceTask.belongsTo(m.ResResource, {as:"ResResource", foreignKey:"ResourceId"});
             m.ResResource.hasMany(m.ResResourceTask, {as:"ResResourceTask", foreignKey:"ResourceId"});
         //------------------ResResourceTask
 

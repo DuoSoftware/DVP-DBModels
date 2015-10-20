@@ -14,6 +14,7 @@ module.exports = function (sequelize, DataTypes) {
             CompanyId: {type:DataTypes.INTEGER,unique: 'ResGroupsCompositeIndex'},
             OtherData: DataTypes.STRING,
             Status: DataTypes.BOOLEAN,
+            Percentage: DataTypes.INTEGER,
             GroupId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
         }
     );

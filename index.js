@@ -82,6 +82,7 @@ var models = [
     "CampAdditionalData",
     "ResResource",
     "ResTask",
+    "ResTaskInfo",
     "ResResourceTask",
     "ResAttribute",
     "ResResourceAttributeTask",
@@ -346,7 +347,11 @@ models.forEach(function(model) {
 
 
     // ----------------------- [Resource Service] ----------------------- //
+            //------------------ResResourceTask
+                m.ResTaskInfo.belongsTo(m.ResTask, {as:"ResTask", foreignKey:"TaskInfoId"});
+                m.ResTask.hasMany(m.ResTaskInfo, {as:"ResTaskInfo", foreignKey:"TaskInfoId"});
 
+            //------------------ResResourceTask
         //------------------ResResourceTask
             m.ResResourceTask.belongsTo(m.ResTask, {as:"ResTask", foreignKey:"TaskId"});
             m.ResTask.hasMany(m.ResResourceTask, {as:"ResResourceTask", foreignKey:"TaskId"});

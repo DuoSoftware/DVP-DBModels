@@ -89,8 +89,6 @@ var models = [
     "ResGroups",
     "ResAttributeGroups",
     "Endpoint",
-    "ArdsAttributeInfo",
-    "ArdsAttributeMetaData",
     "ArdsRequestMetaData",
     "QueueProfile",
     "SipPresence",
@@ -380,11 +378,11 @@ models.forEach(function(model) {
 
 
 //------------------------ [Ards] -------------------------------//
-    m.ArdsAttributeInfo.belongsToMany(m.ArdsAttributeMetaData, {as: "ArdsAttributeMetaData", through: 'ARDS_AttributeMetaJunction'});
-    m.ArdsAttributeMetaData.belongsToMany(m.ArdsAttributeInfo, {as: "ArdsAttributeInfo", through: 'ARDS_AttributeMetaJunction'});
+    //m.ArdsAttributeInfo.belongsToMany(m.ArdsAttributeMetaData, {as: "ArdsAttributeMetaData", through: 'ARDS_AttributeMetaJunction'});
+    //m.ArdsAttributeMetaData.belongsToMany(m.ArdsAttributeInfo, {as: "ArdsAttributeInfo", through: 'ARDS_AttributeMetaJunction'});
 
-    m.ArdsAttributeMetaData.belongsTo(m.ArdsRequestMetaData, {as:"ArdsRequestMetaData", foreignKey:"RequestMetadataId"});
-    m.ArdsRequestMetaData.hasMany(m.ArdsAttributeMetaData, {as:"ArdsAttributeMetaData", foreignKey:"RequestMetadataId"});
+    //m.ArdsAttributeMetaData.belongsTo(m.ArdsRequestMetaData, {as:"ArdsRequestMetaData", foreignKey:"RequestMetadataId"});
+    //m.ArdsRequestMetaData.hasMany(m.ArdsAttributeMetaData, {as:"ArdsAttributeMetaData", foreignKey:"RequestMetadataId"});
 
 })(module.exports);
 

@@ -194,8 +194,11 @@ models.forEach(function(model) {
     m.Schedule.hasMany(m.CallRule, {as: "CallRule", foreignKey: "ScheduleId"});
     m.CallRule.belongsTo(m.Schedule, {as: "Schedule", foreignKey: "ScheduleId"});
 
-    m.PBXUser.belongsTo(m.PBXUserTemplate, {as: "PBXUserTemplate", foreignKey: "PBXUserTemplateId"});
-    m.PBXUserTemplate.hasMany(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserTemplateId"});
+
+    m.PBXUser.hasMany(m.PBXUserTemplate, {as: "PBXUserTemplate", foreignKey: "PBXUserUuid"});
+    m.PBXUserTemplate.belongsTo(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserUuid"});
+    m.PBXUser.belongsTo(m.PBXUserTemplate, {as: "PBXUserTemplateActive", constraints: false, foreignKey:"ActiveTemplate"});
+
 
     m.PBXUser.hasMany(m.FollowMe, {as: "FollowMe", foreignKey: "PBXUserUuid"});
     m.FollowMe.belongsTo(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserUuid"});
@@ -348,7 +351,6 @@ models.forEach(function(model) {
             //------------------ResResourceTask
                 m.ResTask.belongsTo(m.ResTaskInfo, {as:"ResTaskInfo", foreignKey:"TaskInfoId"});
                 m.ResTaskInfo.hasMany(m.ResTask, {as:"ResTask", foreignKey:"TaskInfoId"});
-
             //------------------ResResourceTask
         //------------------ResResourceTask
             m.ResResourceTask.belongsTo(m.ResTask, {as:"ResTask", foreignKey:"TaskId"});

@@ -97,7 +97,7 @@ var models = [
     "SwarmDockerInstance",
     "SwarmDockerEnvVariable",
     "DashboardMetaData",
-    "FileDownload"
+    "FileCategory"
 ];
 
 models.forEach(function(model) {

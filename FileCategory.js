@@ -3,8 +3,8 @@
  */
 module.exports = function(sequelize, DataTypes) {
     var FileCategory = sequelize.define('CSDB_FileCategory', {
-            Owner: DataTypes.STRING,
-            Category: DataTypes.STRING
+            Owner: {type:DataTypes.STRING,unique: 'catkeys'},
+            Category:{type:DataTypes.STRING,unique: 'catkeys'}
         }
     );
 

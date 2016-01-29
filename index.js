@@ -373,9 +373,14 @@ models.forEach(function(model) {
 
             m.ResAttributeGroups.belongsTo(m.ResAttribute, {as:"ResAttribute", foreignKey:"AttributeId"});
             m.ResAttribute.hasMany(m.ResAttributeGroups, {as:"ResAttributeGroups", foreignKey:"AttributeId"});
+
         //------------------ResAttributeGroups
 
     // ----------------------- [Resource Service] ----------------------- //
+// -------------------------------- FIle categories --------------------------------------//
+
+    m.FileUpload.hasOne(m.FileCategory,{as:FileCategory,foreignKey:"FileCategoryId"});
+    m.FileCategory.belongsTo(m.FileUpload,{as:FileUpload,foreignKey:"FileCategoryId"});
 
 
 //------------------------ [Ards] -------------------------------//

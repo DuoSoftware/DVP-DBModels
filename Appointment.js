@@ -7,6 +7,7 @@ module.exports = function(sequelize, DataTypes) {
             EndDate: DataTypes.STRING,
             StartTime: DataTypes.DATE,
             EndTime: DataTypes.DATE,
+            RecurrencePattern: DataTypes.STRING,
             DaysOfWeek: DataTypes.STRING,
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,

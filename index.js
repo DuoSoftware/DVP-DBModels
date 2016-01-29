@@ -149,7 +149,7 @@ models.forEach(function(model) {
     m.Trunk.belongsTo(m.SipNetworkProfile, {as:"SipNetworkProfile", foreignKey:"ProfileId"});
     m.SipNetworkProfile.hasMany(m.Trunk, {as:"Trunk", foreignKey:"ProfileId"});
 
-    m.Context.hasMany(m.SipUACEndpoint, {as:"SipUACEndpoint", foreignKey:"ContextId"});
+    m.Context.hasMany(m.SipUACEndpoint, {as:"SipUACEndpoint", foreignKey:"ContextId", onDelete:"RESTRICT"});
     m.SipUACEndpoint.belongsTo(m.Context, {as:"Context", foreignKey:"ContextId"});
 
     m.Trunk.belongsTo(m.LoadBalancer, {as: "LoadBalancer", foreignKey: "LoadBalancerId"});
@@ -196,11 +196,9 @@ models.forEach(function(model) {
     m.Schedule.hasMany(m.CallRule, {as: "CallRule", foreignKey: "ScheduleId"});
     m.CallRule.belongsTo(m.Schedule, {as: "Schedule", foreignKey: "ScheduleId"});
 
-
     m.PBXUser.hasMany(m.PBXUserTemplate, {as: "PBXUserTemplate", foreignKey: "PBXUserUuid"});
     m.PBXUserTemplate.belongsTo(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserUuid"});
     m.PBXUser.belongsTo(m.PBXUserTemplate, {as: "PBXUserTemplateActive", constraints: false, foreignKey:"ActiveTemplate"});
-
 
     m.PBXUser.hasMany(m.FollowMe, {as: "FollowMe", foreignKey: "PBXUserUuid"});
     m.FollowMe.belongsTo(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserUuid"});

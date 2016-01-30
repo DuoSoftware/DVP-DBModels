@@ -17,6 +17,7 @@ module.exports = function(sequelize, DataTypes) {
                 Pin: DataTypes.STRING,
                 PinGenTime: DataTypes.DATE,
                 TryCount: DataTypes.INTEGER,
+                UsePublic: DataTypes.BOOLEAN,
                 TransInternalEnable: DataTypes.BOOLEAN,
                 TransExternalEnable: DataTypes.BOOLEAN,
                 TransConferenceEnable: DataTypes.BOOLEAN,

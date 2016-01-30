@@ -9,9 +9,9 @@ module.exports = function(sequelize, DataTypes) {
 
             Tenant: {type:DataTypes.INTEGER,unique: 'RequestMetadataIndex'},
             Company: {type:DataTypes.INTEGER,unique: 'RequestMetadataIndex'},
-            Class: {type:DataTypes.STRING,unique: 'RequestMetadataIndex'},
-            Type: {type:DataTypes.STRING,unique: 'RequestMetadataIndex'},
-            Category:{type:DataTypes.STRING,unique: 'RequestMetadataIndex'},
+            ServerType: {type:DataTypes.STRING,unique: 'RequestMetadataIndex'},
+            RequestType: {type:DataTypes.STRING,unique: 'RequestMetadataIndex'},
+            AttributeGroups:DataTypes.STRING,
             ServingAlgo: DataTypes.STRING,
             HandlingAlgo: DataTypes.STRING,
             SelectionAlgo: DataTypes.STRING,

@@ -82,14 +82,13 @@ var models = [
     "CampAdditionalData",
     "ResResource",
     "ResTask",
+    "ResTaskInfo",
     "ResResourceTask",
     "ResAttribute",
     "ResResourceAttributeTask",
     "ResGroups",
     "ResAttributeGroups",
     "Endpoint",
-    "ArdsAttributeInfo",
-    "ArdsAttributeMetaData",
     "ArdsRequestMetaData",
     "QueueProfile",
     "SipPresence",
@@ -97,7 +96,8 @@ var models = [
     "SwarmNode",
     "SwarmDockerInstance",
     "SwarmDockerEnvVariable",
-    "DashboardMetaData"
+    "DashboardMetaData",
+    "FileCategory"
 ];
 
 models.forEach(function(model) {
@@ -148,7 +148,7 @@ models.forEach(function(model) {
     m.Trunk.belongsTo(m.SipNetworkProfile, {as:"SipNetworkProfile", foreignKey:"ProfileId"});
     m.SipNetworkProfile.hasMany(m.Trunk, {as:"Trunk", foreignKey:"ProfileId"});
 
-    m.Context.hasMany(m.SipUACEndpoint, {as:"SipUACEndpoint", foreignKey:"ContextId"});
+    m.Context.hasMany(m.SipUACEndpoint, {as:"SipUACEndpoint", foreignKey:"ContextId", onDelete:"RESTRICT"});
     m.SipUACEndpoint.belongsTo(m.Context, {as:"Context", foreignKey:"ContextId"});
 
     m.Trunk.belongsTo(m.LoadBalancer, {as: "LoadBalancer", foreignKey: "LoadBalancerId"});
@@ -195,8 +195,9 @@ models.forEach(function(model) {
     m.Schedule.hasMany(m.CallRule, {as: "CallRule", foreignKey: "ScheduleId"});
     m.CallRule.belongsTo(m.Schedule, {as: "Schedule", foreignKey: "ScheduleId"});
 
-    m.PBXUser.belongsTo(m.PBXUserTemplate, {as: "PBXUserTemplate", foreignKey: "PBXUserTemplateId"});
-    m.PBXUserTemplate.hasMany(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserTemplateId"});
+    m.PBXUser.hasMany(m.PBXUserTemplate, {as: "PBXUserTemplate", foreignKey: "PBXUserUuid"});
+    m.PBXUserTemplate.belongsTo(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserUuid"});
+    m.PBXUser.belongsTo(m.PBXUserTemplate, {as: "PBXUserTemplateActive", constraints: false, foreignKey:"ActiveTemplate"});
 
     m.PBXUser.hasMany(m.FollowMe, {as: "FollowMe", foreignKey: "PBXUserUuid"});
     m.FollowMe.belongsTo(m.PBXUser, {as: "PBXUser", foreignKey: "PBXUserUuid"});
@@ -346,7 +347,10 @@ models.forEach(function(model) {
 
 
     // ----------------------- [Resource Service] ----------------------- //
-
+            //------------------ResResourceTask
+                m.ResTask.belongsTo(m.ResTaskInfo, {as:"ResTaskInfo", foreignKey:"TaskInfoId"});
+                m.ResTaskInfo.hasMany(m.ResTask, {as:"ResTask", foreignKey:"TaskInfoId"});
+            //------------------ResResourceTask
         //------------------ResResourceTask
             m.ResResourceTask.belongsTo(m.ResTask, {as:"ResTask", foreignKey:"TaskId"});
             m.ResTask.hasMany(m.ResResourceTask, {as:"ResResourceTask", foreignKey:"TaskId"});
@@ -369,17 +373,22 @@ models.forEach(function(model) {
 
             m.ResAttributeGroups.belongsTo(m.ResAttribute, {as:"ResAttribute", foreignKey:"AttributeId"});
             m.ResAttribute.hasMany(m.ResAttributeGroups, {as:"ResAttributeGroups", foreignKey:"AttributeId"});
+
         //------------------ResAttributeGroups
 
     // ----------------------- [Resource Service] ----------------------- //
+// -------------------------------- FIle categories --------------------------------------//
+
+    m.FileUpload.hasOne(m.FileCategory,{as:FileCategory,foreignKey:"FileCategoryId"});
+    m.FileCategory.belongsTo(m.FileUpload,{as:FileUpload,foreignKey:"FileCategoryId"});
 
 
 //------------------------ [Ards] -------------------------------//
-    m.ArdsAttributeInfo.belongsToMany(m.ArdsAttributeMetaData, {as: "ArdsAttributeMetaData", through: 'ARDS_AttributeMetaJunction'});
-    m.ArdsAttributeMetaData.belongsToMany(m.ArdsAttributeInfo, {as: "ArdsAttributeInfo", through: 'ARDS_AttributeMetaJunction'});
+    //m.ArdsAttributeInfo.belongsToMany(m.ArdsAttributeMetaData, {as: "ArdsAttributeMetaData", through: 'ARDS_AttributeMetaJunction'});
+    //m.ArdsAttributeMetaData.belongsToMany(m.ArdsAttributeInfo, {as: "ArdsAttributeInfo", through: 'ARDS_AttributeMetaJunction'});
 
-    m.ArdsAttributeMetaData.belongsTo(m.ArdsRequestMetaData, {as:"ArdsRequestMetaData", foreignKey:"RequestMetadataId"});
-    m.ArdsRequestMetaData.hasMany(m.ArdsAttributeMetaData, {as:"ArdsAttributeMetaData", foreignKey:"RequestMetadataId"});
+    //m.ArdsAttributeMetaData.belongsTo(m.ArdsRequestMetaData, {as:"ArdsRequestMetaData", foreignKey:"RequestMetadataId"});
+    //m.ArdsRequestMetaData.hasMany(m.ArdsAttributeMetaData, {as:"ArdsAttributeMetaData", foreignKey:"RequestMetadataId"});
 
 })(module.exports);
 

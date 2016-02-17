@@ -97,7 +97,9 @@ var models = [
     "SwarmDockerInstance",
     "SwarmDockerEnvVariable",
     "DashboardMetaData",
-    "FileCategory"
+    "FileCategory",
+    "Account",
+    "UserResource"
 ];
 
 models.forEach(function(model) {
@@ -379,8 +381,21 @@ models.forEach(function(model) {
     // ----------------------- [Resource Service] ----------------------- //
 // -------------------------------- FIle categories --------------------------------------//
 
-    m.FileUpload.hasOne(m.FileCategory,{as:FileCategory,foreignKey:"FileCategoryId"});
-    m.FileCategory.belongsTo(m.FileUpload,{as:FileUpload,foreignKey:"FileCategoryId"});
+    m.FileUpload.hasOne(m.FileCategory,{as:"FileCategory",foreignKey:"FileCategoryId"});
+    m.FileCategory.belongsTo(m.FileUpload,{as:"FileUpload",foreignKey:"FileCategoryId"});
+
+
+
+    //----------------------------------------Tenant---------------------------------------///
+
+   // m.Tenant.hasMany(m.Account, {as:"Accounts", foreignKey:"TenantId" });
+   // m.Account.belongsTo(m.Tenant, {as:"Tenant", foreignKey:"TenantId"});
+
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 //------------------------ [Ards] -------------------------------//

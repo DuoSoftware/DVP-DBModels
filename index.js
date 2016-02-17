@@ -383,22 +383,7 @@ models.forEach(function(model) {
 
     m.FileUpload.hasOne(m.FileCategory,{as:"FileCategory",foreignKey:"FileCategoryId"});
     m.FileCategory.belongsTo(m.FileUpload,{as:"FileUpload",foreignKey:"FileCategoryId"});
-<<<<<<< HEAD
 
-
-
-    //----------------------------------------Tenant---------------------------------------///
-
-   // m.Tenant.hasMany(m.Account, {as:"Accounts", foreignKey:"TenantId" });
-   // m.Account.belongsTo(m.Tenant, {as:"Tenant", foreignKey:"TenantId"});
-
-
-
-
-    //////////////////////////////////////////////////////////////////////////////////////////
-
-=======
->>>>>>> 81959c03c172631006794596f76af6f306e54f85
 
 
 //------------------------ [Ards] -------------------------------//

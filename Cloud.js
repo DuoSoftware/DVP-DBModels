@@ -13,7 +13,9 @@ module.exports = function(sequelize, DataTypes) {
             CloudModel: DataTypes.INTEGER,
             Class: DataTypes.STRING,
             Type: DataTypes.STRING,
-            Category: DataTypes.STRING
+            Category: DataTypes.STRING,
+            LoadBalancerId: {type:DataTypes.INTEGER,unique: true}
+
         }
     );
 

@@ -383,6 +383,7 @@ models.forEach(function(model) {
 
     m.FileUpload.hasOne(m.FileCategory,{as:"FileCategory",foreignKey:"FileCategoryId"});
     m.FileCategory.belongsTo(m.FileUpload,{as:"FileUpload",foreignKey:"FileCategoryId"});
+<<<<<<< HEAD
 
 
 
@@ -396,6 +397,8 @@ models.forEach(function(model) {
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
+=======
+>>>>>>> 81959c03c172631006794596f76af6f306e54f85
 
 
 //------------------------ [Ards] -------------------------------//

@@ -1,6 +1,10 @@
 {
   "name": "dvp-dbmodels",
+<<<<<<< HEAD
   "version": "0.0.35",
+=======
+  "version": "0.0.37",
+>>>>>>> 81959c03c172631006794596f76af6f306e54f85
   "description": "",
   "main": "index.js",
   "dependencies": {

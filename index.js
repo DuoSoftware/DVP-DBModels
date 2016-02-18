@@ -97,7 +97,9 @@ var models = [
     "SwarmDockerInstance",
     "SwarmDockerEnvVariable",
     "DashboardMetaData",
-    "FileCategory"
+    "FileCategory",
+    "Account",
+    "UserResource"
 ];
 
 models.forEach(function(model) {
@@ -381,6 +383,7 @@ models.forEach(function(model) {
 
     m.FileUpload.hasOne(m.FileCategory,{as:"FileCategory",foreignKey:"FileCategoryId"});
     m.FileCategory.belongsTo(m.FileUpload,{as:"FileUpload",foreignKey:"FileCategoryId"});
+
 
 
 //------------------------ [Ards] -------------------------------//

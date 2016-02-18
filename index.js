@@ -99,7 +99,8 @@ var models = [
     "DashboardMetaData",
     "FileCategory",
     "Account",
-    "UserResource"
+    "UserResource",
+    "TrunkIpAddress"
 ];
 
 models.forEach(function(model) {
@@ -122,6 +123,9 @@ models.forEach(function(model) {
 
     m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "TrunkId"});
     m.TrunkPhoneNumber.belongsTo(m.Trunk, {as:"Trunk", foreignKey: "TrunkId"});
+
+    m.Trunk.hasMany(m.TrunkIpAddress, {as:"TrunkIpAddress", foreignKey: "TrunkId"});
+    m.TrunkIpAddress.belongsTo(m.Trunk, {as:"Trunk", foreignKey: "TrunkId"});
 
     m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfoInbound", foreignKey: "InboundLimitId"});
     m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "InboundLimitId"});

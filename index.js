@@ -100,7 +100,8 @@ var models = [
     "FileCategory",
     "Account",
     "UserResource",
-    "TrunkIpAddress"
+    "TrunkIpAddress",
+    "NotificationServer"
 ];
 
 models.forEach(function(model) {

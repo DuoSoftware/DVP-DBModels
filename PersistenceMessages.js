@@ -4,8 +4,8 @@
 
 module.exports = function(sequelize, DataTypes) {
     var PersistenceMessages = sequelize.define('CSDB_PersistenceMessages', {
-            From: DataTypes.INTEGER,
-            To: DataTypes.INTEGER,
+            From: DataTypes.STRING,
+            To: DataTypes.STRING,
             Time: DataTypes.DATE,
             Callback :DataTypes.STRING
 

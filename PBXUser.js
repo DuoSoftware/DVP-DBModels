@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes)
             FollowMeMechanism: DataTypes.STRING, //SEQUENTIAL, PARALLEL
             AllowOutbound: DataTypes.BOOLEAN,
             AllowedNumbers: DataTypes.STRING,
+            DeniedNumbers: DataTypes.STRING,
             RingTimeout: DataTypes.INTEGER,
             ScheduleId: DataTypes.INTEGER,
             CompanyId: DataTypes.INTEGER,

@@ -102,7 +102,8 @@ var models = [
     "UserResource",
     "TrunkIpAddress",
     "NotificationServer",
-    "PersistenceMessages"
+    "PersistenceMessages",
+    "NumberBlacklist"
 ];
 
 models.forEach(function(model) {

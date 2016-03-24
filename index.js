@@ -104,7 +104,8 @@ var models = [
     "NotificationServer",
     "PersistenceMessages",
     "NumberBlacklist",
-    "ResResourceStatusChangeInfo"
+    "ResResourceStatusChangeInfo",
+    "BuyPhoneNumbers"
 ];
 
 models.forEach(function(model) {
@@ -119,8 +120,13 @@ models.forEach(function(model) {
     //m.CloudEndUser.belongsTo(m.Cloud);
     //m.Network.belongsTo(m.CloudEndUser);
 
+    //--------------------- Buy Numbers----------------------\\
+        m.Trunk.hasMany(m.BuyPhoneNumbers, {as:"BuyPhoneNumbers", foreignKey: "TrunkId"});
+        m.BuyPhoneNumbers.belongsTo(m.Trunk, {as:"Trunk", foreignKey: "TrunkId"});
 
-
+        m.TrunkOperator.hasMany(m.BuyPhoneNumbers, {as:"BuyPhoneNumbers", foreignKey: "OperatorId"});
+        m.BuyPhoneNumbers.belongsTo(m.Trunk, {as:"TrunkOperator", foreignKey: "OperatorId"});
+    //--------------------- Buy Numbers----------------------\\
 
     m.TrunkPhoneNumber.belongsTo(m.Schedule, {as:"Schedule", foreignKey:"ScheduleId"});
     m.Schedule.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey:"ScheduleId"});

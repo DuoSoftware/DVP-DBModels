@@ -12,6 +12,7 @@ module.exports = function(sequelize, DataTypes) {
             ObjCategory: DataTypes.STRING, //USER, GROUP, FAX
             DodNumber: DataTypes.STRING,
             DodActive: DataTypes.BOOLEAN,
+            RecordingEnabled: DataTypes.BOOLEAN,
             AddUser: DataTypes.STRING,
             UpdateUser: DataTypes.STRING
         }

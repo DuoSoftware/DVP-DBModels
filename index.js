@@ -102,7 +102,9 @@ var models = [
     "UserResource",
     "TrunkIpAddress",
     "NotificationServer",
-    "PersistenceMessages"
+    "PersistenceMessages",
+    "NumberBlacklist",
+    "ResResourceStatusChangeInfo"
 ];
 
 models.forEach(function(model) {
@@ -383,6 +385,11 @@ models.forEach(function(model) {
             m.ResAttribute.hasMany(m.ResAttributeGroups, {as:"ResAttributeGroups", foreignKey:"AttributeId"});
 
         //------------------ResAttributeGroups
+
+        //------------------ResResourceStatusChangeInfo
+            m.ResResourceStatusChangeInfo.belongsTo(m.ResResource, {as:"ResResource", foreignKey:"ResourceId"});
+            m.ResResource.hasMany(m.ResResourceStatusChangeInfo, {as:"ResResourceStatusChangeInfo", foreignKey:"ResourceId"});
+        //------------------ResResourceStatusChangeInfo
 
     // ----------------------- [Resource Service] ----------------------- //
 // -------------------------------- FIle categories --------------------------------------//

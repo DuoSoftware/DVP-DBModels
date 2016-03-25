@@ -11,8 +11,9 @@ module.exports = function (sequelize, DataTypes) {
             OperatorId: {type: DataTypes.INTEGER, allowNull: false},
             TrunkId: {type: DataTypes.INTEGER, allowNull: false},
             ExtraData: DataTypes.STRING,
-            Type: DataTypes.STRING
-
+            Type: DataTypes.STRING,
+            BuyerCompanyId: {type: DataTypes.INTEGER, allowNull: true},
+            BuyerTenantId: {type: DataTypes.INTEGER, allowNull: true}
         }
     );
     return BuyPhoneNumbers;

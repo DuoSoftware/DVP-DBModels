@@ -88,6 +88,7 @@ var models = [
     "ResResourceAttributeTask",
     "ResGroups",
     "ResAttributeGroups",
+    "ResSharedResource",
     "Endpoint",
     "ArdsRequestMetaData",
     "QueueProfile",
@@ -363,6 +364,14 @@ models.forEach(function(model) {
 
 
     // ----------------------- [Resource Service] ----------------------- //
+
+        //------------------ResSharedResource
+        m.ResSharedResource.belongsTo(m.ResResource, {as:"ResTaskInfo", foreignKey:"ResourceId"});
+        m.ResResource.hasMany(m.ResSharedResource, {as:"ResSharedResource", foreignKey:"ResourceId"});
+
+        m.ResSharedResource.belongsTo(m.ResTask, {as:"ResTask", foreignKey:"TaskId"});
+        m.ResTask.hasMany(m.ResSharedResource, {as:"ResSharedResource", foreignKey:"TaskId"});
+        //------------------ResSharedResource
             //------------------ResResourceTask
                 m.ResTask.belongsTo(m.ResTaskInfo, {as:"ResTaskInfo", foreignKey:"TaskInfoId"});
                 m.ResTaskInfo.hasMany(m.ResTask, {as:"ResTask", foreignKey:"TaskInfoId"});

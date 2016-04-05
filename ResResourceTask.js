@@ -13,6 +13,7 @@ module.exports = function (sequelize, DataTypes) {
             Concurrency: DataTypes.INTEGER,
             OtherData: DataTypes.STRING,
             Status: DataTypes.BOOLEAN,
+            SharedAccepted: DataTypes.BOOLEAN,
             ResTaskId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
         }
     );

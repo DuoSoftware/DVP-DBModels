@@ -13,10 +13,10 @@ module.exports = function (sequelize, DataTypes) {
             ResourceName: {type:DataTypes.STRING,unique: 'ResResourceCompositeIndex'},
             OtherData: DataTypes.STRING,
             Status: DataTypes.BOOLEAN,
+            ShareStatus: DataTypes.BOOLEAN,
             ResourceId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
         }
     );
-
 
     return ResResource;
 };

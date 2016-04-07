@@ -409,8 +409,8 @@ models.forEach(function(model) {
     // ----------------------- [Resource Service] ----------------------- //
 // -------------------------------- FIle categories --------------------------------------//
 
-    m.FileUpload.hasOne(m.FileCategory,{as:"FileCategory",foreignKey:"FileCategoryId"});
-    m.FileCategory.belongsTo(m.FileUpload,{as:"FileUpload",foreignKey:"FileCategoryId"});
+    m.FileUpload.belongsTo(m.FileCategory,{as:"FileCategory",foreignKey:"FileCategoryId"});
+    m.FileCategory.hasMany(m.FileUpload,{as:"FileUpload",foreignKey:"FileCategoryId"});
 
 
 

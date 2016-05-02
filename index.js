@@ -106,7 +106,8 @@ var models = [
     "PersistenceMessages",
     "NumberBlacklist",
     "ResResourceStatusChangeInfo",
-    "BuyPhoneNumbers"
+    "BuyPhoneNumbers",
+    "CacheUpdates"
 ];
 
 models.forEach(function(model) {

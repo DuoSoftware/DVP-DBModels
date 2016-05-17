@@ -107,7 +107,8 @@ var models = [
     "NumberBlacklist",
     "ResResourceStatusChangeInfo",
     "BuyPhoneNumbers",
-    "CacheUpdates"
+    "CacheUpdates",
+    "GCMKeys"
 ];
 
 models.forEach(function(model) {

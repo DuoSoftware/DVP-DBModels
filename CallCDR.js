@@ -23,6 +23,8 @@ module.exports = function(sequelize, DataTypes) {
             WaitSec: DataTypes.INTEGER,
             ProgressMediaSec: DataTypes.INTEGER,
             FlowBillSec: DataTypes.INTEGER,
+            OriginatedLegs: DataTypes.STRING(1000),
+            ExtraData: DataTypes.STRING(1000),
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,

@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
             WindowName:DataTypes.STRING,
             Count:DataTypes.INTEGER,
             FlushEnable:DataTypes.BOOLEAN,
+            UseSession:DataTypes.BOOLEAN,
             DashboardMetaDataId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
 
         }

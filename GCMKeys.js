@@ -4,8 +4,8 @@
 
 module.exports = function(sequelize, DataTypes) {
     var GCMKey = sequelize.define('CSDB_GCMKeys', {
-            ClientID: {type : DataTypes.INTEGER,primaryKey:true},
-            GCMKey: DataTypes.STRING
+            ClientID: {type : DataTypes.INTEGER,unique: "compositeIndex"},
+            GCMKey: {type: DataTypes.STRING,unique: "compositeIndex"}
 
         }
     );

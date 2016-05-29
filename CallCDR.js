@@ -26,6 +26,7 @@ module.exports = function(sequelize, DataTypes) {
             FlowBillSec: DataTypes.INTEGER,
             OriginatedLegs: DataTypes.STRING(1000),
             ExtraData: DataTypes.STRING(1000),
+            DVPCallDirection: DataTypes.STRING,
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,

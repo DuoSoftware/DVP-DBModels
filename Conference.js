@@ -9,7 +9,6 @@ module.exports = function(sequelize, DataTypes) {
             ObjCategory: DataTypes.STRING,
             Pin:DataTypes.STRING,
             AllowAnonymousUser:DataTypes.BOOLEAN,
-            ActiveTemplate:DataTypes.STRING,
             StartTime:DataTypes.DATE,
             EndTime:DataTypes.DATE,
             Domain:DataTypes.STRING,

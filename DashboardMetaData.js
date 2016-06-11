@@ -11,6 +11,8 @@ module.exports = function(sequelize, DataTypes) {
             Count:DataTypes.INTEGER,
             FlushEnable:DataTypes.BOOLEAN,
             UseSession:DataTypes.BOOLEAN,
+            ThresholdEnable:DataTypes.BOOLEAN,
+            ThresholdValue:DataTypes.INTEGER,
             DashboardMetaDataId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
 
         }

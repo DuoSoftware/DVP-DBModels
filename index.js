@@ -98,6 +98,7 @@ var models = [
     "SwarmDockerInstance",
     "SwarmDockerEnvVariable",
     "DashboardMetaData",
+    "DashboardDailySummary",
     "FileCategory",
     "Account",
     "UserResource",

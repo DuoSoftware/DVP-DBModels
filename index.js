@@ -108,7 +108,8 @@ var models = [
     "ResResourceStatusChangeInfo",
     "BuyPhoneNumbers",
     "CacheUpdates",
-    "GCMKeys"
+    "GCMKeys",
+    "ConferenceTemplate"
 ];
 
 models.forEach(function(model) {
@@ -181,6 +182,9 @@ models.forEach(function(model) {
 
     m.CloudEndUser.hasMany(m.Conference, {as: "Conference", foreignKey: "CloudEndUserId"});
     m.Conference.belongsTo(m.CloudEndUser, {as: "CloudEndUser", foreignKey: "CloudEndUserId"});
+
+    m.ConferenceTemplate.hasMany(m.Conference, {as: "Conference", foreignKey: "ActiveTemplate"});
+    m.Conference.belongsTo(m.ConferenceTemplate, {as: "ConferenceTemplate", foreignKey: "ActiveTemplate"});
 
     m.Cloud.hasMany(m.CallServer, {as: "CallServer", foreignKey: "ClusterId"});
     m.CallServer.belongsTo(m.Cloud, {as: "Cloud", foreignKey: "ClusterId"});

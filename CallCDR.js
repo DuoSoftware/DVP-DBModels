@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
             SipFromUser: DataTypes.STRING,
             SipToUser: DataTypes.STRING,
             HangupCause: DataTypes.STRING,
+            HangupDisposition: DataTypes.STRING,
             Direction: DataTypes.STRING,
             SwitchName: DataTypes.STRING,
             CallerContext: DataTypes.STRING,

@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
             TotalCount:DataTypes.INTEGER,
             TotalTime:DataTypes.INTEGER,
             ThresholdValue: DataTypes.INTEGER,
+            SummaryDate: DataTypes.DATE,
             DashboardSummaryId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
 
         }

@@ -20,6 +20,7 @@ module.exports = function(sequelize, DataTypes) {
             Duration: DataTypes.INTEGER,
             BillSec: DataTypes.INTEGER,
             HoldSec: DataTypes.INTEGER,
+            QueueSec: DataTypes.INTEGER,
             ProgressSec: DataTypes.INTEGER,
             AnswerSec: DataTypes.INTEGER,
             WaitSec: DataTypes.INTEGER,
@@ -32,6 +33,7 @@ module.exports = function(sequelize, DataTypes) {
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
             AppId: DataTypes.INTEGER,
+            AgentSkill: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER
         }

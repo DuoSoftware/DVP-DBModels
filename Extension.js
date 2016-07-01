@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Extension = sequelize.define('CSDB_Extension', {
-            Extension: DataTypes.STRING,
+            Extension: {type:DataTypes.STRING,unique: 'ExtensionUnique'},
             ExtensionName: DataTypes.STRING,
             Enabled: DataTypes.BOOLEAN,
             ExtraData: DataTypes.STRING,

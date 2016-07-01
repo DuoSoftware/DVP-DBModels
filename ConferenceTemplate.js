@@ -6,8 +6,7 @@ module.exports = function(sequelize, DataTypes) {
             TemplateName: {type:DataTypes.STRING, primaryKey:true},
             Description: DataTypes.STRING,
             TemplateGroup: DataTypes.INTEGER,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            MaxUsers : DataTypes.INTEGER
 
         }
     );

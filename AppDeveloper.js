@@ -4,12 +4,12 @@
 
 module.exports = function(sequelize, DataTypes) {
     var AppDeveloper = sequelize.define('CSDB_AppDeveloper', {
-            Username: DataTypes.STRING,
-            Password: DataTypes.STRING,
-            Email:DataTypes.STRING,
+            Username: {type: DataTypes.STRING, allowNull: false, unique: true},
+            Password: {type: DataTypes.STRING, allowNull: false},
+            Email:{type: DataTypes.STRING, allowNull: false, unique: true},
             Phone:DataTypes.STRING,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER,
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false},
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,

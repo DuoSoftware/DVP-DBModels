@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Application = sequelize.define('CSDB_Application', {
-            AppName: DataTypes.STRING,
+            AppName: {type: DataTypes.STRING, allowNull: false},
             Description: DataTypes.STRING,
             Url: DataTypes.STRING,
             ObjClass: DataTypes.STRING,

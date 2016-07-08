@@ -4,16 +4,15 @@
 
 module.exports = function(sequelize, DataTypes) {
     var callserver = sequelize.define('CSDB_CallServer', {
-            Name: DataTypes.STRING,
-            //ID: DataTypes.INTEGER,
-            Activate: DataTypes.BOOLEAN,
-            Code: DataTypes.INTEGER,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER,
+            Name: {type: DataTypes.STRING, allowNull: false},
+            Activate: {type: DataTypes.BOOLEAN, allowNull: false},
+            Code: {type: DataTypes.INTEGER, allowNull: false, unique: true},
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false},
             Class: DataTypes.STRING,
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
-            InternalMainIP: DataTypes.STRING
+            InternalMainIP: {type: DataTypes.STRING, allowNull: false}
         }
     );
     return callserver;

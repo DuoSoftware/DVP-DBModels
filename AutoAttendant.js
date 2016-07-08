@@ -16,8 +16,8 @@ module.exports = function(sequelize, DataTypes) {
             TimeOut: DataTypes.INTEGER,
             EnableExtention: DataTypes.BOOLEAN,
             ExtentionLength: DataTypes.INTEGER,
-            Company: {type: DataTypes.INTEGER,unique: "compositeIndex"},
-            Tenant: {type: DataTypes.INTEGER,unique: "compositeIndex"}
+            Company: {type: DataTypes.INTEGER, allowNull: false, unique: "compositeIndex"},
+            Tenant: {type: DataTypes.INTEGER, allowNull: false, unique: "compositeIndex"}
         }
     );
 

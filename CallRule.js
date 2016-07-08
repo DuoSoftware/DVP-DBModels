@@ -5,8 +5,8 @@ module.exports = function(sequelize, DataTypes) {
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
             Enable: DataTypes.BOOLEAN,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER,
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false},
             DNIS: DataTypes.STRING,
             ANI: DataTypes.STRING,
             DNISRegEx: DataTypes.STRING,
@@ -16,10 +16,10 @@ module.exports = function(sequelize, DataTypes) {
             TrunkId: DataTypes.INTEGER,
             TrunkNumber: DataTypes.STRING,
             ExtraData: DataTypes.STRING,
-            Priority: DataTypes.INTEGER,
+            Priority: {type: DataTypes.INTEGER, allowNull: false},
             ContextRegEx: DataTypes.STRING,
             Context: DataTypes.STRING,
-            Direction: DataTypes.STRING //INBOUND, OUTBOUND
+            Direction: {type: DataTypes.STRING, allowNull: false} //INBOUND, OUTBOUND
 
         }
     );

@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Appointment = sequelize.define('CSDB_Appointment', {
-            AppointmentName: DataTypes.STRING,
+            AppointmentName: {type: DataTypes.STRING, allowNull: false, unique: 'appointment_company_unique'},
             Action: DataTypes.STRING,
             ExtraData: DataTypes.STRING,
             StartDate: DataTypes.STRING,
@@ -12,8 +12,8 @@ module.exports = function(sequelize, DataTypes) {
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false, unique: 'appointment_company_unique'},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false, unique: 'appointment_company_unique'}
         }
     );
 

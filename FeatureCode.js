@@ -7,8 +7,8 @@ module.exports = function(sequelize, DataTypes)
             Park: DataTypes.STRING,
             VoiceMail: DataTypes.STRING,
             Barge: DataTypes.STRING,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER,
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false, unique: 'fc_company_unique'},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false, unique: 'fc_company_unique'},
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING

@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
     var CloudEndUser = sequelize.define('CSDB_CloudEndUser', {
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER,
-            Domain: DataTypes.STRING,
-            SIPConnectivityProvision: DataTypes.INTEGER //instance, profile, sheared
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false, unique: 'enduser_company_unique'},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false, unique: 'enduser_company_unique'},
+            Domain: {type: DataTypes.STRING, allowNull: false, unique: 'enduser_company_unique'},
+            SIPConnectivityProvision: {type: DataTypes.INTEGER, allowNull: false} //instance, profile, sheared
         }
     );
     return CloudEndUser;

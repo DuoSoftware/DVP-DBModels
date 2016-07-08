@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
     var ConferenceUser = sequelize.define('CSDB_ConferenceUser', {
-            ActiveTalker: DataTypes.BOOLEAN,
-            Def: DataTypes.BOOLEAN,
-            Mute: DataTypes.BOOLEAN,
-            Mod: DataTypes.BOOLEAN,
+            ActiveTalker: {type: DataTypes.BOOLEAN, allowNull: false},
+            Def: {type: DataTypes.BOOLEAN, allowNull: false},
+            Mute: {type: DataTypes.BOOLEAN, allowNull: false},
+            Mod: {type: DataTypes.BOOLEAN, allowNull: false},
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,//OutBound/Inbound
             ObjCategory: DataTypes.STRING,//Internal/External
@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
             CurrentMute:DataTypes.BOOLEAN,
             CurrentMod:DataTypes.BOOLEAN,
             Destination:DataTypes.STRING,//Phonenumber
-            JoinType:DataTypes.STRING,//In/Out
+            JoinType:{type: DataTypes.STRING, allowNull: false},//In/Out
             UserStatus: DataTypes.STRING //
 
         }

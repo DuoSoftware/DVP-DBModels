@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
-            Enable: DataTypes.BOOLEAN,
+            Enable: {type: DataTypes.BOOLEAN, allowNull: false},
             CompanyId: {type: DataTypes.INTEGER, allowNull: false},
             TenantId: {type: DataTypes.INTEGER, allowNull: false},
             DNIS: DataTypes.STRING,

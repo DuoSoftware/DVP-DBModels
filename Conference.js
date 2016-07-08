@@ -2,18 +2,17 @@ module.exports = function(sequelize, DataTypes) {
     var Conference = sequelize.define('CSDB_Conference', {
             ConferenceName: {type:DataTypes.STRING, primaryKey:true},
             Description: DataTypes.STRING,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER,
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false},
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
             Pin:DataTypes.STRING,
-            AllowAnonymousUser:DataTypes.BOOLEAN,
-            StartTime:DataTypes.DATE,
-            EndTime:DataTypes.DATE,
-            Domain:DataTypes.STRING,
-            IsLocked:DataTypes.BOOLEAN,
-            MaxUser:DataTypes.INTEGER,
+            AllowAnonymousUser:{type: DataTypes.BOOLEAN, allowNull: false},
+            StartTime:{type: DataTypes.DATE, allowNull: false},
+            EndTime:{type: DataTypes.DATE, allowNull: false},
+            IsLocked:{type: DataTypes.BOOLEAN, allowNull: false},
+            MaxUser:{type: DataTypes.INTEGER, allowNull: false},
             CurrentUsers: DataTypes.INTEGER
 
         }

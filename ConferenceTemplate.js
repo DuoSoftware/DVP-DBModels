@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
             TemplateName: {type:DataTypes.STRING, primaryKey:true},
             Description: DataTypes.STRING,
             TemplateGroup: DataTypes.INTEGER,
-            MaxUsers : DataTypes.INTEGER
+            MaxUsers : {type: DataTypes.INTEGER, allowNull: false}
 
         }
     );

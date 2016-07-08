@@ -2,10 +2,10 @@ module.exports = function(sequelize, DataTypes)
 {
     var DidNumber = sequelize.define('CSDB_DidNumber',
         {
-            DidNumber: DataTypes.STRING,
-            DidActive: DataTypes.BOOLEAN,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER,
+            DidNumber: {type: DataTypes.STRING, allowNull: false, unique: true},
+            DidActive: {type: DataTypes.BOOLEAN, allowNull: false},
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false},
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING

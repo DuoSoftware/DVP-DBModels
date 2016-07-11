@@ -1,28 +1,26 @@
 module.exports = function(sequelize, DataTypes) {
     var SipUACEndpoint = sequelize.define('CSDB_SipUACEndpoint', {
-                SipUserUuid: DataTypes.STRING,
-                SipUsername: DataTypes.STRING,
+                SipUserUuid: {type: DataTypes.STRING, allowNull: false, unique: true},
+                SipUsername: {type: DataTypes.STRING, allowNull: false, unique: true},
                 Password: DataTypes.STRING,
-                Enabled: DataTypes.BOOLEAN,
+                Enabled: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true},
                 ExtraData: DataTypes.STRING,
                 EmailAddress: DataTypes.STRING,
                 GuRefId: DataTypes.STRING,
-                CompanyId: DataTypes.INTEGER,
-                TenantId: DataTypes.INTEGER,
+                CompanyId: {type: DataTypes.INTEGER, allowNull: false},
+                TenantId: {type: DataTypes.INTEGER, allowNull: false},
                 ObjClass: DataTypes.STRING,
                 ObjType: DataTypes.STRING,
                 ObjCategory: DataTypes.STRING,
                 SipExtension: DataTypes.STRING,
-                AddUser: DataTypes.STRING,
                 Pin: DataTypes.STRING,
                 PinGenTime: DataTypes.DATE,
                 TryCount: DataTypes.INTEGER,
-                UsePublic: DataTypes.BOOLEAN,
-                TransInternalEnable: DataTypes.BOOLEAN,
-                TransExternalEnable: DataTypes.BOOLEAN,
-                TransConferenceEnable: DataTypes.BOOLEAN,
-                TransGroupEnable: DataTypes.BOOLEAN,
-                UpdateUser: DataTypes.STRING
+                UsePublic: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false},
+                TransInternalEnable: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false},
+                TransExternalEnable: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false},
+                TransConferenceEnable: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false},
+                TransGroupEnable: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false}
 
         }
     );

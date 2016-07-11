@@ -10,8 +10,8 @@ module.exports = function(sequelize, DataTypes) {
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false}
         }
     );
 

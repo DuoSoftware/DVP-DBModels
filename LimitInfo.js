@@ -10,8 +10,8 @@ module.exports = function(sequelize, DataTypes) {
             ObjCategory: DataTypes.STRING,
             MaxCount: DataTypes.INTEGER,
             Enable: DataTypes.BOOLEAN,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false}
         }
     );
 

@@ -9,8 +9,8 @@ module.exports = function(sequelize, DataTypes) {
             AnnouncementTime: DataTypes.INTEGER,
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false},
 
         }
     );

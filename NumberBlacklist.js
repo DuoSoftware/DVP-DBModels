@@ -5,9 +5,9 @@
 module.exports = function(sequelize, DataTypes) {
     var NumberBlacklist = sequelize.define('CSDB_NumberBlacklist',
         {
-            PhoneNumber: DataTypes.STRING,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            PhoneNumber: {type: DataTypes.STRING, allowNull: false, unique: 'numbl_company_unique'},
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false, unique: 'numbl_company_unique'},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false, unique: 'numbl_company_unique'}
         }
     );
 

@@ -155,6 +155,9 @@ models.forEach(function(model) {
     m.UserGroup.belongsTo(m.Extension, {as:"Extension", foreignKey: "ExtensionId"});
     m.Extension.hasOne(m.UserGroup, {as:"UserGroup", foreignKey: "ExtensionId"});
 
+    m.UserGroup.belongsTo(m.CloudEndUser, {as:"CloudEndUser", foreignKey: "CloudEndUserId"});
+    m.CloudEndUser.hasMany(m.UserGroup, {as:"UserGroup", foreignKey: "CloudEndUserId"});
+
     m.UserGroup.belongsToMany(m.SipUACEndpoint, {as: "SipUACEndpoint", through: 'CSDB_UsrGrpJunction'});
     m.SipUACEndpoint.belongsToMany(m.UserGroup, {as: "UserGroup", through: 'CSDB_UsrGrpJunction'});
 

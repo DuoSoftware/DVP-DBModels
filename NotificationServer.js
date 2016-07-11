@@ -4,10 +4,10 @@
 
 module.exports = function(sequelize, DataTypes) {
     var NotificationServer = sequelize.define('CSDB_NotificationServer', {
-            UniqueID: DataTypes.STRING,
+            UniqueID: {type: DataTypes.STRING, allowNull: false, unique: true},
             URL: DataTypes.STRING,
-            CompanyId:DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            CompanyId:{type: DataTypes.INTEGER, allowNull: false},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false}
         }
     );
 

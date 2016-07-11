@@ -1,14 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
     var Trunk = sequelize.define('CSDB_Trunk', {
-            TrunkCode: DataTypes.STRING,
-            TrunkName: DataTypes.STRING,
+            TrunkCode: {type: DataTypes.STRING, allowNull: false, unique: true},
+            TrunkName: {type: DataTypes.STRING, allowNull: false},
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
             IpUrl: DataTypes.STRING,
-            Enable: DataTypes.BOOLEAN,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            Enable: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true},
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false}
         }
     );
 

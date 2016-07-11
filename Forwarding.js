@@ -2,8 +2,8 @@ module.exports = function(sequelize, DataTypes)
 {
     var Forwarding = sequelize.define('CSDB_Forwarding',
         {
-            DestinationNumber: DataTypes.STRING,
-            RingTimeout: DataTypes.INTEGER,
+            DestinationNumber: {type:DataTypes.STRING, allowNull: false},
+            RingTimeout: {type:DataTypes.INTEGER, allowNull: false},
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
             ObjClass: DataTypes.STRING,

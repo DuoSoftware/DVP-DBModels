@@ -6,8 +6,8 @@ module.exports = function(sequelize, DataTypes) {
     var TrunkIpAddress = sequelize.define('CSDB_TrunkIpAddress', {
             IpAddress: DataTypes.STRING,
             Mask: DataTypes.INTEGER,
-            CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            CompanyId: {type: DataTypes.INTEGER, allowNull: false},
+            TenantId: {type: DataTypes.INTEGER, allowNull: false}
         }
     );
 

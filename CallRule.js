@@ -19,7 +19,8 @@ module.exports = function(sequelize, DataTypes) {
             Priority: {type: DataTypes.INTEGER, allowNull: false},
             ContextRegEx: DataTypes.STRING,
             Context: DataTypes.STRING,
-            Direction: {type: DataTypes.STRING, allowNull: false} //INBOUND, OUTBOUND
+            Direction: {type: DataTypes.STRING, allowNull: false}, //INBOUND, OUTBOUND
+            CustomRegEx: DataTypes.STRING
 
         }
     );

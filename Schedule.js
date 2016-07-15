@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
             ScheduleName: DataTypes.STRING,
             Action: DataTypes.STRING,
             ExtraData: DataTypes.STRING,
+            TimeZone: DataTypes.STRING,
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,

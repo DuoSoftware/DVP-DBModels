@@ -111,7 +111,8 @@ var models = [
     "CacheUpdates",
     "GCMKeys",
     "ConferenceTemplate",
-    "SMSCDR"
+    "SMSCDR",
+    "Cron"
 ];
 
 models.forEach(function(model) {

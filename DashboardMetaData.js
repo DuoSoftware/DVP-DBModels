@@ -7,6 +7,7 @@ module.exports = function(sequelize, DataTypes) {
             EventClass: {type:DataTypes.STRING,unique: 'DashboardMetaDataIndex'},
             EventType: {type:DataTypes.STRING,unique: 'DashboardMetaDataIndex'},
             EventCategory:{type:DataTypes.STRING,unique: 'DashboardMetaDataIndex'},
+            ChannelName:DataTypes.STRING,
             WindowName:DataTypes.STRING,
             Count:DataTypes.INTEGER,
             FlushEnable:DataTypes.BOOLEAN,

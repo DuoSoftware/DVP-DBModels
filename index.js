@@ -110,7 +110,9 @@ var models = [
     "BuyPhoneNumbers",
     "CacheUpdates",
     "GCMKeys",
-    "ConferenceTemplate"
+    "ConferenceTemplate",
+    "SMSCDR",
+    "Cron"
 ];
 
 models.forEach(function(model) {

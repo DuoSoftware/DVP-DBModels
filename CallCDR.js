@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
             BridgedTime: DataTypes.DATE,
             HangupTime: DataTypes.DATE,
             Duration: DataTypes.INTEGER,
+            AgentAnswered: DataTypes.BOOLEAN,
             BillSec: DataTypes.INTEGER,
             HoldSec: DataTypes.INTEGER,
             QueueSec: DataTypes.INTEGER,

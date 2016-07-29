@@ -156,8 +156,8 @@ models.forEach(function(model) {
     m.UserGroup.belongsTo(m.Extension, {as:"Extension", foreignKey: "ExtensionId"});
     m.Extension.hasOne(m.UserGroup, {as:"UserGroup", foreignKey: "ExtensionId"});
 
-    m.UserGroup.belongsToMany(m.SipUACEndpoint, {as: "SipUACEndpoint", through: 'CSDB_UsrGrpJunction'});
-    m.SipUACEndpoint.belongsToMany(m.UserGroup, {as: "UserGroup", through: 'CSDB_UsrGrpJunction'});
+    m.UserGroup.hasMany(m.SipUACEndpoint, {as: "SipUACEndpoint", foreignKey: 'GroupId'});
+    m.SipUACEndpoint.belongsTo(m.UserGroup, {as: "UserGroup", foreignKey: 'GroupId'});
 
     m.Schedule.hasMany(m.Appointment, {as:"Appointment", foreignKey: "ScheduleId"});
     m.Appointment.belongsTo(m.Schedule, {as:"Schedule", foreignKey: "ScheduleId"});

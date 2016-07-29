@@ -8,6 +8,7 @@ module.exports = function (sequelize, DataTypes) {
             TenantId:  {type:DataTypes.INTEGER,unique: 'ResTaskCompositeIndex'},
             CompanyId: {type:DataTypes.INTEGER,unique: 'ResTaskCompositeIndex'},
             TaskInfoId: {type:DataTypes.INTEGER,unique: 'ResTaskCompositeIndex',allowNull: false},
+            AddToProductivity: DataTypes.BOOLEAN,
             OtherData: DataTypes.STRING,
             Status: DataTypes.BOOLEAN,
             TaskId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}

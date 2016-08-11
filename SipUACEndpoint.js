@@ -22,7 +22,8 @@ module.exports = function(sequelize, DataTypes) {
                 TransExternalEnable: DataTypes.BOOLEAN,
                 TransConferenceEnable: DataTypes.BOOLEAN,
                 TransGroupEnable: DataTypes.BOOLEAN,
-                UpdateUser: DataTypes.STRING
+                UpdateUser: DataTypes.STRING,
+                AllowOutbound: DataTypes.BOOLEAN
 
         }
     );

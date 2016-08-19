@@ -51,6 +51,7 @@ var models = [
     'Image',
     'Template',
     'Service',
+    'CallCDRProcessed',
     "Variable",
     "Resource",
     "TemplateImage",

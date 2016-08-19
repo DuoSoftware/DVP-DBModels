@@ -12,6 +12,7 @@ module.exports = function(sequelize, DataTypes) {
             HangupParty: DataTypes.STRING,
             SwitchName: DataTypes.STRING,
             CallerContext: DataTypes.STRING,
+            IsQueued: DataTypes.BOOLEAN,
             IsAnswered: DataTypes.BOOLEAN,
             CreatedTime: DataTypes.DATE,
             AnsweredTime: DataTypes.DATE,

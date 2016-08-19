@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
             SwitchName: DataTypes.STRING,
             CallerContext: DataTypes.STRING,
             IsAnswered: DataTypes.BOOLEAN,
+            IsQueued: DataTypes.BOOLEAN,
             CreatedTime: DataTypes.DATE,
             AnsweredTime: DataTypes.DATE,
             BridgedTime: DataTypes.DATE,

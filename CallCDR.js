@@ -7,6 +7,7 @@ module.exports = function(sequelize, DataTypes) {
             BridgeUuid: DataTypes.STRING,
             SipFromUser: DataTypes.STRING,
             SipToUser: DataTypes.STRING,
+            SipResource: DataTypes.STRING,
             HangupCause: DataTypes.STRING,
             HangupDisposition: DataTypes.STRING,
             Direction: DataTypes.STRING,

@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes) {
                 Enabled: DataTypes.BOOLEAN,
                 ExtraData: DataTypes.STRING,
                 EmailAddress: DataTypes.STRING,
+                VoicemailAsEmail: DataTypes.BOOLEAN,
                 GuRefId: DataTypes.STRING,
                 CompanyId: DataTypes.INTEGER,
                 TenantId: DataTypes.INTEGER,

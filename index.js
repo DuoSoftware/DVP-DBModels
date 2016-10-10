@@ -51,6 +51,7 @@ var models = [
     'Image',
     'Template',
     'Service',
+    'CallCDRProcessed',
     "Variable",
     "Resource",
     "TemplateImage",
@@ -88,6 +89,7 @@ var models = [
     "ResResourceAttributeTask",
     "ResGroups",
     "ResAttributeGroups",
+    "ResSharedResource",
     "Endpoint",
     "ArdsRequestMetaData",
     "QueueProfile",
@@ -97,9 +99,21 @@ var models = [
     "SwarmDockerInstance",
     "SwarmDockerEnvVariable",
     "DashboardMetaData",
+    "DashboardDailySummary",
     "FileCategory",
     "Account",
-    "UserResource"
+    "UserResource",
+    "TrunkIpAddress",
+    "NotificationServer",
+    "PersistenceMessages",
+    "NumberBlacklist",
+    "ResResourceStatusChangeInfo",
+    "BuyPhoneNumbers",
+    "CacheUpdates",
+    "GCMKeys",
+    "ConferenceTemplate",
+    "SMSCDR",
+    "Cron"
 ];
 
 models.forEach(function(model) {
@@ -114,14 +128,22 @@ models.forEach(function(model) {
     //m.CloudEndUser.belongsTo(m.Cloud);
     //m.Network.belongsTo(m.CloudEndUser);
 
+    //--------------------- Buy Numbers----------------------\\
+        m.Trunk.hasMany(m.BuyPhoneNumbers, {as:"BuyPhoneNumbers", foreignKey: "TrunkId"});
+        m.BuyPhoneNumbers.belongsTo(m.Trunk, {as:"Trunk", foreignKey: "TrunkId"});
 
-
+        m.TrunkOperator.hasMany(m.BuyPhoneNumbers, {as:"BuyPhoneNumbers", foreignKey: "OperatorId"});
+        m.BuyPhoneNumbers.belongsTo(m.Trunk, {as:"TrunkOperator", foreignKey: "OperatorId"});
+    //--------------------- Buy Numbers----------------------\\
 
     m.TrunkPhoneNumber.belongsTo(m.Schedule, {as:"Schedule", foreignKey:"ScheduleId"});
     m.Schedule.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey:"ScheduleId"});
 
     m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "TrunkId"});
     m.TrunkPhoneNumber.belongsTo(m.Trunk, {as:"Trunk", foreignKey: "TrunkId"});
+
+    m.Trunk.hasMany(m.TrunkIpAddress, {as:"TrunkIpAddress", foreignKey: "TrunkId"});
+    m.TrunkIpAddress.belongsTo(m.Trunk, {as:"Trunk", foreignKey: "TrunkId"});
 
     m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfoInbound", foreignKey: "InboundLimitId"});
     m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "InboundLimitId"});
@@ -135,8 +157,8 @@ models.forEach(function(model) {
     m.UserGroup.belongsTo(m.Extension, {as:"Extension", foreignKey: "ExtensionId"});
     m.Extension.hasOne(m.UserGroup, {as:"UserGroup", foreignKey: "ExtensionId"});
 
-    m.UserGroup.belongsToMany(m.SipUACEndpoint, {as: "SipUACEndpoint", through: 'CSDB_UsrGrpJunction'});
-    m.SipUACEndpoint.belongsToMany(m.UserGroup, {as: "UserGroup", through: 'CSDB_UsrGrpJunction'});
+    m.UserGroup.hasMany(m.SipUACEndpoint, {as: "SipUACEndpoint", foreignKey: 'GroupId'});
+    m.SipUACEndpoint.belongsTo(m.UserGroup, {as: "UserGroup", foreignKey: 'GroupId'});
 
     m.Schedule.hasMany(m.Appointment, {as:"Appointment", foreignKey: "ScheduleId"});
     m.Appointment.belongsTo(m.Schedule, {as:"Schedule", foreignKey: "ScheduleId"});
@@ -164,6 +186,9 @@ models.forEach(function(model) {
 
     m.CloudEndUser.hasMany(m.Conference, {as: "Conference", foreignKey: "CloudEndUserId"});
     m.Conference.belongsTo(m.CloudEndUser, {as: "CloudEndUser", foreignKey: "CloudEndUserId"});
+
+    m.ConferenceTemplate.hasMany(m.Conference, {as: "Conference", foreignKey: "ActiveTemplate"});
+    m.Conference.belongsTo(m.ConferenceTemplate, {as: "ConferenceTemplate", foreignKey: "ActiveTemplate"});
 
     m.Cloud.hasMany(m.CallServer, {as: "CallServer", foreignKey: "ClusterId"});
     m.CallServer.belongsTo(m.Cloud, {as: "Cloud", foreignKey: "ClusterId"});
@@ -247,7 +272,7 @@ models.forEach(function(model) {
     m.Image.hasMany(m.Volume, {as: "SystemVolumes"});
     m.Volume.belongsTo(m.Image, {as: "SystemVolumes"});
 
-    m.Image.hasMany(m.Image, {as: "Dependants", through: "CSDB_ImageDependance", foreignKey: "Dependant"});
+    m.Image.belongsToMany(m.Image, {as: "Dependants", through: "CSDB_ImageDependance", foreignKey: "Dependant"});
 
 
     //Person.belongsToMany(Person, { as: 'Children', through: 'PersonChildren' })
@@ -349,6 +374,14 @@ models.forEach(function(model) {
 
 
     // ----------------------- [Resource Service] ----------------------- //
+
+        //------------------ResSharedResource
+        m.ResSharedResource.belongsTo(m.ResResource, {as:"ResTaskInfo", foreignKey:"ResourceId"});
+        m.ResResource.hasMany(m.ResSharedResource, {as:"ResSharedResource", foreignKey:"ResourceId"});
+
+        m.ResSharedResource.belongsTo(m.ResTask, {as:"ResTask", foreignKey:"TaskId"});
+        m.ResTask.hasMany(m.ResSharedResource, {as:"ResSharedResource", foreignKey:"TaskId"});
+        //------------------ResSharedResource
             //------------------ResResourceTask
                 m.ResTask.belongsTo(m.ResTaskInfo, {as:"ResTaskInfo", foreignKey:"TaskInfoId"});
                 m.ResTaskInfo.hasMany(m.ResTask, {as:"ResTask", foreignKey:"TaskInfoId"});
@@ -378,11 +411,16 @@ models.forEach(function(model) {
 
         //------------------ResAttributeGroups
 
+        //------------------ResResourceStatusChangeInfo
+            m.ResResourceStatusChangeInfo.belongsTo(m.ResResource, {as:"ResResource", foreignKey:"ResourceId"});
+            m.ResResource.hasMany(m.ResResourceStatusChangeInfo, {as:"ResResourceStatusChangeInfo", foreignKey:"ResourceId"});
+        //------------------ResResourceStatusChangeInfo
+
     // ----------------------- [Resource Service] ----------------------- //
 // -------------------------------- FIle categories --------------------------------------//
 
-    m.FileUpload.hasOne(m.FileCategory,{as:"FileCategory",foreignKey:"FileCategoryId"});
-    m.FileCategory.belongsTo(m.FileUpload,{as:"FileUpload",foreignKey:"FileCategoryId"});
+    m.FileUpload.belongsTo(m.FileCategory,{as:"FileCategory",foreignKey:"FileCategoryId"});
+    m.FileCategory.hasMany(m.FileUpload,{as:"FileUpload",foreignKey:"FileCategoryId"});
 
 
 

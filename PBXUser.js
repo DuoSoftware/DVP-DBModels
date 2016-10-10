@@ -12,7 +12,9 @@ module.exports = function(sequelize, DataTypes)
             AdvancedRouteMethod: DataTypes.STRING, //FORWARD, FOLLOW_ME
             FollowMeMechanism: DataTypes.STRING, //SEQUENTIAL, PARALLEL
             AllowOutbound: DataTypes.BOOLEAN,
+            AllowIDD: DataTypes.BOOLEAN,
             AllowedNumbers: DataTypes.STRING,
+            DeniedNumbers: DataTypes.STRING,
             RingTimeout: DataTypes.INTEGER,
             ScheduleId: DataTypes.INTEGER,
             CompanyId: DataTypes.INTEGER,

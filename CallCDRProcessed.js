@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var CallCDR = sequelize.define('CSDB_CallCDR',
+    var CallCDRProcessed = sequelize.define('CSDB_CallCDRProcessed',
         {
             id: {type: DataTypes.BIGINT, autoIncrement: true},
             Uuid: {type: DataTypes.STRING, primaryKey: true},
@@ -7,20 +7,20 @@ module.exports = function(sequelize, DataTypes) {
             BridgeUuid: DataTypes.STRING,
             SipFromUser: DataTypes.STRING,
             SipToUser: DataTypes.STRING,
-            SipResource: DataTypes.STRING,
+            RecievedBy: DataTypes.STRING,
             HangupCause: DataTypes.STRING,
-            HangupDisposition: DataTypes.STRING,
-            Direction: DataTypes.STRING,
+            HangupParty: DataTypes.STRING,
             SwitchName: DataTypes.STRING,
             CallerContext: DataTypes.STRING,
-            IsAnswered: DataTypes.BOOLEAN,
             IsQueued: DataTypes.BOOLEAN,
+            IsAnswered: DataTypes.BOOLEAN,
             CreatedTime: DataTypes.DATE,
             AnsweredTime: DataTypes.DATE,
             BridgedTime: DataTypes.DATE,
             HangupTime: DataTypes.DATE,
             Duration: DataTypes.INTEGER,
             AgentAnswered: DataTypes.BOOLEAN,
+            IvrConnectSec: DataTypes.INTEGER,
             BillSec: DataTypes.INTEGER,
             HoldSec: DataTypes.INTEGER,
             QueueSec: DataTypes.INTEGER,
@@ -29,10 +29,8 @@ module.exports = function(sequelize, DataTypes) {
             WaitSec: DataTypes.INTEGER,
             ProgressMediaSec: DataTypes.INTEGER,
             FlowBillSec: DataTypes.INTEGER,
-            OriginatedLegs: DataTypes.STRING(1000),
             ExtraData: DataTypes.STRING(1000),
             DVPCallDirection: DataTypes.STRING,
-            ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
             AppId: DataTypes.INTEGER,
@@ -44,5 +42,5 @@ module.exports = function(sequelize, DataTypes) {
     );
 
 
-    return CallCDR;
+    return CallCDRProcessed;
 };

@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Extension = sequelize.define('CSDB_Extension', {
-            Extension: DataTypes.STRING,
+            Extension: {type:DataTypes.STRING,unique: 'ExtensionUnique'},
             ExtensionName: DataTypes.STRING,
             Enabled: DataTypes.BOOLEAN,
             ExtraData: DataTypes.STRING,
@@ -12,6 +12,7 @@ module.exports = function(sequelize, DataTypes) {
             ObjCategory: DataTypes.STRING, //USER, GROUP, FAX
             DodNumber: DataTypes.STRING,
             DodActive: DataTypes.BOOLEAN,
+            RecordingEnabled: DataTypes.BOOLEAN,
             AddUser: DataTypes.STRING,
             UpdateUser: DataTypes.STRING
         }

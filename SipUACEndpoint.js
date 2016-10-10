@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes) {
                 Enabled: DataTypes.BOOLEAN,
                 ExtraData: DataTypes.STRING,
                 EmailAddress: DataTypes.STRING,
+                VoicemailAsEmail: DataTypes.BOOLEAN,
                 GuRefId: DataTypes.STRING,
                 CompanyId: DataTypes.INTEGER,
                 TenantId: DataTypes.INTEGER,
@@ -22,7 +23,8 @@ module.exports = function(sequelize, DataTypes) {
                 TransExternalEnable: DataTypes.BOOLEAN,
                 TransConferenceEnable: DataTypes.BOOLEAN,
                 TransGroupEnable: DataTypes.BOOLEAN,
-                UpdateUser: DataTypes.STRING
+                UpdateUser: DataTypes.STRING,
+                DenyOutboundFor: DataTypes.STRING
 
         }
     );

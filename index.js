@@ -113,7 +113,8 @@ var models = [
     "GCMKeys",
     "ConferenceTemplate",
     "SMSCDR",
-    "Cron"
+    "Cron",
+    "AuditTrails"
 ];
 
 models.forEach(function(model) {

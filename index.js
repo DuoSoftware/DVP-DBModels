@@ -113,7 +113,8 @@ var models = [
     "GCMKeys",
     "ConferenceTemplate",
     "SMSCDR",
-    "Cron"
+    "Cron",
+    "DashboardThresholdBreakDown"
 ];
 
 models.forEach(function(model) {

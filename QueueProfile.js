@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
             FirstAnnounement: DataTypes.STRING,
             AnnouncementTime: DataTypes.INTEGER,
             PositionAnnouncement: DataTypes.BOOLEAN,
+            Language: DataTypes.STRING,
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,

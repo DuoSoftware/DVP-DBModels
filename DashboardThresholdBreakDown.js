@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
             WindowName:DataTypes.STRING,
             Param1:DataTypes.STRING,
             Param2:DataTypes.STRING,
-            BreakDown:DataTypes.INTEGER,
+            BreakDown:DataTypes.STRING,
             ThresholdCount:DataTypes.INTEGER,
             SummaryDate: DataTypes.DATE,
             ThresholdBreakDownId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}

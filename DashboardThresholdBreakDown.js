@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
             BreakDown:DataTypes.STRING,
             ThresholdCount:DataTypes.INTEGER,
             SummaryDate: DataTypes.DATE,
+            Hour: DataTypes.INTEGER,
             ThresholdBreakDownId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
 
         }

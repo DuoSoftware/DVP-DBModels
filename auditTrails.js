@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
             User: {type:DataTypes.STRING},
             OtherData: DataTypes.STRING,
             ObjectType: DataTypes.STRING,
-            Action: DataTypes.ENUM('DELETE', 'UPDATE','SAVE','VIEW'),
+            Action: {type: DataTypes.ENUM('DELETE', 'UPDATE','SAVE','VIEW'), defaultValue: 'VIEW', allowNull: false},
             Application: DataTypes.STRING,
             TenantId:  {type:DataTypes.INTEGER},
             CompanyId:  {type:DataTypes.INTEGER},

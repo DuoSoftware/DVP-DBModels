@@ -115,6 +115,7 @@ var models = [
     "SMSCDR",
     "Cron",
     "AuditTrails"
+    "DashboardThresholdBreakDown"
 ];
 
 models.forEach(function(model) {

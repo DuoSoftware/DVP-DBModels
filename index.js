@@ -114,7 +114,7 @@ var models = [
     "ConferenceTemplate",
     "SMSCDR",
     "Cron",
-    "AuditTrails"
+    "AuditTrails",
     "DashboardThresholdBreakDown"
 ];
 

@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
             Description: {type:DataTypes.STRING},
             Author: {type:DataTypes.STRING},
             User: {type:DataTypes.STRING},
-            OtherData: DataTypes.STRING,
+            OtherJsonData: DataTypes.JSON,
             ObjectType: DataTypes.STRING,
             Action: {type: DataTypes.ENUM('DELETE', 'UPDATE','SAVE','VIEW'), defaultValue: 'VIEW', allowNull: false},
             Application: DataTypes.STRING,

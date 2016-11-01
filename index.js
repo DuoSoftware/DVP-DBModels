@@ -115,7 +115,10 @@ var models = [
     "SMSCDR",
     "Cron",
     "AuditTrails",
-    "DashboardThresholdBreakDown"
+    "DashboardThresholdBreakDown",
+    "VoxMasterData",
+    "VoxChannelData",
+    "VoxPendingChannelData"
 ];
 
 models.forEach(function(model) {

@@ -5,6 +5,7 @@
 
 module.exports = function (sequelize, DataTypes) {
     var VoxChannelData = sequelize.define('DB_VOX_ChannelData', {
+            TrunkId : DataTypes.STRING,
             ChannelCount : DataTypes.INTEGER,
             CapacityGroupId : DataTypes.STRING,
             TenantId:  {type:DataTypes.INTEGER},

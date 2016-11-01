@@ -5,6 +5,7 @@
 
 module.exports = function (sequelize, DataTypes) {
     var VoxMasterData = sequelize.define('DB_VOX_MasterData', {
+            TrunkId : DataTypes.STRING,
             ChannelCount : DataTypes.INTEGER,
             AvailableChannelCount : DataTypes.INTEGER,
             Status: DataTypes.BOOLEAN,

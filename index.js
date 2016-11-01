@@ -118,6 +118,7 @@ var models = [
     "DashboardThresholdBreakDown",
     "VoxMasterData",
     "VoxChannelData",
+    "VoxOderData",
     "VoxPendingChannelData"
 ];
 

@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
             Company: DataTypes.INTEGER,
             Tenant: DataTypes.INTEGER,
             DidId:DataTypes.STRING,
+            DidNumber:DataTypes.STRING,
             TrunkId:DataTypes.STRING,
             CapacityRequested:DataTypes.INTEGER,
             CapacityEnabled:DataTypes.INTEGER,

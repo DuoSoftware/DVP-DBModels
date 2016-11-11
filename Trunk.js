@@ -8,7 +8,8 @@ module.exports = function(sequelize, DataTypes) {
             IpUrl: DataTypes.STRING,
             Enable: DataTypes.BOOLEAN,
             CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            TenantId: DataTypes.INTEGER,
+            MaxLimit: DataTypes.INTEGER
         }
     );
 

@@ -114,7 +114,8 @@ var models = [
     "ConferenceTemplate",
     "SMSCDR",
     "Cron",
-    "DashboardThresholdBreakDown"
+    "DashboardThresholdBreakDown",
+    "VoxboneDIDRequest"
 ];
 
 models.forEach(function(model) {

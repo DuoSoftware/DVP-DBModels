@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
             CapacityRequested:DataTypes.INTEGER,
             CapacityEnabled:DataTypes.INTEGER,
             DidEnabled:DataTypes.BOOLEAN,
+            DidPrice: DataTypes.FLOAT,
             RequestStatus:DataTypes.ENUM('requested', 'processing', 'completed'),
             RecordId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
         }

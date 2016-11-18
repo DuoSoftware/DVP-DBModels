@@ -114,6 +114,8 @@ var models = [
     "ConferenceTemplate",
     "SMSCDR",
     "Cron",
+    "DashboardThresholdBreakDown",
+    "VoxboneDIDRequest",
     "AuditTrails",
     "DashboardThresholdBreakDown",
     "VoxMasterData",

@@ -123,8 +123,7 @@ var models = [
     "VoxOderData",
     "VoxPendingChannelData",
     "Wallet",
-    "WalletHistory",
-    "WalletCard"
+    "WalletHistory"
 ];
 
 models.forEach(function(model) {
@@ -438,8 +437,7 @@ models.forEach(function(model) {
         m.WalletHistory.belongsTo(m.Wallet, {as:"Wallet", foreignKey:"WalletId"});
         m.Wallet.hasMany(m.WalletHistory, {as:"WalletHistory", foreignKey:"WalletId"});
 
-    m.WalletCard.belongsTo(m.Wallet, {as:"Wallet", foreignKey:"WalletId"});
-    m.Wallet.hasMany(m.WalletHistory, {as:"WalletCard", foreignKey:"WalletId"});
+
     //------------------Wallet
 
 

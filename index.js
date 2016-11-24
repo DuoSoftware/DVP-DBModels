@@ -123,7 +123,8 @@ var models = [
     "VoxOderData",
     "VoxPendingChannelData",
     "Wallet",
-    "WalletHistory"
+    "WalletHistory",
+    "CustomerBillRecord"
 ];
 
 models.forEach(function(model) {

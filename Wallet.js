@@ -15,6 +15,7 @@ module.exports = function (sequelize, DataTypes) {
             Owner: {type:DataTypes.STRING,unique: 'WalletIndex',allowNull: false},
             Status: DataTypes.BOOLEAN,
             AutoRecharge: DataTypes.BOOLEAN,
+            AutoRechargeAmount: DataTypes.DECIMAL,
             WalletId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
         }
     );

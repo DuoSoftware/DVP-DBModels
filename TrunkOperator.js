@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
             ObjCategory: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
-            ChannelRSCRate: DataTypes.FLOAT,
+            ChannelFee: DataTypes.FLOAT,
             NumberSetupFee: DataTypes.FLOAT,
             NumberRSCRate: DataTypes.FLOAT
         }

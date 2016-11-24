@@ -16,6 +16,7 @@ module.exports = function (sequelize, DataTypes) {
             Status: DataTypes.BOOLEAN,
             AutoRecharge: DataTypes.BOOLEAN,
             AutoRechargeAmount: DataTypes.DECIMAL,
+            ThresholdValue: DataTypes.DECIMAL,
             WalletId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
         }
     );

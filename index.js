@@ -90,6 +90,7 @@ var models = [
     "ResGroups",
     "ResAttributeGroups",
     "ResSharedResource",
+    "ReportMailRecipients",
     "Endpoint",
     "ArdsRequestMetaData",
     "QueueProfile",

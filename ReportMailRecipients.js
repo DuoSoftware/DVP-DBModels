@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     var ReportMailRecipients = sequelize.define('CSDB_ReportMailRecipients', {
             ReportType: DataTypes.STRING,
             Recipient: DataTypes.STRING,
+            Email: DataTypes.STRING,
             TimeZone: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER

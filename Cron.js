@@ -10,7 +10,8 @@ module.exports = function(sequelize, DataTypes) {
             CallbackData: DataTypes.STRING(2000),
             Reference:DataTypes.STRING,
             Company:DataTypes.INTEGER,
-            Tenant:DataTypes.INTEGER
+            Tenant:DataTypes.INTEGER,
+            Timezone:DataTypes.STRING
         }
     );
 

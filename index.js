@@ -113,6 +113,7 @@ var models = [
     "GCMKeys",
     "ConferenceTemplate",
     "SMSCDR",
+    'CallRatings',
     "Cron"
 ];
 

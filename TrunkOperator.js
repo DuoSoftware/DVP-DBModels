@@ -6,7 +6,10 @@ module.exports = function(sequelize, DataTypes) {
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            TenantId: DataTypes.INTEGER,
+            ChannelFee: DataTypes.FLOAT,
+            NumberSetupFee: DataTypes.FLOAT,
+            NumberRSCRate: DataTypes.FLOAT
         }
     );
 

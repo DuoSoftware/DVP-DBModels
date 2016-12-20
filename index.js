@@ -113,8 +113,19 @@ var models = [
     "GCMKeys",
     "ConferenceTemplate",
     "SMSCDR",
-    'CallRatings',
-    "Cron"
+    "Cron",
+    "DashboardThresholdBreakDown",
+    "VoxboneDIDRequest",
+    "AuditTrails",
+    "DashboardThresholdBreakDown",
+    "VoxMasterData",
+    "VoxChannelData",
+    "VoxOderData",
+    "VoxPendingChannelData",
+    "Wallet",
+    "WalletHistory",
+    "CustomerBillRecord",
+    'CallRatings'
 ];
 
 models.forEach(function(model) {
@@ -423,6 +434,13 @@ models.forEach(function(model) {
     m.FileUpload.belongsTo(m.FileCategory,{as:"FileCategory",foreignKey:"FileCategoryId"});
     m.FileCategory.hasMany(m.FileUpload,{as:"FileUpload",foreignKey:"FileCategoryId"});
 
+
+    //------------------Wallet
+        m.WalletHistory.belongsTo(m.Wallet, {as:"Wallet", foreignKey:"WalletId"});
+        m.Wallet.hasMany(m.WalletHistory, {as:"WalletHistory", foreignKey:"WalletId"});
+
+
+    //------------------Wallet
 
 
 //------------------------ [Ards] -------------------------------//

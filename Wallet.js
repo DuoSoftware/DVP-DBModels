@@ -10,6 +10,7 @@ module.exports = function (sequelize, DataTypes) {
             Tag : {type:DataTypes.ARRAY(DataTypes.STRING)} ,
             CurrencyISO: DataTypes.STRING,
             Credit: DataTypes.DECIMAL,
+            LockCredit: DataTypes.DECIMAL,
             TenantId:  {type:DataTypes.INTEGER,unique: 'WalletIndex',allowNull: false},
             CompanyId: {type:DataTypes.INTEGER,unique: 'WalletIndex',allowNull: false},
             Owner: {type:DataTypes.STRING,unique: 'WalletIndex',allowNull: false},

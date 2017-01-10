@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
             ExternalTransfer: DataTypes.INTEGER,
             GroupTransfer: DataTypes.INTEGER,
             ConferenceTransfer: DataTypes.INTEGER,
+            IVRTransfer: DataTypes.INTEGER,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
             ObjClass: DataTypes.STRING,

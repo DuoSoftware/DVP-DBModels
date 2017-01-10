@@ -23,6 +23,7 @@ module.exports = function(sequelize, DataTypes) {
                 TransExternalEnable: DataTypes.BOOLEAN,
                 TransConferenceEnable: DataTypes.BOOLEAN,
                 TransGroupEnable: DataTypes.BOOLEAN,
+                TransIVREnable: DataTypes.BOOLEAN,
                 UpdateUser: DataTypes.STRING,
                 DenyOutboundFor: DataTypes.STRING
 

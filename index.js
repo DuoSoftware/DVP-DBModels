@@ -125,7 +125,8 @@ var models = [
     "Wallet",
     "WalletHistory",
     "CustomerBillRecord",
-    'CallRatings'
+    'CallRatings',
+    'ResResourceStatusDurationInfo'
 ];
 
 models.forEach(function(model) {

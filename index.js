@@ -127,7 +127,8 @@ var models = [
     "CustomerBillRecord",
     'CallRatings',
     'ResResourceStatusDurationInfo',
-    'ResResourceTaskRejectInfo'
+    'ResResourceTaskRejectInfo',
+    'EventTypes'
 ];
 
 models.forEach(function(model) {

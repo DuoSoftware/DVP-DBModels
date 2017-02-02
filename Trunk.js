@@ -7,6 +7,8 @@ module.exports = function(sequelize, DataTypes) {
             ObjCategory: DataTypes.STRING,
             IpUrl: DataTypes.STRING,
             Enable: DataTypes.BOOLEAN,
+            Username: DataTypes.STRING,
+            Password: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
             MaxLimit: DataTypes.INTEGER

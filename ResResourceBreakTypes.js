@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
             TenantId:  {type:DataTypes.INTEGER, unique: 'BreakTypeIndex'},
             CompanyId: {type:DataTypes.INTEGER, unique: 'BreakTypeIndex'},
             BreakType: {type:DataTypes.STRING, unique: 'BreakTypeIndex'},
-            Active: {type:DataTypes.STRING},
+            Active: {type:DataTypes.BOOLEAN},
             MaxDurationPerDay: {type:DataTypes.INTEGER}
         }
     );

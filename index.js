@@ -128,7 +128,8 @@ var models = [
     'CallRatings',
     'ResResourceStatusDurationInfo',
     'ResResourceTaskRejectInfo',
-    'EventTypes'
+    'EventTypes',
+    'ResResourceBreakTypes'
 ];
 
 models.forEach(function(model) {

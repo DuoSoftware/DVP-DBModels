@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
             Status:DataTypes.BOOLEAN,
             TenantId:{type:DataTypes.INTEGER,unique: 'ContactCompositeIndex'},
             CompanyId:{type:DataTypes.INTEGER,unique: 'ContactCompositeIndex'},
+            BatchNo:{type:DataTypes.INTEGER},
             CamContactId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
         }
     );

@@ -4,6 +4,8 @@ module.exports = function(sequelize, DataTypes) {
             Action: DataTypes.STRING,
             ExtraData: DataTypes.STRING,
             TimeZone: DataTypes.STRING,
+            StartDate: DataTypes.STRING,
+            EndDate: DataTypes.STRING,
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
             ObjCategory: DataTypes.STRING,

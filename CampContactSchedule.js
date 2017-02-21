@@ -9,6 +9,7 @@ module.exports = function(sequelize, DataTypes) {
             CampaignId: {type:DataTypes.INTEGER,unique: 'CampContactScheduleIndex'},
             CamScheduleId: {type:DataTypes.INTEGER,unique: 'CampContactScheduleIndex'},
             CamContactId:{type:DataTypes.INTEGER,unique: 'CampContactScheduleIndex'},
+            BatchNo:{type:DataTypes.STRING,unique: 'CampContactScheduleIndex'},
             ExtraData:DataTypes.STRING,
             ContactScheduleId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
         }

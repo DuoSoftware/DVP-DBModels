@@ -7,6 +7,7 @@ module.exports = function(sequelize, DataTypes) {
             Announcement: DataTypes.STRING,
             FirstAnnounement: DataTypes.STRING,
             AnnouncementTime: DataTypes.INTEGER,
+            MaxQueueTime:DataTypes.INTEGER,
             PositionAnnouncement: DataTypes.BOOLEAN,
             Language: DataTypes.STRING,
             Type: DataTypes.STRING,

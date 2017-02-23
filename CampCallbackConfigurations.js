@@ -6,7 +6,7 @@
 module.exports = function(sequelize, DataTypes) {
     var CampCallbackConfigurations = sequelize.define('DB_CAMP_CallbackConfigurations', {
             ConfigureId: {type:DataTypes.INTEGER,unique: 'CallBackConfigCompositeIndex'},
-            MaxCallBackCount:{type:DataTypes.INTEGER,unique: 'CallBackConfigCompositeIndex'},
+            MaxCallBackCount:{type:DataTypes.INTEGER},
             ReasonId:{type:DataTypes.INTEGER,unique: 'CallBackConfigCompositeIndex'},
             CallbackInterval:{type:DataTypes.INTEGER},
             CallBackConfId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}

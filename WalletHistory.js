@@ -11,6 +11,7 @@ module.exports = function (sequelize, DataTypes) {
             CurrencyISO: DataTypes.STRING,
             Tag: {type: DataTypes.ARRAY(DataTypes.STRING)},
             Credit: DataTypes.DECIMAL,
+            DeductCredit: DataTypes.DECIMAL,
             TenantId: {type: DataTypes.INTEGER},
             CompanyId: {type: DataTypes.INTEGER},
             WalletId: {type: DataTypes.INTEGER},

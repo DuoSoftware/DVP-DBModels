@@ -17,6 +17,7 @@ module.exports = function (sequelize, DataTypes) {
             Operation: DataTypes.STRING,
             InvokeBy: DataTypes.STRING,
             Reason: DataTypes.STRING,
+            SessionID: DataTypes.STRING,
             WalletHistoryId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
         }
     );

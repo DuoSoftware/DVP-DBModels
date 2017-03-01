@@ -372,6 +372,8 @@ models.forEach(function(model) {
         //------------------CampContactCategory
         m.CampContactInfo.belongsTo(m.CampContactCategory, {as:"CampContactCategory", foreignKey:"CategoryID"});
         m.CampContactCategory.hasMany(m.CampContactInfo, {as:"CampContactInfo", foreignKey:"CategoryID"});
+            /*m.CampScheduleInfo.belongsTo(m.CampContactCategory, {as:"CampContactCategory", foreignKey:"CamScheduleId"});
+            m.CampContactCategory.hasMany(m.CampScheduleInfo, {as:"CampScheduleInfo", foreignKey:"CamScheduleId"});*/
         //------------------CampContactCategory
 
             //------------------CampCallbackConfigurations

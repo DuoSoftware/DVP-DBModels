@@ -6,12 +6,12 @@
 
 module.exports = function(sequelize, DataTypes) {
     var CampMapContactSchedule = sequelize.define('DB_CAMP_MapContactSchedule', {
-            CampaignId: {type:DataTypes.INTEGER},
-            CamScheduleId: {type:DataTypes.INTEGER},
             CamSchedule: {type:DataTypes.STRING},
-            CategoryID:{type:DataTypes.INTEGER},
             TenantId: {type:DataTypes.INTEGER},
             CompanyId: {type:DataTypes.INTEGER},
+            CampaignId: {type:DataTypes.INTEGER,unique: 'MapContactScheduleIndex',allowNull: false},
+            CamScheduleId: {type:DataTypes.INTEGER,unique: 'MapContactScheduleIndex',allowNull: false},
+            CategoryID: {type:DataTypes.INTEGER,unique: 'MapContactScheduleIndex',allowNull: false},
             MapContactScheduleId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
         }
     );

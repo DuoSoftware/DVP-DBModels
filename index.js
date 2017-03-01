@@ -81,6 +81,7 @@ var models = [
     "CampCallbackConfigurations",
     "CampCallBackReasons",
     "CampAdditionalData",
+    "CampMapContactSchedule",
     "ResResource",
     "ResTask",
     "ResTaskInfo",
@@ -386,6 +387,11 @@ models.forEach(function(model) {
         m.CampAdditionalData.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
         m.CampCampaignInfo.hasMany(m.CampAdditionalData, {as:"CampAdditionalData", foreignKey:"CampaignId"});
         //------------------CampCallbackConfigurations
+
+    //------------------CampMapContactSchedule
+    m.CampMapContactSchedule.belongsTo(m.CampContactCategory, {as:"CampContactCategory", foreignKey:"CategoryID"});
+    m.CampContactCategory.hasMany(m.CampMapContactSchedule, {as:"CampMapContactSchedule", foreignKey:"CategoryID"});
+    //------------------CampMapContactSchedule
 
     // ----------------------- [CampaignManager] ----------------------- //
 

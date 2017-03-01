@@ -125,6 +125,7 @@ var models = [
     "VoxPendingChannelData",
     "Wallet",
     "WalletHistory",
+    "WalletSessionData",
     "CustomerBillRecord",
     'CallRatings',
     'ResResourceStatusDurationInfo',

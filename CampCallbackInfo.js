@@ -8,6 +8,7 @@
 module.exports = function(sequelize, DataTypes) {
     var CampCallbackInfo = sequelize.define('DB_CAMP_CallbackInfo', {
             CampaignId: {type:DataTypes.INTEGER,unique: 'CampCallbackInfoCompositeIndex'},
+        CampaignName: DataTypes.STRING,
             ContactId: {type:DataTypes.STRING,unique: 'CampCallbackInfoCompositeIndex'},
             DialoutTime:DataTypes.DATE,
             CallBackCount:DataTypes.INTEGER,

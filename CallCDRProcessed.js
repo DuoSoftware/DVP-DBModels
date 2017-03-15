@@ -38,7 +38,8 @@ module.exports = function(sequelize, DataTypes) {
             AgentSkill: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
-            RecordingUuid: DataTypes.STRING
+            RecordingUuid: DataTypes.STRING,
+            AcwSec: DataTypes.INTEGER
         }
 
     );

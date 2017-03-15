@@ -132,7 +132,8 @@ var models = [
     'ResResourceTaskRejectInfo',
     'EventTypes',
     'ResResourceBreakTypes',
-    'CampDncInfo'
+    'CampDncInfo',
+    'ResResourceAcwInfo'
 ];
 
 models.forEach(function(model) {

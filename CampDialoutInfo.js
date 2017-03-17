@@ -14,6 +14,7 @@ module.exports = function (sequelize, DataTypes) {
             Dialtime: DataTypes.STRING,
             Reason: DataTypes.STRING,
             SessionId: DataTypes.STRING,
+            DialNumber: DataTypes.STRING,
             TryCount: DataTypes.STRING,
             DialoutId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
         }

@@ -133,7 +133,8 @@ var models = [
     'EventTypes',
     'ResResourceBreakTypes',
     'CampDncInfo',
-    'ResResourceAcwInfo'
+    'ResResourceAcwInfo',
+    'ContextCodecPref'
 ];
 
 models.forEach(function(model) {

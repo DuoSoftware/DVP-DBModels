@@ -134,7 +134,8 @@ var models = [
     'ResResourceBreakTypes',
     'CampDncInfo',
     'ResResourceAcwInfo',
-    'ContextCodecPref'
+    'ContextCodecPref',
+    'DashboardPublishMetaData'
 ];
 
 models.forEach(function(model) {

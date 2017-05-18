@@ -3,17 +3,19 @@
  */
 
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     var DialerAgentDialInfo = sequelize.define('DB_Dialer_DialerAgentDialInfo', {
 
             DialerState: DataTypes.STRING,
-            AttemptCount:DataTypes.INTEGER,
+            AttemptCount: DataTypes.INTEGER,
             ContactNumber: DataTypes.STRING,
             ResourceName: DataTypes.STRING,
-            ResourceId:DataTypes.INTEGER,
-            StartDate:DataTypes.DATE,
+            ResourceId: DataTypes.INTEGER,
+            StartDate: DataTypes.DATE,
             BatchName: DataTypes.STRING,
-            AgentDialNumberId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
+            TenantId: {type: DataTypes.INTEGER},
+            CompanyId: {type: DataTypes.INTEGER},
+            AgentDialNumberId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
         }
     );
     return DialerAgentDialInfo;

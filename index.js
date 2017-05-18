@@ -135,9 +135,10 @@ var models = [
     'CampDncInfo',
     'ResResourceAcwInfo',
     'ContextCodecPref',
-    'DashboardPublishMetaData'
+    'DashboardPublishMetaData',
     'ResResourceAcwInfo',
-    'DialerAgentDialInfo'
+    'DialerAgentDialInfo',
+    'DialerAgentDialInfoHistory'
 ];
 
 models.forEach(function(model) {

@@ -133,7 +133,8 @@ var models = [
     'EventTypes',
     'ResResourceBreakTypes',
     'CampDncInfo',
-    'ResResourceAcwInfo'
+    'ResResourceAcwInfo',
+    'DialerAgentDialInfo'
 ];
 
 models.forEach(function(model) {
@@ -399,6 +400,10 @@ models.forEach(function(model) {
 
     // ----------------------- [CampaignManager] ----------------------- //
 
+
+    // ----------------------- [Agent Dialer] ----------------------- //
+
+    // ----------------------- [Agent Dialer] ----------------------- //
 
     // ----------------------- [Resource Service] ----------------------- //
 

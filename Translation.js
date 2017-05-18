@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
             RAdd: DataTypes.STRING,
             RRemove: DataTypes.INTEGER,
             Replace: DataTypes.STRING,
+            GhostNumbers: DataTypes.STRING(1000),
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
             ObjClass: DataTypes.STRING,

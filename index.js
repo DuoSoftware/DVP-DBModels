@@ -134,6 +134,9 @@ var models = [
     'ResResourceBreakTypes',
     'CampDncInfo',
     'ResResourceAcwInfo',
+    'ContextCodecPref',
+    'DashboardPublishMetaData'
+    'ResResourceAcwInfo',
     'DialerAgentDialInfo'
 ];
 

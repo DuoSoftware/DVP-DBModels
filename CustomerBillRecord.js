@@ -13,6 +13,8 @@ module.exports = function (sequelize, DataTypes) {
             CompanyId: DataTypes.INTEGER,
             Status: DataTypes.BOOLEAN,
             OtherJsonData: DataTypes.JSON,
+            FirstBilling : DataTypes.BOOLEAN,
+            BuyDate : DataTypes.STRING, 
             CustomerBillId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
         }
     );

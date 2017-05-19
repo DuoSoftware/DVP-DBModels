@@ -10,7 +10,7 @@ module.exports = function (sequelize, DataTypes) {
             AttemptCount: DataTypes.INTEGER,
             ContactNumber: DataTypes.STRING,
             ResourceName: DataTypes.STRING,
-            ResourceId: DataTypes.INTEGER,
+            ResourceId: DataTypes.STRING,
             StartDate: DataTypes.DATE,
             BatchName: DataTypes.STRING,
             OtherData: DataTypes.STRING,

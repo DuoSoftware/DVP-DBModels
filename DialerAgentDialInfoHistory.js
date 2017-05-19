@@ -13,6 +13,7 @@ module.exports = function (sequelize, DataTypes) {
             ResourceId: DataTypes.INTEGER,
             StartDate: DataTypes.DATE,
             BatchName: DataTypes.STRING,
+            OtherData: DataTypes.STRING,
             AgentDialNumberId: DataTypes.INTEGER,
             TenantId: {type: DataTypes.INTEGER},
             CompanyId: {type: DataTypes.INTEGER},

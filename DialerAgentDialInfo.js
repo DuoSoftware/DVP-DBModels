@@ -8,11 +8,11 @@ module.exports = function (sequelize, DataTypes) {
 
             DialerState: DataTypes.STRING,
             AttemptCount: DataTypes.INTEGER,
-            ContactNumber: DataTypes.STRING,
+            ContactNumber: {type:DataTypes.STRING,unique: 'DialerAgentDialInfoIndex'},
             ResourceName: DataTypes.STRING,
             ResourceId: DataTypes.STRING,
             StartDate: DataTypes.DATE,
-            BatchName: DataTypes.STRING,
+            BatchName: {type:DataTypes.STRING,unique: 'DialerAgentDialInfoIndex'},
             OtherData: DataTypes.STRING,
             TenantId: {type: DataTypes.INTEGER},
             CompanyId: {type: DataTypes.INTEGER},

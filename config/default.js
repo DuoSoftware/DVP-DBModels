@@ -4,7 +4,7 @@ module.exports = {
     "User":"duo",
     "Password":"DuoS123",
     "Port":5432,
-    "Host":"104.236.231.11",
+    "Host":"localhost",
     "Database":"duo"
   }
 };

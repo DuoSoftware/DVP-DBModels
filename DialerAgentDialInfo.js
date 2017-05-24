@@ -14,6 +14,7 @@ module.exports = function (sequelize, DataTypes) {
             StartDate: DataTypes.DATE,
             BatchName: {type:DataTypes.STRING,unique: 'DialerAgentDialInfoIndex'},
             OtherData: DataTypes.STRING,
+            Redial: DataTypes.BOOLEAN,
             TenantId: {type: DataTypes.INTEGER},
             CompanyId: {type: DataTypes.INTEGER},
             AgentDialNumberId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}

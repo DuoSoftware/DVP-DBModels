@@ -11,7 +11,8 @@ module.exports = function(sequelize, DataTypes) {
             Password: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
-            MaxLimit: DataTypes.INTEGER
+            MaxLimit: DataTypes.INTEGER,
+            Codecs: DataTypes.STRING
         }
     );
 

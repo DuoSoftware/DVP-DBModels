@@ -138,7 +138,8 @@ var models = [
     'DashboardPublishMetaData',
     'ResResourceAcwInfo',
     'DialerAgentDialInfo',
-    'DialerAgentDialInfoHistory'
+    'DialerAgentDialInfoHistory',
+    'ScheduledCallback'
 ];
 
 models.forEach(function(model) {

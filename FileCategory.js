@@ -6,7 +6,8 @@ module.exports = function(sequelize, DataTypes) {
             Owner: {type:DataTypes.STRING,unique: 'catkeys'},
             Category:{type:DataTypes.STRING,unique: 'catkeys'},
             Visible:DataTypes.BOOLEAN,
-            Encripted:DataTypes.BOOLEAN
+            Encripted:DataTypes.BOOLEAN,
+            Source:{type: DataTypes.ENUM('LOCAL', 'MONGO')}
         }
     );
 

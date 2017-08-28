@@ -17,7 +17,9 @@ module.exports = function(sequelize, DataTypes) {
             TenantId: {type:DataTypes.INTEGER,unique: "compositeIndex"},
             RefId:DataTypes.STRING,
             Status:DataTypes.STRING,
-            Size:DataTypes.INTEGER
+            Size:DataTypes.INTEGER,
+            Source:{type: DataTypes.ENUM('LOCAL', 'MONGO')}
+
         }
     );
 

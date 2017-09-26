@@ -139,7 +139,8 @@ var models = [
     'ResResourceAcwInfo',
     'DialerAgentDialInfo',
     'DialerAgentDialInfoHistory',
-    'ScheduledCallback'
+    'ScheduledCallback',
+    'ResQueueSettings'
 ];
 
 models.forEach(function(model) {

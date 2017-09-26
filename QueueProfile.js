@@ -7,13 +7,15 @@ module.exports = function(sequelize, DataTypes) {
             Announcement: DataTypes.STRING,
             FirstAnnounement: DataTypes.STRING,
             AnnouncementTime: DataTypes.INTEGER,
-            MaxQueueTime:DataTypes.INTEGER,
+            MaxQueueTime: DataTypes.INTEGER,
+            MaxWaitQueueThreshold: DataTypes.INTEGER,
             PositionAnnouncement: DataTypes.BOOLEAN,
             Language: DataTypes.STRING,
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
-            TenantId: DataTypes.INTEGER
+            TenantId: DataTypes.INTEGER,
+            DialTime: DataTypes.INTEGER
 
         }
     );

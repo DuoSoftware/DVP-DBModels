@@ -6,6 +6,8 @@ module.exports = function (sequelize, DataTypes) {
 
             TenantId:  {type:DataTypes.INTEGER, unique: "compositeIndex"},
             CompanyId: {type:DataTypes.INTEGER, unique: "compositeIndex"},
+            ServerType:{type:DataTypes.STRING,allowNull: false},
+            RequestType:{type:DataTypes.STRING,allowNull: false},
             Skills: {type:DataTypes.ARRAY(DataTypes.STRING)},
             RecordID: {type:DataTypes.STRING, unique: "compositeIndex",allowNull: false},
             QueueName:{type:DataTypes.STRING,allowNull: false},

@@ -38,7 +38,9 @@ module.exports = function(sequelize, DataTypes) {
             AgentSkill: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
-            RecordingUuid: DataTypes.STRING
+            RecordingUuid: DataTypes.STRING,
+            CampaignId: DataTypes.INTEGER,
+            CampaignName: DataTypes.STRING(1000)
         }
 
     );

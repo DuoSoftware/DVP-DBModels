@@ -140,7 +140,8 @@ var models = [
     'DialerAgentDialInfo',
     'DialerAgentDialInfoHistory',
     'ScheduledCallback',
-    'ResQueueSettings'
+    'ResQueueSettings',
+    'IPPhoneConfig'
 ];
 
 models.forEach(function(model) {

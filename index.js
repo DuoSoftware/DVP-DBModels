@@ -469,7 +469,10 @@ models.forEach(function(model) {
 
 
     //------------------Wallet
-
+//------------------IPPhone --------------------------//
+    //IPPhoneConfig,IPPhoneTemplate
+    m.IPPhoneConfig.belongsTo(m.IPPhoneTemplate,{as:"IPPhoneTemplate",foreignKey:"model"})
+    m.IPPhoneTemplate.hasMany(m.IPPhoneConfig,{as:"IPPhoneConfig",foreignKey:"model"})
 
 //------------------------ [Ards] -------------------------------//
     //m.ArdsAttributeInfo.belongsToMany(m.ArdsAttributeMetaData, {as: "ArdsAttributeMetaData", through: 'ARDS_AttributeMetaJunction'});

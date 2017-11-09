@@ -7,12 +7,29 @@ var dbuser = Config.DB.User;
 var dbpassword = Config.DB.Password;
 var dbport = Config.DB.Port;
 var dbhost = Config.DB.Host;
+var cluster = Config.DB.Cluster;
 
-var sequelize = new Sequelize(database, dbuser, dbpassword, {
+var options = {
     dialect:dbType, // or 'sqlite', 'postgres', 'mariadb'
     port:dbport, // or 5432 (for postgres)
     host:dbhost //host address
-});
+};
+
+
+
+if(cluster && (cluster === "true" || cluster === true)){
+
+    options.pool = {
+        max: 5,
+        min: 0,
+        idle: 10000
+    };
+}
+
+var sequelize = new Sequelize(database, dbuser, dbpassword, options );
+
+
+
 
 var models = [
     'Context',

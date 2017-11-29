@@ -38,6 +38,7 @@ var models = [
     'LoadBalancer',
     'Network',
     'CallServer',
+    'ApplicationErrors',
     'Extension',
     'Trunk',
     'SipUACEndpoint',

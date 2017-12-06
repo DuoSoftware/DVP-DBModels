@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
             FileStructure: DataTypes.STRING,
             ObjClass: DataTypes.STRING,
             ObjType: DataTypes.STRING,
-            ObjCategory: DataTypes.STRING,
+            ObjCategory: {type:DataTypes.STRING,unique: "compositeIndex"},
             URL: DataTypes.STRING,
             UploadTimestamp: DataTypes.STRING,
             Filename: {type:DataTypes.STRING,unique: "compositeIndex"},

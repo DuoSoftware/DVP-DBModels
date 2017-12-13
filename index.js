@@ -8,6 +8,7 @@ var dbpassword = Config.DB.Password;
 var dbport = Config.DB.Port;
 var dbhost = Config.DB.Host;
 var cluster = Config.DB.Cluster;
+var dialectOptions =Config.DB.dialectOptions;
 
 var options = {
     dialect:dbType, // or 'sqlite', 'postgres', 'mariadb'
@@ -26,10 +27,12 @@ if(cluster && (cluster === "true" || cluster === true)){
     };
 }
 
+if(dialectOptions){
+    options.dialectOptions = dialectOptions;
+};
+
+
 var sequelize = new Sequelize(database, dbuser, dbpassword, options );
-
-
-
 
 var models = [
     'Context',

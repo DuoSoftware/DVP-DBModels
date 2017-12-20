@@ -187,22 +187,22 @@ models.forEach(function(model) {
     //--------------------- Buy Numbers----------------------\\
 
     m.TrunkPhoneNumber.belongsTo(m.Schedule, {as:"Schedule", foreignKey:"ScheduleId"});
-    m.Schedule.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey:"ScheduleId"});
+    m.Schedule.hasMany(m.TrunkPhoneNumber, {as:"ScheduleTrunkPhoneNumber", foreignKey:"ScheduleId"});
 
-    m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "TrunkId"});
+    m.Trunk.hasMany(m.TrunkPhoneNumber, {as:"TrunkTrunkPhoneNumber", foreignKey: "TrunkId"});
     m.TrunkPhoneNumber.belongsTo(m.Trunk, {as:"Trunk", foreignKey: "TrunkId"});
 
     m.Trunk.hasMany(m.TrunkIpAddress, {as:"TrunkIpAddress", foreignKey: "TrunkId"});
     m.TrunkIpAddress.belongsTo(m.Trunk, {as:"Trunk", foreignKey: "TrunkId"});
 
     m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfoInbound", foreignKey: "InboundLimitId"});
-    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "InboundLimitId"});
+    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"LimitInfoInTrunkPhoneNumber", foreignKey: "InboundLimitId"});
 
     m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfoOutbound", foreignKey: "OutboundLimitId"});
-    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "OutboundLimitId"});
+    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"LimitInfoOutTrunkPhoneNumber", foreignKey: "OutboundLimitId"});
 
     m.TrunkPhoneNumber.belongsTo(m.LimitInfo, {as:"LimitInfoBoth", foreignKey: "BothLimitId"});
-    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"TrunkPhoneNumber", foreignKey: "BothLimitId"});
+    m.LimitInfo.hasMany(m.TrunkPhoneNumber, {as:"LimitInfoBothTrunkPhoneNumber", foreignKey: "BothLimitId"});
 
     m.UserGroup.belongsTo(m.Extension, {as:"Extension", foreignKey: "ExtensionId"});
     m.Extension.hasOne(m.UserGroup, {as:"UserGroup", foreignKey: "ExtensionId"});
@@ -269,7 +269,7 @@ models.forEach(function(model) {
     m.IPAddress.belongsTo(m.CallServer, {as: "CallServer", foreignKey: "CallServerId"});
     m.CallServer.hasMany(m.IPAddress, {as: "IPAddress", foreignKey: "CallServerId"});
 
-    m.Schedule.hasMany(m.CallRule, {as: "CallRule", foreignKey: "ScheduleId"});
+    m.Schedule.hasMany(m.CallRule, {as: "ScheduleCallRule", foreignKey: "ScheduleId"});
     m.CallRule.belongsTo(m.Schedule, {as: "Schedule", foreignKey: "ScheduleId"});
 
     m.PBXUser.hasMany(m.PBXUserTemplate, {as: "PBXUserTemplate", foreignKey: "PBXUserUuid"});
@@ -287,17 +287,17 @@ models.forEach(function(model) {
     m.DidNumber.belongsTo(m.Extension, {as: "Extension", foreignKey: "ExtensionId"});
     m.Extension.hasMany(m.DidNumber, {as: "DidNumber", foreignKey: "ExtensionId"});
 
-    m.Translation.hasMany(m.CallRule, {as: "CallRule", foreignKey: "TranslationId"});
+    m.Translation.hasMany(m.CallRule, {as: "TranslationCallRule", foreignKey: "TranslationId"});
     m.CallRule.belongsTo(m.Translation, {as: "Translation", foreignKey: "TranslationId"});
 
-    m.Translation.hasMany(m.CallRule, {as: "CallRule", foreignKey: "ANITranslationId"});
+    m.Translation.hasMany(m.CallRule, {as: "TranslationANICallRule", foreignKey: "ANITranslationId"});
     m.CallRule.belongsTo(m.Translation, {as: "ANITranslation", foreignKey: "ANITranslationId"});
 
     m.CallRule.belongsTo(m.Application, {as: "Application", foreignKey: "AppId"});
-    m.Application.hasMany(m.CallRule, {as:"CallRule", foreignKey: "AppId"});
+    m.Application.hasMany(m.CallRule, {as:"ApplicationCallRule", foreignKey: "AppId"});
 
-    m.CallRule.belongsTo(m.TrunkPhoneNumber, {as: "TrunkPhoneNumber", foreignKey: "PhoneNumId"});
-    m.TrunkPhoneNumber.hasMany(m.CallRule, {as:"CallRule", foreignKey: "PhoneNumId"});
+    m.CallRule.belongsTo(m.TrunkPhoneNumber, {as: "CallRuleTrunkPhoneNumber", foreignKey: "PhoneNumId"});
+    m.TrunkPhoneNumber.hasMany(m.CallRule, {as:"TrunkPhoneNumberCallRule", foreignKey: "PhoneNumId"});
 
     m.Trunk.belongsTo(m.Translation, {as: "Translation", foreignKey: "TranslationId"});
     m.Translation.hasMany(m.Trunk, {as: "Trunk", foreignKey: "TranslationId"});
@@ -350,8 +350,8 @@ models.forEach(function(model) {
     m.AutoAttendant.hasMany(m.Action,{as: "Actions"});
     m.Action.belongsTo( m.AutoAttendant,{as: "Actions"} );
 
-    m.Application.belongsTo(m.AppDeveloper, {as: "AppDeveloper", foreignKey: "AppDeveloperId"});
-    m.AppDeveloper.hasMany(m.Application, {as: "Application", foreignKey: "AppDeveloperId"});
+    /*m.Application.belongsTo(m.AppDeveloper, {as: "AppDeveloper", foreignKey: "AppDeveloperId"});
+    m.AppDeveloper.hasMany(m.Application, {as: "Application", foreignKey: "AppDeveloperId"});*/
 
 
 

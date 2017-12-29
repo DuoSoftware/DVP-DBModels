@@ -20,7 +20,8 @@ module.exports = function(sequelize, DataTypes) {
             ContextRegEx: DataTypes.STRING,
             Context: DataTypes.STRING,
             Direction: DataTypes.STRING, //INBOUND, OUTBOUND
-            CustomRegEx: DataTypes.STRING
+            CustomRegEx: DataTypes.STRING,
+            BusinessUnit:DataTypes.STRING
 
         }
     );

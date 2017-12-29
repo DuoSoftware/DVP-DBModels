@@ -15,7 +15,8 @@ module.exports = function(sequelize, DataTypes) {
             Category: DataTypes.STRING,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
-            DialTime: DataTypes.INTEGER
+            DialTime: DataTypes.INTEGER,
+            BusinessUnit:DataTypes.STRING
 
         }
     );

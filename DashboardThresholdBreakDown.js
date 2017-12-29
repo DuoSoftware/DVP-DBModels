@@ -7,6 +7,7 @@ module.exports = function(sequelize, DataTypes) {
 
             Company: DataTypes.STRING,
             Tenant: DataTypes.STRING,
+            BusinessUnit: DataTypes.STRING,
             WindowName:DataTypes.STRING,
             Param1:DataTypes.STRING,
             Param2:DataTypes.STRING,

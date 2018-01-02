@@ -8,6 +8,7 @@ module.exports = function (sequelize, DataTypes) {
             RecordId:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
             TenantId:  {type:DataTypes.INTEGER},
             CompanyId: {type:DataTypes.INTEGER},
+            BusinessUnit: {type:DataTypes.STRING},
             ResourceId: {type: DataTypes.INTEGER},
             StatusType: {type:DataTypes.STRING},
             Status: {type:DataTypes.STRING},

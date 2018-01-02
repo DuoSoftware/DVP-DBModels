@@ -8,6 +8,7 @@ module.exports = function (sequelize, DataTypes) {
             ResourceId: {type: DataTypes.INTEGER},
             TenantId:  {type:DataTypes.INTEGER},
             CompanyId: {type:DataTypes.INTEGER},
+            BusinessUnit: {type:DataTypes.STRING},
             StatusType: {type:DataTypes.STRING},
             Status: {type:DataTypes.STRING},
             Reason: {type:DataTypes.STRING},

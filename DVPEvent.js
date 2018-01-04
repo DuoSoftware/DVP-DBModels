@@ -9,7 +9,8 @@ module.exports = function(sequelize, DataTypes) {
             EventCategory: DataTypes.STRING,
             EventTime: DataTypes.DATE,
             EventData: DataTypes.STRING,
-            EventParams: DataTypes.STRING(100000)
+            EventParams: DataTypes.STRING(100000),
+            BusinessUnit: DataTypes.STRING
         }
     );
 

@@ -40,7 +40,8 @@ module.exports = function(sequelize, DataTypes) {
             TenantId: DataTypes.INTEGER,
             RecordingUuid: DataTypes.STRING,
             CampaignId: DataTypes.INTEGER,
-            CampaignName: DataTypes.STRING(1000)
+            CampaignName: DataTypes.STRING(1000),
+            BusinessUnit: DataTypes.STRING
         }
 
     );

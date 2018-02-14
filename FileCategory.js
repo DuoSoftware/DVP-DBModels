@@ -5,6 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     var FileCategory = sequelize.define('CSDB_FileCategory', {
             Owner: {type:DataTypes.STRING,unique: 'catkeys'},
             Category:{type:DataTypes.STRING,unique: 'catkeys'},
+            Company:{type:DataTypes.INTEGER,unique: 'catkeys'},
+            Tenant:{type:DataTypes.INTEGER,unique: 'catkeys'},
             Visible:DataTypes.BOOLEAN,
             Encripted:DataTypes.BOOLEAN,
             Source:{type: DataTypes.ENUM('LOCAL', 'MONGO')}

@@ -12,7 +12,8 @@ module.exports = function(sequelize, DataTypes) {
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER,
             MaxLimit: DataTypes.INTEGER,
-            Codecs: DataTypes.STRING
+            Codecs: DataTypes.STRING,
+            Register: DataTypes.BOOLEAN
         }
     );
 

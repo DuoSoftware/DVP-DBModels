@@ -5,6 +5,7 @@ module.exports = function(sequelize, DataTypes) {
             Uuid: {type: DataTypes.STRING, primaryKey: true},
             CallUuid: DataTypes.STRING,
             BridgeUuid: DataTypes.STRING,
+            MemberUuid: DataTypes.STRING,
             SipFromUser: DataTypes.STRING,
             SipToUser: DataTypes.STRING,
             SipResource: DataTypes.STRING,

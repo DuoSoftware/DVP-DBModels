@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
             TenantId:  DataTypes.INTEGER,
             CompanyId: DataTypes.INTEGER,
             Status: DataTypes.BOOLEAN,
-            OtherJsonData: DataTypes.JSON,
+            OtherJsonData: DataTypes.TEXT,
             FirstBilling : DataTypes.BOOLEAN,
             BuyDate : DataTypes.STRING, 
             CustomerBillId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}

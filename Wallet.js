@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
     var Wallet = sequelize.define('DB_Wallet', {
             StripeId : DataTypes.STRING,
             Description : DataTypes.STRING,
-            Tag : {type:DataTypes.ARRAY(DataTypes.STRING)} ,
+            Tag : DataTypes.STRING ,
             CurrencyISO: DataTypes.STRING,
             Credit: DataTypes.DECIMAL,
             LockCredit: DataTypes.DECIMAL,

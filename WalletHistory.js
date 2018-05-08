@@ -7,9 +7,9 @@ module.exports = function (sequelize, DataTypes) {
     var WalletHistory = sequelize.define('DB_WalletHistory', {
             StripeId: DataTypes.STRING,
             Description: DataTypes.STRING,
-            OtherJsonData: DataTypes.JSON,
+            OtherJsonData: DataTypes.TEXT,
             CurrencyISO: DataTypes.STRING,
-            Tag: {type: DataTypes.ARRAY(DataTypes.STRING)},
+            Tag: DataTypes.STRING,
             Credit: DataTypes.DECIMAL,
             DeductCredit: DataTypes.DECIMAL,
             TenantId: {type: DataTypes.INTEGER},

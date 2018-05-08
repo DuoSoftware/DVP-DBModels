@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
             TenantId: DataTypes.INTEGER,
             SessionId: DataTypes.STRING,
             ContactId: DataTypes.STRING,
-            CallbackData: DataTypes.JSON,
+            CallbackData: DataTypes.TEXT,
             RequestedTime:DataTypes.DATE,
             Duration:DataTypes.INTEGER,
             DispatchedTime:DataTypes.DATE,

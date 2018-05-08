@@ -5,7 +5,7 @@
 module.exports = function (sequelize, DataTypes) {
     var CallRatings = sequelize.define('DB_CallRatings', {
         Provider :  {type: DataTypes.STRING, primaryKey: true},
-        PaymentData: DataTypes.JSON
+        PaymentData: DataTypes.TEXT
         }
     );
     return CallRatings;

@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var IPPhoneConfig = sequelize.define('IPPhoneConfig', {
             mac: {type:DataTypes.STRING, primaryKey:true},
-            configdata: DataTypes.JSON,
+            configdata: DataTypes.TEXT,
             model:DataTypes.STRING
         }
     );

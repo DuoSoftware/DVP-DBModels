@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
     var VoxOderData = sequelize.define('DB_VOX_OderData', {
             VoxOderId : DataTypes.STRING,
             VoxStatus : DataTypes.STRING,
-            Dids : {type:DataTypes.ARRAY(DataTypes.STRING)} ,
+            Dids : DataTypes.STRING ,
             OtherJsonData: DataTypes.TEXT,
             TenantId:  {type:DataTypes.INTEGER},
             CompanyId:  {type:DataTypes.INTEGER},

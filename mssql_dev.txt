@@ -1,0 +1,26 @@
+Fixing Compatibility of DVP-DBModels with MSSQL
+
+Fixed:
+
+1. Replace "RESTRICT" with "NO ACTION" on relationship Context and SipUACEndpoint (index.js Line : 225 ) 
+2. DB_CAMP_CallBackReasons -> HangupCause -> JSON data type to TEXT (need to consider on finds) 
+3. CSDB_CallCDRProcessed -> TransferredParties -> Set data type to TEXT 
+4. CSDB_AutoAttendant -> unique constarint renamed as "autoattendcompositeIndex"  
+5. CSDB_FileUpload -> unique constarint renamed as "filecompositeIndex" 
+6. CSDB_DVPEvent -> EventParams -> Set data type to TEXT 
+7. CSDB_PersistenceMessages-> Callback -> Set data type to TEXT 
+8. CSDB_GCMKeys-> unique constarint renamed as "gcmcompositeIndex" 
+9. DB_AuditTrails -> OldValue and NewValue -> Set data type to TEXT 
+10. DB_AuditTrails -> OtherJsonData -> JSON data type to TEXT (need to consider on finds) 
+11. DB_VOX_OderData -> OtherJsonData -> JSON data type to TEXT (need to consider on finds) 
+12. DB_VOX_OderData -> Dids-> Replace array of strings into a string 
+13. DB_Wallet -> Tag -> Replace array of strings into a string 
+14. DB_WalletHistory -> Tag -> Replace array of strings into a string 
+15. DB_WalletHistory -> OtherJsonData -> -> JSON data type to TEXT (need to consider on finds) 
+16. DB_CustomerBillRecord -> OtherJsonData -> -> JSON data type to TEXT (need to consider on finds) 
+17. DB_CallRatings-> PaymentData -> -> JSON data type to TEXT (need to consider on finds) 
+18. IPPhoneConfig -> configdata-> -> JSON data type to TEXT (need to consider on finds) 
+19. DB_CAMP_ScheduledCallback -> CallbackData-> -> JSON data type to TEXT (need to consider on finds) 
+20. DB_RES_QueueSettings -> unique constarint renamed as "queuecompositeIndex" 
+21. DB_WalletHistory -> Skills -> Replace array of strings into a string 
+

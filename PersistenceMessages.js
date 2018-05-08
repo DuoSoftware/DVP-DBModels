@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
             From: DataTypes.STRING,
             To: DataTypes.STRING,
             Time: DataTypes.DATE,
-            Callback :DataTypes.STRING(20000),
+            Callback :DataTypes.TEXT,
             CompanyId: DataTypes.INTEGER,
             TenantId: DataTypes.INTEGER
 

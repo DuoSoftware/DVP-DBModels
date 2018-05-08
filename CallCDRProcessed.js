@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var CallCDRProcessed = sequelize.define('CSDB_CallCDRProcessed',
         {
-            id: {type: DataTypes.BIGINT, autoIncrement: true},
+            id: {type: DataTypes.BIGINT, allowNull: false,autoIncrement: true},
             Uuid: {type: DataTypes.STRING, primaryKey: true},
             CallUuid: DataTypes.STRING,
             BridgeUuid: DataTypes.STRING,
@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
             HangupParty: DataTypes.STRING,
             SwitchName: DataTypes.STRING,
             CallerContext: DataTypes.STRING,
-            TransferredParties: DataTypes.STRING(10000),
+            TransferredParties: DataTypes.TEXT,
             IsQueued: DataTypes.BOOLEAN,
             IsAnswered: DataTypes.BOOLEAN,
             CreatedTime: DataTypes.DATE,

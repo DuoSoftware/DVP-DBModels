@@ -222,7 +222,7 @@ models.forEach(function(model) {
     m.Trunk.belongsTo(m.SipNetworkProfile, {as:"SipNetworkProfile", foreignKey:"ProfileId"});
     m.SipNetworkProfile.hasMany(m.Trunk, {as:"Trunk", foreignKey:"ProfileId"});
 
-    m.Context.hasMany(m.SipUACEndpoint, {as:"SipUACEndpoint", foreignKey:"ContextId", onDelete:"RESTRICT"});
+    m.Context.hasMany(m.SipUACEndpoint, {as:"SipUACEndpoint", foreignKey:"ContextId", onDelete:"NO ACTION"});
     m.SipUACEndpoint.belongsTo(m.Context, {as:"Context", foreignKey:"ContextId"});
 
     m.Trunk.belongsTo(m.LoadBalancer, {as: "LoadBalancer", foreignKey: "LoadBalancerId"});

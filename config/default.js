@@ -1,10 +1,10 @@
 module.exports = {
   "DB": {
-      "Type": "postgres",
-      "User": "duo",
-      "Password": "DuoS123",
-      "Port": 5432,
-      "Host": "127.0.0.1",
+      "Type": "mssql",
+      "User": "sa",
+      "Password": "DuoSql@2017",
+      "Port": 1433,
+      "Host": "104.236.61.130",
       "Database": "facetone",
       "Cluster": true,
       "dialectOptions":{

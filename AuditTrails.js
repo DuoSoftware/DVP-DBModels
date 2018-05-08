@@ -6,12 +6,12 @@
 module.exports = function (sequelize, DataTypes) {
     var AuditTrails = sequelize.define('DB_AuditTrails', {
             KeyProperty: {type:DataTypes.STRING},
-            OldValue: {type:DataTypes.STRING(20000)},
-            NewValue:  {type:DataTypes.STRING(20000)},
+            OldValue: {type:DataTypes.TEXT},
+            NewValue:  {type:DataTypes.TEXT},
             Description: {type:DataTypes.STRING},
             Author: {type:DataTypes.STRING},
             User: {type:DataTypes.STRING},
-            OtherJsonData: DataTypes.JSON,
+            OtherJsonData: DataTypes.TEXT,
             ObjectType: DataTypes.STRING,
             Action: {type: DataTypes.ENUM('DELETE', 'UPDATE','SAVE','VIEW'), defaultValue: 'VIEW', allowNull: false},
             Application: DataTypes.STRING,

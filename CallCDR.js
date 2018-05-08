@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var CallCDR = sequelize.define('CSDB_CallCDR',
         {
-            id: {type: DataTypes.BIGINT, autoIncrement: true},
+            id: {type: DataTypes.BIGINT, allowNull: false , autoIncrement: true},
             Uuid: {type: DataTypes.STRING, primaryKey: true},
             CallUuid: DataTypes.STRING,
             BridgeUuid: DataTypes.STRING,

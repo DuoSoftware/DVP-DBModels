@@ -492,8 +492,12 @@ models.forEach(function(model) {
     //------------------Wallet
 //------------------IPPhone --------------------------//
     //IPPhoneConfig,IPPhoneTemplate
-    m.IPPhoneConfig.belongsTo(m.IPPhoneTemplate,{as:"IPPhoneTemplate",foreignKey:"model"})
-    m.IPPhoneTemplate.hasMany(m.IPPhoneConfig,{as:"IPPhoneConfig",foreignKey:"model"})
+    m.IPPhoneConfig.belongsTo(m.IPPhoneTemplate,{as:"IPPhoneTemplate",foreignKey:"model"});
+    m.IPPhoneTemplate.hasMany(m.IPPhoneConfig,{as:"IPPhoneConfig",foreignKey:"model"});
+
+
+    m.IPPhoneConfig.belongsTo(m.SipUACEndpoint, {as:"SipUACEndpoint", foreignKey: "Id"});
+    m.SipUACEndpoint.hasOne(m.IPPhoneConfig, {as:"IPPhoneConfig", foreignKey: "Id"});
 
 //------------------------ [Ards] -------------------------------//
     //m.ArdsAttributeInfo.belongsToMany(m.ArdsAttributeMetaData, {as: "ArdsAttributeMetaData", through: 'ARDS_AttributeMetaJunction'});

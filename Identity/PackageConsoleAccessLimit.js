@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
         package_id: {type: DataTypes.INTEGER, unique: "package_console_access_limit"},
         console_id: {type: DataTypes.INTEGER, unique: "package_console_access_limit"},
         access_limit: {type: DataTypes.INTEGER},
-        access_type: {type: DataTypes.STRING},
+        access_type: {type: DataTypes.STRING,unique: "package_console_access_limit"},
 
     }, {
         schema: "auth"

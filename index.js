@@ -163,13 +163,44 @@ var models = [
     'ScheduledCallback',
     'ResQueueSettings',
     'IPPhoneConfig',
-    'IPPhoneTemplate'
+    'IPPhoneTemplate',
+
+    //////////////////////////////identity///////////////////////////////
+
+
+
+
+
 ];
 
 models.forEach(function(model) {
     module.exports[model] = sequelize.import(__dirname +'/'+ model);
 });
 
+var authmodels = [
+    'Console',
+    'ConsoleNavigation',
+    'UserRoles',
+    'Tenant',
+    'ConsolePackageNavigation',
+    'Identity',
+    'IdentityAccount',
+    'Organization',
+    'OrganizationPackage',
+    'OrganizationPackageUnit',
+    'Package',
+    'PackageConsoleAccessLimit',
+    'PackageUnit',
+    'PackageUserRoleCreateLimit',
+    'ResourceScopeNavigationPermission',
+    'ResourceScopes',
+    'UserRoles'
+]
+
+
+authmodels.forEach(function(model) {
+    module.exports[model] = sequelize.import(__dirname +'/identity/'+ model);
+});
 
 (function(m) {
     //m.LoadBalancer.belongsTo(m.Cloud);
@@ -505,6 +536,42 @@ models.forEach(function(model) {
 
     //m.ArdsAttributeMetaData.belongsTo(m.ArdsRequestMetaData, {as:"ArdsRequestMetaData", foreignKey:"RequestMetadataId"});
     //m.ArdsRequestMetaData.hasMany(m.ArdsAttributeMetaData, {as:"ArdsAttributeMetaData", foreignKey:"RequestMetadataId"});
+
+    /////////////////////////////////////////////////////////Auth module/////////////////////////////////////////////////////////
+    // 'Console',
+    //     'ConsoleNavigation',
+    //     'UserRoles',
+    //     'Tenant',
+    //     'ConsolePackageNavigation',
+    //     'Identity',
+    //     'IdentityAccount',
+    //     'Organization',
+    //     'OrganizationPackage',
+    //     'OrganizationPackageUnit',
+    //     'Package',
+    //     'PackageConsoleAccessLimit',
+    //     'PackageUnit',
+    //     'PackageUserRoleCreateLimit',
+    //     'ResourceScopeNavigationScope',
+    //     'ResourceScopes',
+    //     'UserRoles'
+
+
+
+m.Console.belongsToMany(m.UserRoles, {through: "ConsoleUserRoles"});
+m.UserRoles.belongsToMany(m.Console, {through: "ConsoleUserRoles"});
+
+
+
+
+
+
+
+
+
+
+
+
 
 })(module.exports);
 

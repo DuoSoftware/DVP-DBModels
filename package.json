@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "config": "^1.10.0",
+    "config": "^1.30.0",
     "pg": "^6.4.2",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.28.6"
+    "sequelize": "^4.28.6",
+    "tedious": "^2.6.1"
   },
   "devDependencies": {},
   "scripts": {

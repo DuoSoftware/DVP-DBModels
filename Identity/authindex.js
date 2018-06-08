@@ -105,7 +105,7 @@ authmodels.forEach(function (model) {
 
 
     m.Navigation.belongsToMany(m.ResourceScopes, {
-        constraints: false,
+
         foreignKey: 'navigation_id',
         through: {
             model: m.ResourceScopeNavigationPermission,
@@ -115,7 +115,7 @@ authmodels.forEach(function (model) {
 
 
     m.ResourceScopes.belongsToMany(m.Navigation, {
-        constraints: false,
+
         foreignKey: 'scope_resource_id',
         through: {
             model: m.ResourceScopeNavigationPermission,
@@ -126,7 +126,7 @@ authmodels.forEach(function (model) {
     /////////////////////////////////////////////identity identityAccount/////////////////////////////////////////////
 
     m.Identity.belongsToMany(m.Organization, {
-        constraints: false,
+
         foreignKey: 'identity_id',
         through: {
         model: m.IdentityAccount,
@@ -134,7 +134,7 @@ authmodels.forEach(function (model) {
 
     }});
     m.Organization.belongsToMany(m.Identity, {
-        constraints: false,
+
         foreignKey: 'company_id',
         through: {
             model: m.IdentityAccount,
@@ -146,7 +146,7 @@ authmodels.forEach(function (model) {
     //////////////////////////////////////package///////////////////////////////////////////////////////////////////
 
     m.Package.belongsToMany(m.Console, {
-        constraints: false,
+
         foreignKey: 'package_id',
         through: {
             model: m.PackageConsoleAccessLimit,
@@ -154,7 +154,7 @@ authmodels.forEach(function (model) {
         }});
 
     m.Console.belongsToMany(m.Package, {
-        constraints: false,
+
         foreignKey: 'console_id',
         through: {
             model: m.PackageConsoleAccessLimit,
@@ -164,7 +164,7 @@ authmodels.forEach(function (model) {
 
 
     m.Package.belongsToMany(m.UserRoles, {
-        constraints: false,
+
         foreignKey: 'package_id',
         through: {
             model: m.PackageUserRoleCreateLimit,
@@ -172,7 +172,7 @@ authmodels.forEach(function (model) {
         }});
 
     m.UserRoles.belongsToMany(m.Package, {
-        constraints: false,
+
         foreignKey: 'user_role_id',
         through: {
             model: m.PackageUserRoleCreateLimit,
@@ -191,7 +191,7 @@ authmodels.forEach(function (model) {
 
 
     m.Organization.belongsToMany(m.Package, {
-        constraints: false,
+
         foreignKey: 'organization_id',
         through: {
             model: m.OrganizationPackage,
@@ -199,7 +199,7 @@ authmodels.forEach(function (model) {
         }});
 
     m.Package.belongsToMany(m.Organization, {
-        constraints: false,
+
         foreignKey: 'package_id',
         through: {
             model: m.OrganizationPackage,
@@ -209,7 +209,7 @@ authmodels.forEach(function (model) {
 
 
     m.Organization.belongsToMany(m.PackageUnit, {
-        constraints: false,
+
         foreignKey: 'organization_id',
         through: {
             model: m.OrganizationPackageUnit,
@@ -217,7 +217,7 @@ authmodels.forEach(function (model) {
         }});
 
     m.PackageUnit.belongsToMany(m.Organization, {
-        constraints: false,
+
         foreignKey: 'package_unit_id',
         through: {
             model: m.OrganizationPackageUnit,
@@ -228,7 +228,7 @@ authmodels.forEach(function (model) {
 
 
     m.IdentityAccount.belongsToMany(m.ResourceScopeNavigationPermission, {
-        constraints: false,
+
         foreignKey: 'identity_id',
         through: {
             model: m.IdentityResourceScopeNavigationPermission,
@@ -237,7 +237,7 @@ authmodels.forEach(function (model) {
         }});
 
     m.ResourceScopeNavigationPermission.belongsToMany(m.IdentityAccount, {
-        constraints: false,
+
         foreignKey: 'resource_scope_nav_permission_id',
         through: {
 

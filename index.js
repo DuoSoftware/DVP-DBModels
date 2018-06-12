@@ -669,6 +669,25 @@ authmodels.forEach(function (model) {
             unique: false
         }});
 
+    m.Package.belongsToMany(m.ResTaskInfo, {
+
+        as: "Tasks",
+        foreignKey: 'package_id',
+        through: "PackageTasks"});
+
+    m.ResTaskInfo.belongsToMany(m.Package, {
+
+        as: "Packages",
+        foreignKey: 'task_id',
+        through: "PackageTasks"});
+
+
+
+
+
+
+
+
 
     //////////////////////////////////////////////////////////////organization/////////////////////////////////////////
 

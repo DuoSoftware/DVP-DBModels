@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
 
 
             identity_id: {type: DataTypes.INTEGER, unique: "identity_organization"},
-            company_id: {type: DataTypes.INTEGER, unique: "identity_organization"},
+            organization_id: {type: DataTypes.INTEGER, unique: "identity_organization"},
             //username: {type: DataTypes.STRING, allowNull: false, unique: true},
             roles: {type: DataTypes.STRING},
             joined: {type: DataTypes.DATE, allowNull: false},

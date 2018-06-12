@@ -526,7 +526,7 @@ authmodels.forEach(function (model) {
 //------------------IPPhone --------------------------//
     //IPPhoneConfig,IPPhoneTemplate
     m.IPPhoneConfig.belongsTo(m.IPPhoneTemplate,{as:"IPPhoneTemplate",foreignKey:"model"});
-    m.IPPhoneTemplate.hasMany(m.IPPhoneConfig,{as:"IPPhoneConfig",foreignKey:"model"});
+    m.IPPhoneTemplate.hasMany(m.IPPhoneConfig,{as:"IPPhoneConfigs",foreignKey:"model"});
 
 
     m.IPPhoneConfig.belongsTo(m.SipUACEndpoint, {as:"SipUACEndpoint", foreignKey: "Id"});
@@ -562,19 +562,23 @@ authmodels.forEach(function (model) {
 
     ///////////////////////////////////console/////////////////////////////////////
     m.Console.belongsToMany(m.UserRoles, {
+        as: "UserRoles",
         through: "ConsoleUserRole",
         foreignKey: 'role_id',
     });
     m.UserRoles.belongsToMany(m.Console, {
+        as: "Consoles",
         through: "ConsoleUserRole",
         foreignKey: 'console_id',
     });
 
     m.Console.belongsToMany(m.Navigation, {
+        as: "Navigations",
         through: "ConsoleNavigation",
         foreignKey: 'navigation_id'
     });
     m.Navigation.belongsToMany(m.Console, {
+        as: "Consoles",
         through: "ConsoleNavigation",
         foreignKey: 'console_id'
     });
@@ -584,6 +588,7 @@ authmodels.forEach(function (model) {
 
     m.Navigation.belongsToMany(m.ResourceScopes, {
 
+        as: "ResourceScopes",
         foreignKey: 'navigation_id',
         through: {
             model: m.ResourceScopeNavigationPermission,
@@ -594,6 +599,7 @@ authmodels.forEach(function (model) {
 
     m.ResourceScopes.belongsToMany(m.Navigation, {
 
+        as: "Navigations",
         foreignKey: 'scope_resource_id',
         through: {
             model: m.ResourceScopeNavigationPermission,
@@ -605,6 +611,7 @@ authmodels.forEach(function (model) {
 
     m.Identity.belongsToMany(m.Organization, {
 
+        as: "Organizations",
         foreignKey: 'identity_id',
         through: {
             model: m.IdentityAccount,
@@ -613,7 +620,8 @@ authmodels.forEach(function (model) {
         }});
     m.Organization.belongsToMany(m.Identity, {
 
-        foreignKey: 'company_id',
+        as: "Identities",
+        foreignKey: 'organization_id',
         through: {
             model: m.IdentityAccount,
             unique: false
@@ -625,6 +633,7 @@ authmodels.forEach(function (model) {
 
     m.Package.belongsToMany(m.Console, {
 
+        as: "Consoles",
         foreignKey: 'package_id',
         through: {
             model: m.PackageConsoleAccessLimit,
@@ -633,6 +642,7 @@ authmodels.forEach(function (model) {
 
     m.Console.belongsToMany(m.Package, {
 
+        as: "Packages",
         foreignKey: 'console_id',
         through: {
             model: m.PackageConsoleAccessLimit,
@@ -643,6 +653,7 @@ authmodels.forEach(function (model) {
 
     m.Package.belongsToMany(m.UserRoles, {
 
+        as: "UserRoles",
         foreignKey: 'package_id',
         through: {
             model: m.PackageUserRoleCreateLimit,
@@ -651,6 +662,7 @@ authmodels.forEach(function (model) {
 
     m.UserRoles.belongsToMany(m.Package, {
 
+        as: "Packages",
         foreignKey: 'user_role_id',
         through: {
             model: m.PackageUserRoleCreateLimit,
@@ -660,16 +672,17 @@ authmodels.forEach(function (model) {
 
     //////////////////////////////////////////////////////////////organization/////////////////////////////////////////
 
-    m.Organization.belongsTo(m.Tenant,{as: "tenant"});
+    m.Organization.belongsTo(m.Tenant,{as: "Tenant"});
     //m.Tenant.hasMany(m.Organization);
 
-    m.Organization.belongsTo(m.Identity, {as: "owner"});
+    m.Organization.belongsTo(m.Identity, {as: "Owner"});
     //m.Identity.hasMany(m.Organization);
 
 
 
     m.Organization.belongsToMany(m.Package, {
 
+        as: "Packages",
         foreignKey: 'organization_id',
         through: {
             model: m.OrganizationPackage,
@@ -678,6 +691,7 @@ authmodels.forEach(function (model) {
 
     m.Package.belongsToMany(m.Organization, {
 
+        as: "Organizations",
         foreignKey: 'package_id',
         through: {
             model: m.OrganizationPackage,
@@ -688,6 +702,7 @@ authmodels.forEach(function (model) {
 
     m.Organization.belongsToMany(m.PackageUnit, {
 
+        as: "PackageUnits",
         foreignKey: 'organization_id',
         through: {
             model: m.OrganizationPackageUnit,
@@ -696,6 +711,7 @@ authmodels.forEach(function (model) {
 
     m.PackageUnit.belongsToMany(m.Organization, {
 
+        as:"Organizations",
         foreignKey: 'package_unit_id',
         through: {
             model: m.OrganizationPackageUnit,
@@ -704,9 +720,11 @@ authmodels.forEach(function (model) {
 
 
 
+    ////////////////////////////////////identity account///////////////////////////////////////////////////////
 
     m.IdentityAccount.belongsToMany(m.ResourceScopeNavigationPermission, {
 
+        as:"ResourceScopeNAvigationPermissions",
         foreignKey: 'identity_id',
         through: {
             model: m.IdentityResourceScopeNavigationPermission,
@@ -716,6 +734,7 @@ authmodels.forEach(function (model) {
 
     m.ResourceScopeNavigationPermission.belongsToMany(m.IdentityAccount, {
 
+        as: "IdentityAccounts",
         foreignKey: 'resource_scope_nav_permission_id',
         through: {
 
@@ -727,11 +746,21 @@ authmodels.forEach(function (model) {
 
 
 
+    m.IdentityAccount.belongsTo(m.SipUACEndpoint, {
+        as: "SIPAccount",
+        foreignKey: 'sip_account_id'
+    });
+
+
+    m.IdentityAccount.belongsTo(m.ResResource, {
+        as: "Resource",
+        foreignKey: 'resource_id'
+    });
 
 
 
 
-
+    //(m.SipUACEndpoint, {as:"SipUACEndpoint", foreignKey: "Id"}
 
 
 

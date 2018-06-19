@@ -13,7 +13,8 @@ module.exports = function(sequelize, DataTypes) {
             Class: DataTypes.STRING,
             Type: DataTypes.STRING,
             Category: DataTypes.STRING,
-            InternalMainIP: DataTypes.STRING
+            InternalMainIP: DataTypes.STRING,
+            MainIp: DataTypes.STRING
         }
     );
     return callserver;

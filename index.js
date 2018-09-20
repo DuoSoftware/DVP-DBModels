@@ -164,6 +164,7 @@ var models = [
     'ResQueueSettings',
     'IPPhoneConfig',
     'IPPhoneTemplate',
+    'ResAttributeUserGroup'
 
     //////////////////////////////identity///////////////////////////////
 
@@ -491,6 +492,9 @@ authmodels.forEach(function (model) {
             //------------------ResResourceAttributeTask
                 m.ResResourceAttributeTask.belongsTo(m.ResAttribute, {as:"ResAttribute", foreignKey:"AttributeId"});
                 m.ResAttribute.hasMany(m.ResResourceAttributeTask, {as:"ResResourceAttributeTask", foreignKey:"AttributeId"});
+
+    m.ResAttributeUserGroup.belongsTo(m.ResAttribute, {as:"ResAttribute", foreignKey:"AttributeId"});
+    m.ResAttribute.hasMany(m.ResAttributeUserGroup, {as:"ResAttributeUserGroup", foreignKey:"AttributeId"});
 
                 m.ResResourceAttributeTask.belongsTo(m.ResResourceTask, {as:"ResResourceTask", foreignKey:"ResTaskId"});
                 m.ResResourceTask.hasMany(m.ResResourceAttributeTask, {as:"ResResourceAttributeTask", foreignKey:"ResTaskId"});

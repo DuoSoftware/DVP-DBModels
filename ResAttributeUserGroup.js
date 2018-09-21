@@ -3,7 +3,9 @@ module.exports = function (sequelize, DataTypes) {
             GroupId: {type:DataTypes.STRING, unique: 'ResAttributeGroupCompositeIndex'},
             GroupName: DataTypes.STRING,
             AttributeId: {type:DataTypes.INTEGER, unique: 'ResAttributeGroupCompositeIndex', onDelete: "cascade"},
-            AttributeGroupId: {type:DataTypes.INTEGER, onDelete: "cascade"}
+            AttributeGroupId: {type:DataTypes.INTEGER, onDelete: "cascade"},
+            TenantId:  DataTypes.INTEGER,
+            CompanyId: DataTypes.INTEGER
         }
     );
     return ResAttributeUserGroup;

@@ -496,6 +496,9 @@ authmodels.forEach(function (model) {
     m.ResAttributeUserGroup.belongsTo(m.ResAttribute, {as:"ResAttribute", foreignKey:"AttributeId"});
     m.ResAttribute.hasMany(m.ResAttributeUserGroup, {as:"ResAttributeUserGroup", foreignKey:"AttributeId"});
 
+    m.ResAttributeUserGroup.belongsTo(m.ResAttributeGroups, {as:"ResAttributeGroups", foreignKey:"AttributeGroupId"});
+    m.ResAttributeGroups.hasMany(m.ResAttributeUserGroup, {as:"ResAttributeUserGroup", foreignKey:"AttributeGroupId"});
+
                 m.ResResourceAttributeTask.belongsTo(m.ResResourceTask, {as:"ResResourceTask", foreignKey:"ResTaskId"});
                 m.ResResourceTask.hasMany(m.ResResourceAttributeTask, {as:"ResResourceAttributeTask", foreignKey:"ResTaskId"});
             //------------------ResResourceAttributeTask

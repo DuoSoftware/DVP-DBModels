@@ -157,7 +157,6 @@ var models = [
     'ResResourceAcwInfo',
     'ContextCodecPref',
     'DashboardPublishMetaData',
-    'ResResourceAcwInfo',
     'DialerAgentDialInfo',
     'DialerAgentDialInfoHistory',
     'ScheduledCallback',
@@ -545,6 +544,31 @@ authmodels.forEach(function (model) {
 
     m.IPPhoneConfig.belongsTo(m.SipUACEndpoint, {as:"SipUACEndpoint", foreignKey: "Id"});
     m.SipUACEndpoint.hasOne(m.IPPhoneConfig, {as:"IPPhoneConfig", foreignKey: "Id"});
+
+    ////------------------------------------acw info------------------------------------//////
+
+    m.ResResourceAcwInfo.belongsTo(m.CallCDRProcessed, {as : "CallCDRProcessed", foreignKey: "SessionId"});
+    m.CallCDRProcessed.hasMany(m.ResResourceAcwInfo, {as : "ResResourceAcwInfo", foreignKey: "SessionId"});
+
+    m.ResResourceAcwInfo.belongsTo(m.ResResource, {as : "ResResource", foreignKey: "ResourceId"});
+    m.ResResource.hasMany(m.ResResourceAcwInfo, {as : "ResResourceAcwInfo", foreignKey: "ResourceId"});
+
+    m.ResResourceTaskRejectInfo.belongsTo(m.ResResource, {as : "ResResource", foreignKey: "ResourceId"});
+    m.ResResource.hasMany(m.ResResourceTaskRejectInfo, {as : "ResResourceTaskRejectInfo", foreignKey: "ResourceId"});
+
+
+    m.ResResourceTaskRejectInfo.belongsTo(m.CallCDRProcessed, {as : "CallCDRProcessed", foreignKey: "SessionId"});
+    m.CallCDRProcessed.hasMany(m.ResResourceTaskRejectInfo, {as : "ResResourceTaskRejectInfo", foreignKey: "SessionId"});
+
+
+
+
+
+
+
+
+
+
 
 //------------------------ [Ards] -------------------------------//
     //m.ArdsAttributeInfo.belongsToMany(m.ArdsAttributeMetaData, {as: "ArdsAttributeMetaData", through: 'ARDS_AttributeMetaJunction'});

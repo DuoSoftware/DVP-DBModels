@@ -41,7 +41,8 @@ module.exports = function(sequelize, DataTypes) {
             RecordingUuid: DataTypes.STRING,
             CampaignId: DataTypes.INTEGER,
             CampaignName: DataTypes.STRING(1000),
-            BusinessUnit: DataTypes.STRING
+            BusinessUnit: DataTypes.STRING,
+            TimeAfterInitialBridge: DataTypes.INTEGER
         }
 
     );

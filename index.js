@@ -164,7 +164,7 @@ var models = [
     'ResQueueSettings',
     'IPPhoneConfig',
     'IPPhoneTemplate',
-
+    'CampContactbaseNumbers'
     //////////////////////////////identity///////////////////////////////
 
 
@@ -459,6 +459,10 @@ authmodels.forEach(function (model) {
     m.CampMapContactSchedule.belongsTo(m.CampContactCategory, {as:"CampContactCategory", foreignKey:"CategoryID"});
     m.CampContactCategory.hasMany(m.CampMapContactSchedule, {as:"CampMapContactSchedule", foreignKey:"CategoryID"});
     //------------------CampMapContactSchedule
+
+    //----------------------- contact base numbers---------------------
+    m.CampContactbaseNumbers.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
+    m.CampCampaignInfo.hasMany(m.CampContactbaseNumbers, {as:"CampOngoingCampaign", foreignKey:"CampaignId"});
 
     // ----------------------- [CampaignManager] ----------------------- //
 

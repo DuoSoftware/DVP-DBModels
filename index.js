@@ -463,7 +463,7 @@ authmodels.forEach(function (model) {
 
     //----------------------- contact base numbers---------------------
     m.CampContactbaseNumbers.belongsTo(m.CampCampaignInfo, {as:"CampCampaignInfo", foreignKey:"CampaignId"});
-    m.CampCampaignInfo.hasMany(m.CampContactbaseNumbers, {as:"CampOngoingCampaign", foreignKey:"CampaignId"});
+    m.CampCampaignInfo.hasMany(m.CampContactbaseNumbers, {as:"CampContactbaseNumbers", foreignKey:"CampaignId"});
 
     // ----------------------- [CampaignManager] ----------------------- //
 

@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
             CompanyId: {type:DataTypes.INTEGER},
             BusinessUnit: {type:DataTypes.STRING},
             ResourceId: {type: DataTypes.INTEGER},
-            SessionId: {type: DataTypes.STRING, model: "CallCDRProcessed", key: "Uuid"},
+            SessionId: {type: DataTypes.STRING},//model: "CallCDRProcessed", key: "Uuid"
             Duration: DataTypes.INTEGER
         }
     );

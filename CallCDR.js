@@ -43,7 +43,8 @@ module.exports = function(sequelize, DataTypes) {
             CampaignId: DataTypes.INTEGER,
             CampaignName: DataTypes.STRING(1000),
             BusinessUnit: DataTypes.STRING,
-            TimeAfterInitialBridge: DataTypes.INTEGER
+            TimeAfterInitialBridge: DataTypes.INTEGER,
+            QueuePriority: DataTypes.INTEGER
         }
 
     );

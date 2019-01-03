@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
             TenantId: {type: DataTypes.INTEGER, unique: 'CampContactbaseNumbersIndex'},
             CompanyId: {type: DataTypes.INTEGER, unique: 'CampContactbaseNumbersIndex'},
             BatchNo: {type: DataTypes.STRING},
-            PreviewData: {type: DataTypes.STRING},
+            PreviewData: {type: DataTypes.TEXT},
             CamContactBaseNumberId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
             DialerStatus : {unique: 'CampContactbaseNumbersIndex', type: DataTypes.ENUM, values: ['pick', 'dial', 'processing','added']}
         }

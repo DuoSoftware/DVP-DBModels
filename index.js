@@ -165,7 +165,8 @@ var models = [
     'IPPhoneTemplate',
     'ResAttributeUserGroup',
     'ResAttributeBusinessUnit',
-    'CampContactbaseNumbers'
+    'CampContactbaseNumbers',
+    'HangupCause'
     //////////////////////////////identity///////////////////////////////
 
 
@@ -823,6 +824,8 @@ authmodels.forEach(function (model) {
 
     //(m.SipUACEndpoint, {as:"SipUACEndpoint", foreignKey: "Id"}
 
+    m.HangupCause.hasMany(m.ResResourceTaskRejectInfo, {as: "ResResourceTaskRejectInfo", foreignKey: "Enumeration"});
+    m.ResResourceTaskRejectInfo.belongsTo(m.HangupCause, {as: "HangupCauses", foreignKey: "Reason", targetKey: "Enumeration" });
 
 
 })(module.exports);

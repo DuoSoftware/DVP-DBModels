@@ -8,7 +8,6 @@ module.exports = function(sequelize, DataTypes) {
             ExternalUserID: {type: DataTypes.STRING, unique: 'CampContactbaseNumbersIndex'},
             CampaignId: {type: DataTypes.INTEGER, unique: 'CampContactbaseNumbersIndex'},
             Status: DataTypes.BOOLEAN,
-            TryCount: { type: Sequelize.INTEGER, allowNull: false, defaultValue: 1 },
             TenantId: {type: DataTypes.INTEGER, unique: 'CampContactbaseNumbersIndex'},
             CompanyId: {type: DataTypes.INTEGER, unique: 'CampContactbaseNumbersIndex'},
             BatchNo: {type: DataTypes.STRING},

@@ -18,7 +18,8 @@ module.exports = function(sequelize, DataTypes) {
             EndDate:DataTypes.DATE,
             ConfigureId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true},
             IntegrationData: DataTypes.JSON,
-            NumberLoadingMethod: DataTypes.STRING
+            NumberLoadingMethod: DataTypes.STRING,
+            DuplicateNumTimeout:DataTypes.INTEGER
         }
     );
     return CampConfigurations;

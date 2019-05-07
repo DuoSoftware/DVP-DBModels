@@ -6,7 +6,10 @@ module.exports = function(sequelize, DataTypes) {
     var HangupCause = sequelize.define('CSDB_HangupCauses', {
             ItutQ850Code: DataTypes.INTEGER,
             SipEquiv: DataTypes.INTEGER,
-            Enumeration: DataTypes.STRING,
+            Enumeration: {
+                type: DataTypes.STRING,
+                primaryKey: true
+            },
             Cause: DataTypes.STRING,
             Description: DataTypes.TEXT
         }

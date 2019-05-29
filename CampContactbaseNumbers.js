@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
             BatchNo: {type: DataTypes.STRING},
             PreviewData: {type: DataTypes.TEXT},
             CamContactBaseNumberId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-            DialerStatus : {type: DataTypes.ENUM, values: ['pick', 'dial', 'processing','added']},
+            DialerStatus : {type: DataTypes.ENUM, values: ['pick', 'dial', 'processing','added','removed_by_system','removed_by_api']},
             CamScheduleId: {type:DataTypes.INTEGER,unique: 'CampContactbaseNumbersIndex'}
         }
     );

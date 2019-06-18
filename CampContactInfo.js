@@ -11,7 +11,8 @@ module.exports = function(sequelize, DataTypes) {
             TenantId:{type:DataTypes.INTEGER,unique: 'ContactCompositeIndex'},
             CompanyId:{type:DataTypes.INTEGER,unique: 'ContactCompositeIndex'},
             BatchNo:{type:DataTypes.STRING,unique: 'ContactCompositeIndex'},
-            CamContactId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}
+            CamContactId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true},
+            BusinessUnit: DataTypes.STRING
         }
     );
     return CampContactInfo;

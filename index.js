@@ -166,7 +166,8 @@ var models = [
     'ResAttributeUserGroup',
     'ResAttributeBusinessUnit',
     'CampContactbaseNumbers',
-    'HangupCause'
+    'HangupCause',
+    'CampNumberLoadInfo'
     //////////////////////////////identity///////////////////////////////
 
 

@@ -167,7 +167,8 @@ var models = [
     'ResAttributeBusinessUnit',
     'CampContactbaseNumbers',
     'HangupCause',
-    'CampNumberLoadInfo'
+    'CampNumberLoadInfo',
+    'LicenseKey'
     //////////////////////////////identity///////////////////////////////
 
 
@@ -828,6 +829,7 @@ authmodels.forEach(function (model) {
     m.HangupCause.hasMany(m.ResResourceTaskRejectInfo, {as: "ResResourceTaskRejectInfo", foreignKey: "Enumeration"});
     m.ResResourceTaskRejectInfo.belongsTo(m.HangupCause, {as: "HangupCauses", foreignKey: "Reason", targetKey: "Enumeration" });
 
+    m.LicenseKey.belongsTo(m.CallServer, { as: "CallServer" });
 
 })(module.exports);
 

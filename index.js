@@ -168,7 +168,8 @@ var models = [
     'CampContactbaseNumbers',
     'HangupCause',
     'CampNumberLoadInfo',
-    'LicenseKey'
+    'LicenseKey',
+    'AgentLoginLogoutInfoSummary'
     //////////////////////////////identity///////////////////////////////
 
 
@@ -529,6 +530,11 @@ authmodels.forEach(function (model) {
             m.ResResourceStatusChangeInfo.belongsTo(m.ResResource, {as:"ResResource", foreignKey:"ResourceId"});
             m.ResResource.hasMany(m.ResResourceStatusChangeInfo, {as:"ResResourceStatusChangeInfo", foreignKey:"ResourceId"});
         //------------------ResResourceStatusChangeInfo
+
+        //------------------AgentLoginLogoutInfoSummary
+        m.AgentLoginLogoutInfoSummary.belongsTo(m.ResResource, {as:"ResResource", foreignKey:"ResourceId"});
+        m.ResResource.hasMany(m.AgentLoginLogoutInfoSummary, {as:"AgentLoginLogoutInfoSummary", foreignKey:"AgentId"});
+    //------------------AgentLoginLogoutInfoSummary
 
     // ----------------------- [Resource Service] ----------------------- //
 // -------------------------------- FIle categories --------------------------------------//

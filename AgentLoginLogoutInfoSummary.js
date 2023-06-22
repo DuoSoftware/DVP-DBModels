@@ -4,6 +4,8 @@ module.exports = function(sequelize, DataTypes) {
 
             id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 	        SessionID: {type: DataTypes.STRING},
+            TenantId:  {type:DataTypes.INTEGER},
+            CompanyId: {type:DataTypes.INTEGER},
             AgentId: {type: DataTypes.INTEGER},
             AgentName: {type: DataTypes.STRING},
             LoginAt: {type: DataTypes.DATE},

@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes) {
 	        SessionID: {type: DataTypes.STRING},
             TenantId:  {type:DataTypes.INTEGER},
             CompanyId: {type:DataTypes.INTEGER},
+            BusinessUnit: {type:DataTypes.STRING},
             AgentId: {type: DataTypes.INTEGER},
             AgentName: {type: DataTypes.STRING},
             LoginAt: {type: DataTypes.DATE},

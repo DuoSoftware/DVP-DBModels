@@ -533,7 +533,7 @@ authmodels.forEach(function (model) {
 
         //------------------AgentLoginLogoutInfoSummary
         m.AgentLoginLogoutInfoSummary.belongsTo(m.ResResource, {as:"ResResource", foreignKey:"ResourceId"});
-        m.ResResource.hasMany(m.AgentLoginLogoutInfoSummary, {as:"AgentLoginLogoutInfoSummary", foreignKey:"AgentId"});
+        m.ResResource.hasMany(m.AgentLoginLogoutInfoSummary, {as:"AgentLoginLogoutInfoSummary", foreignKey:"ResourceId"});
     //------------------AgentLoginLogoutInfoSummary
 
     // ----------------------- [Resource Service] ----------------------- //

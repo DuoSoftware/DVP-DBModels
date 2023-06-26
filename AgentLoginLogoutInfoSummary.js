@@ -7,8 +7,7 @@ module.exports = function(sequelize, DataTypes) {
             TenantId:  {type:DataTypes.INTEGER},
             CompanyId: {type:DataTypes.INTEGER},
             BusinessUnit: {type:DataTypes.STRING},
-            AgentId: {type: DataTypes.INTEGER},
-            AgentName: {type: DataTypes.STRING},
+            ResourceId: {type: DataTypes.INTEGER},
             LoginAt: {type: DataTypes.DATE},
             LogoutAt: {type: DataTypes.DATE}
 

@@ -9,6 +9,7 @@ module.exports = function(sequelize, DataTypes) {
             AnnouncementTime: DataTypes.INTEGER,
             MaxQueueTime: DataTypes.INTEGER,
             MaxWaitQueueThreshold: DataTypes.INTEGER,
+            MaxWaitCallThreshold: DataTypes.INTEGER,
             PositionAnnouncement: DataTypes.BOOLEAN,
             Language: DataTypes.STRING,
             Type: DataTypes.STRING,

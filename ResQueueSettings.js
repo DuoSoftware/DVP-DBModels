@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
             RecordID: {type:DataTypes.STRING, unique: "compositeIndex",allowNull: false},
             QueueName:{type:DataTypes.STRING,allowNull: false},
             MaxWaitTime:{type:DataTypes.INTEGER,allowNull: false},
-            MaxWaitCallCount:{type:DataTypes.INTEGER,allowNull: false},
+            // MaxWaitCallCount:{type:DataTypes.INTEGER,allowNull: false},
             PublishPosition:{type:DataTypes.BOOLEAN,allowNull: false},
             CallAbandonedThreshold:{type:DataTypes.INTEGER,allowNull: false}
         }

@@ -169,7 +169,8 @@ var models = [
     'HangupCause',
     'CampNumberLoadInfo',
     'LicenseKey',
-    'AgentLoginLogoutInfoSummary'
+    'AgentLoginLogoutInfoSummary',
+    'IVRDetails'
     //////////////////////////////identity///////////////////////////////
 
 

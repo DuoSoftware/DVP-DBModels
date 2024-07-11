@@ -44,7 +44,8 @@ module.exports = function(sequelize, DataTypes) {
             BusinessUnit: DataTypes.STRING,
             TimeAfterInitialBridge: DataTypes.INTEGER,
             QueuePriority: DataTypes.INTEGER,
-            CallTag: DataTypes.STRING
+            CallTag: DataTypes.STRING,
+            CSATSec: DataTypes.INTEGER
         }
 
     );

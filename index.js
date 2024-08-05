@@ -60,6 +60,7 @@ var models = [
     'TrunkOperator',
     'AppDeveloper',
     'Conference',
+    "CallPerformanceTesting",
     'CallCDR',
     'DVPEvent',
     'AttachedService',

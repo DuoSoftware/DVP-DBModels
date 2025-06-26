@@ -181,7 +181,9 @@ var models = [
 ];
 
 models.forEach(function(model) {
-    module.exports[model] = sequelize.import(__dirname +'/'+ model);
+    //module.exports[model] = sequelize.import(__dirname +'/'+ model);
+    module.exports[model] = require(__dirname + '/' + model)(sequelize, Sequelize.DataTypes);
+    
 });
 
 var authmodels = [
@@ -207,7 +209,9 @@ var authmodels = [
 
 
 authmodels.forEach(function (model) {
-    module.exports[model] = sequelize.import(__dirname + '/Identity/' + model);
+    //module.exports[model] = sequelize.import(__dirname + '/Identity/' + model);
+    module.exports[model] = require(__dirname + '/Identity/' + model)(sequelize, Sequelize.DataTypes);
+    
 });
 
 

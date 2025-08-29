@@ -1,5 +1,6 @@
 var Sequelize = require('sequelize');
 var Config = require('config');
+const path = require("path");
 
 var dbType = Config.DB.Type;
 var database = Config.DB.Database;
@@ -181,7 +182,11 @@ var models = [
 ];
 
 models.forEach(function(model) {
-    module.exports[model] = sequelize.import(__dirname +'/'+ model);
+    const modelPath = path.join(__dirname, model);
+    const defineModel = require(modelPath);
+    module.exports[model] = typeof defineModel === 'function'
+    ? defineModel(sequelize, Sequelize.DataTypes || Sequelize)
+    : defineModel;
 });
 
 var authmodels = [
@@ -207,7 +212,11 @@ var authmodels = [
 
 
 authmodels.forEach(function (model) {
-    module.exports[model] = sequelize.import(__dirname + '/Identity/' + model);
+    const modelPath = path.join(__dirname, 'Identity', model);
+    const defineModel = require(modelPath);
+    module.exports[model] = typeof defineModel === 'function'
+      ? defineModel(sequelize, Sequelize.DataTypes || Sequelize)
+      : defineModel;
 });
 
 

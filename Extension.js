@@ -16,6 +16,8 @@ module.exports = function(sequelize, DataTypes) {
             RecordingEnabled: DataTypes.BOOLEAN,
             AddUser: DataTypes.STRING,
             UpdateUser: DataTypes.STRING
+        },{
+            tableName: 'CSDB_Extensions'
         }
     );
 

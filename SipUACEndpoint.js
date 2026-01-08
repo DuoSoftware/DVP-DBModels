@@ -26,7 +26,8 @@ module.exports = function(sequelize, DataTypes) {
                 TransIVREnable: DataTypes.BOOLEAN,
                 UpdateUser: DataTypes.STRING,
                 DenyOutboundFor: DataTypes.STRING,
-                RecordingEnabled: DataTypes.BOOLEAN
+                RecordingEnabled: DataTypes.BOOLEAN,
+                Username: DataTypes.STRING,
 
         }
     );

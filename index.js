@@ -1,4 +1,5 @@
 var Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 var Config = require('config');
 
 var dbType = Config.DB.Type;

@@ -10,9 +10,9 @@ module.exports = function(sequelize, DataTypes) {
             WindowName:DataTypes.STRING,
             Param1:DataTypes.STRING,
             Param2:DataTypes.STRING,
-            MaxTime:DataTypes.INTEGER,
+            MaxTime:DataTypes.BIGINT,
             TotalCount:DataTypes.INTEGER,
-            TotalTime:DataTypes.INTEGER,
+            TotalTime:DataTypes.BIGINT,
             ThresholdValue: DataTypes.INTEGER,
             SummaryDate: DataTypes.DATE,
             DashboardSummaryId:{type:DataTypes.INTEGER, primaryKey:true,autoIncrement: true}

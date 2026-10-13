@@ -7,9 +7,11 @@ module.exports = {
     Host: "ec2-3-15-222-85.us-east-2.compute.amazonaws.com",
     Database: "duo",
     Cluster: true,
+    PoolMax: 5,
+    PoolMin: 0,
     dialectOptions: {
-      keepAlive: false,
-      statement_timeout: 10000
+      keepAlive: true,
+      statement_timeout: 60000
     }
   }
 

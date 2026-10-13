@@ -10,6 +10,8 @@ var dbport = Config.DB.Port;
 var dbhost = Config.DB.Host;
 var cluster = Config.DB.Cluster;
 var dialectOptions =Config.DB.dialectOptions;
+var poolMax = Config.DB.PoolMax;
+var poolMin = Config.DB.PoolMin;
 
 var options = {
     dialect:dbType, // or 'sqlite', 'postgres', 'mariadb'
@@ -22,9 +24,11 @@ var options = {
 if(cluster && (cluster === "true" || cluster === true)){
 
     options.pool = {
-        max: 5,
-        min: 0,
-        idle: 10000
+        max: poolMax || 5,
+        min: poolMin || 0,
+        idle: 60000,
+        acquire: 60000,
+        evict: 60000
     };
 }
 

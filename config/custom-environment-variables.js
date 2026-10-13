@@ -6,6 +6,8 @@ module.exports = {
      "Port":"SYS_SQL_PORT",
      "Host":"SYS_DATABASE_HOST",
      "Database":"SYS_DATABASE_POSTGRES_USER",
-     "Cluster": "SYS_DATABASE_POSTGRES_CLUSTER"
+     "Cluster": "SYS_DATABASE_POSTGRES_CLUSTER",
+     "PoolMax": "SYS_DATABASE_POOL_SIZE_MAX",
+     "PoolMin": "SYS_DATABASE_POOL_SIZE_MIN"
   }
 };

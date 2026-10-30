@@ -12,6 +12,9 @@ var cluster = Config.DB.Cluster;
 var dialectOptions =Config.DB.dialectOptions;
 var poolMax = Config.DB.PoolMax;
 var poolMin = Config.DB.PoolMin;
+// DST-6400: false (the default) = a direct connection to Postgres; true = the service connects through PgBouncer.
+var pgBouncer = Config.DB.PgBouncer === true || Config.DB.PgBouncer === "true";
+var isPostgres = dbType === "postgres" || dbType === "postgresql";
 
 var options = {
     dialect:dbType, // or 'sqlite', 'postgres', 'mariadb'
@@ -26,15 +29,38 @@ if(cluster && (cluster === "true" || cluster === true)){
     options.pool = {
         max: poolMax || 5,
         min: poolMin || 0,
-        idle: 60000,
-        acquire: 60000,
-        evict: 60000
+        idle: 10000
     };
+
+    // DST-6400: fixed pool for the Postgres cluster: at most 10 s to get a connection, idle ones closed after 10 s.
+    if(isPostgres){
+        options.pool.acquire = 10000;
+        options.pool.evict = 10000;
+    }
 }
 
 if(dialectOptions){
     options.dialectOptions = dialectOptions;
 };
+
+// DST-6400: Postgres connection settings for pg 8.11.5.
+if(isPostgres){
+    // Sequelize loads the pg this package depends on (8.11.5), even when a service has another pg at its top level.
+    options.dialectModulePath = require.resolve('pg');
+    // A copy, so node-config's own object is never changed. keepAlive is always on; the probe timing comes
+    // from the container's net.ipv4.tcp_keepalive_* sysctls (Sequelize 4 does not pass a delay to pg).
+    options.dialectOptions = Object.assign({}, dialectOptions, {keepAlive: true});
+    if(pgBouncer){
+        // PgBouncer refuses these as startup parameters ("unsupported startup parameter"). Behind it the
+        // limits come from the database role (ALTER ROLE ... IN DATABASE ... SET statement_timeout ...).
+        ['statement_timeout', 'lock_timeout', 'idle_in_transaction_session_timeout', 'options'].forEach(function(key){
+            delete options.dialectOptions[key];
+        });
+    }
+    console.log('[dvp-dbmodels] pg ' + require('pg/package.json').version + ', keepAlive on, ' +
+        (pgBouncer ? 'PgBouncer=true: no statement_timeout sent, the database role limits apply' :
+            'PgBouncer=false (direct): statement_timeout ' + (options.dialectOptions.statement_timeout || 'not set')));
+}
 
 
 var sequelize = new Sequelize(database, dbuser, dbpassword, options );
